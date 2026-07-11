@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Vacation - Global Explorers</title>
+  
+  <!-- Global Stylesheet linking -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Core Logic Script loading (deferred) -->
+  <script type="module" src="app.js" defer></script>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION BAR
+       ========================================================================== -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        ✈️ Global Explorers
+      </a>
+      
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="catalogue.html" class="nav-link">Packages</a></li>
+          <li><a href="register.html" class="nav-link active">Book Now</a></li>
+        </ul>
+      </nav>
+      
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle Light/Dark Theme">
+          🌙
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MAIN CONTENT SECTION
+       ========================================================================== -->
+  <main class="container">
+    
+    <!-- Title Area -->
+    <section class="section-title" style="margin-top: 1rem; margin-bottom: 1.5rem;">
+      <h2>Secure Your Booking</h2>
+      <p>Follow our simple three-step booking wizard to register your travel profile and hold your package reservation.</p>
+    </section>
+
+    <!-- MULTI-STEP BOOKING CONTAINER -->
+    <section class="form-container" aria-label="Booking Wizard Form">
+      
+      <!-- 1. Step Progress Indicators -->
+      <div class="steps-indicator" aria-hidden="true">
+        <!-- Node for Step 1 -->
+        <div class="step-node active" data-step="1">
+          1
+          <span class="step-node-label">Account details</span>
+        </div>
+        <!-- Node for Step 2 -->
+        <div class="step-node" data-step="2">
+          2
+          <span class="step-node-label">Travel choices</span>
+        </div>
+        <!-- Node for Step 3 -->
+        <div class="step-node" data-step="3">
+          3
+          <span class="step-node-label">Confirmation</span>
+        </div>
+      </div>
+
+      <!-- 2. Dynamic Form Validation Error Banner -->
+      <div class="error-banner" id="form-error-banner">
+        <span>⚠️</span>
+        <span id="form-error-text">Please resolve the form field errors.</span>
+      </div>
+
+      <!-- 3. Form Steps Wrapper -->
+      <form id="booking-form" onsubmit="return false;">
+        
+        <!-- ==========================================
+             PHASE 1: ACCOUNT DETAILS (Step 1)
+             ========================================== -->
+        <div class="form-step active" id="step-1-panel">
+          <h3 class="step-title">Create Travel Profile</h3>
+          <p class="step-subtitle">Introduce yourself to us by setting up your traveler credentials.</p>
+          
+          <!-- Username input -->
+          <div class="form-group">
+            <label for="username">Choose a Username</label>
+            <input type="text" id="username" class="form-control" placeholder="e.g. wanderlust99" autocomplete="username">
+          </div>
+
+          <!-- Email address -->
+          <div class="form-group">
+            <label for="email">Contact Email Address</label>
+            <input type="email" id="email" class="form-control" placeholder="e.g. explorer@domain.com" autocomplete="email">
+          </div>
+
+          <!-- Password protection -->
+          <div class="form-group">
+            <label for="password">Account Password (Min 6 characters)</label>
+            <input type="password" id="password" class="form-control" placeholder="••••••••" autocomplete="new-password">
+          </div>
+
+          <!-- Action button -->
+          <div class="form-actions single-btn">
+            <button type="button" class="btn btn-primary btn-next">Next: Travel Choices →</button>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             PHASE 2: TRAVEL CHOICES (Step 2)
+             ========================================== -->
+        <div class="form-step" id="step-2-panel">
+          <h3 class="step-title">Your Travel Details</h3>
+          <p class="step-subtitle">Let us know where we will be mailing your physical travel itinerary and passport stamps!</p>
+
+          <!-- Residential address -->
+          <div class="form-group">
+            <label for="address">Mailing Street Address</label>
+            <input type="text" id="address" class="form-control" placeholder="e.g. 123 Adventure Lane, Sydney, NSW">
+          </div>
+
+          <!-- Vacation Country Selection -->
+          <div class="form-group">
+            <label for="trip-pref">Which Vacation Country is Calling?</label>
+            <select id="trip-pref" class="form-control">
+              <option value="" disabled selected>-- Select Your Dream Escape --</option>
+              <option value="japan">Japan - Scenic Wonders of Japan ($1499)</option>
+              <option value="france">France - Romantic Paris & Riviera ($1899)</option>
+              <option value="italy">Italy - Classic Italian Escape ($1650)</option>
+              <option value="egypt">Egypt - Ancient Pyramids & Nile Cruise ($1199)</option>
+              <option value="australia">Australia - Great Reef & Sydney Highlights ($2199)</option>
+              <option value="brazil">Brazil - Vibrant Rio & Rainforest ($1350)</option>
+              <option value="usa">USA - New York & Grand Canyon Epic ($1799)</option>
+              <option value="canada">Canada - Majestic Rockies & Lakes ($1590)</option>
+            </select>
+          </div>
+
+          <!-- Action buttons -->
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary btn-prev">← Back to Profile</button>
+            <button type="button" class="btn btn-primary btn-next">Reserve Booking →</button>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             PHASE 3: CONFIRMATION SUCCESS (Step 3)
+             ========================================== -->
+        <div class="form-step" id="step-3-panel">
+          <div class="success-screen">
+            <!-- Green checkmark graphic -->
+            <div class="success-icon" aria-hidden="true">✓</div>
+            
+            <h3 class="step-title">Booking Reserved Successfully!</h3>
+            <p class="step-subtitle" style="margin-bottom: 1rem;">Your travel file is held. Please review your details below:</p>
+
+            <!-- Compact grid summary table filled dynamically by JS -->
+            <div class="success-details">
+              <!-- Username -->
+              <div class="success-detail-row">
+                <span class="success-label">Traveler Name:</span>
+                <span class="success-val" id="summary-username">N/A</span>
+              </div>
+              
+              <!-- Contact Email -->
+              <div class="success-detail-row">
+                <span class="success-label">Email Address:</span>
+                <span class="success-val" id="summary-email">N/A</span>
+              </div>
+
+              <!-- Mailing address -->
+              <div class="success-detail-row">
+                <span class="success-label">Shipping Address:</span>
+                <span class="success-val" id="summary-address">N/A</span>
+              </div>
+
+              <!-- Trip choice -->
+              <div class="success-detail-row">
+                <span class="success-label">Selected Destination:</span>
+                <span class="success-val" id="summary-trip" style="color: var(--accent-primary); font-weight: 700;">N/A</span>
+              </div>
+
+              <!-- Confirmation code -->
+              <div class="success-detail-row" style="border-bottom: none; margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--border-color);">
+                <span class="success-label">Reservation Code:</span>
+                <span class="success-val" id="summary-ref-code" style="font-family: monospace; font-size: 1.1rem; color: #10b981; font-weight: 700;">TRV-000000</span>
+              </div>
+            </div>
+
+            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 2rem;">
+              We have dispatched a welcome travel pack with luggage labels and invoice receipts to your address. Thank you for choosing Global Explorers!
+            </p>
+
+            <a href="index.html" class="btn btn-primary">Return to Homepage</a>
+          </div>
+        </div>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER SECTION
+       ========================================================================== -->
+  <footer>
+    <div class="container" style="padding: 0;">
+      <p>&copy; 2026 Global Explorers Travel Agency. All rights reserved.</p>
+      <p style="font-size: 0.8rem;">Curated learning portal template for secondary school web technology students.</p>
+      <ul class="footer-nav">
+        <li><a href="index.html" class="footer-link">Home</a></li>
+        <li><a href="catalogue.html" class="footer-link">Packages</a></li>
+        <li><a href="register.html" class="footer-link">Register & Book</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Catalogue - Global Explorers</title>
+  
+  <!-- Global Stylesheet linking -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Core Logic Script loading (deferred) -->
+  <script type="module" src="app.js" defer></script>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION BAR
+       ========================================================================== -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        ✈️ Global Explorers
+      </a>
+      
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="catalogue.html" class="nav-link active">Packages</a></li>
+          <li><a href="register.html" class="nav-link">Book Now</a></li>
+        </ul>
+      </nav>
+      
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle Light/Dark Theme">
+          🌙
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MAIN CONTENT SECTION
+       ========================================================================== -->
+  <main class="container">
+    
+    <!-- Title Section -->
+    <section class="section-title" style="margin-top: 1rem; margin-bottom: 2rem;">
+      <h2>Our Global Vacation Packages</h2>
+      <p>Browse, filter, and sort our complete collection of 8 premier escape packages to find your next great getaway.</p>
+    </section>
+
+    <!-- INTERACTIVE CONTROL BAR (Search, Filters, Sort) -->
+    <section class="catalogue-controls" aria-label="Search and Filter Controls">
+      
+      <!-- 1. Real-time Search Box -->
+      <div class="search-box">
+        <span class="search-icon-placeholder">🔍</span>
+        <input type="text" id="catalogue-search" class="search-input" placeholder="Search by country, title, or keywords...">
+      </div>
+
+      <!-- 2. Continent Filter Buttons -->
+      <div class="filter-buttons" id="catalogue-filters">
+        <button class="filter-btn active" data-filter="All">All Regions</button>
+        <button class="filter-btn" data-filter="Asia">Asia</button>
+        <button class="filter-btn" data-filter="Europe">Europe</button>
+        <button class="filter-btn" data-filter="North America">N. America</button>
+        <button class="filter-btn" data-filter="South America">S. America</button>
+        <button class="filter-btn" data-filter="Africa">Africa</button>
+        <button class="filter-btn" data-filter="Oceania">Oceania</button>
+      </div>
+
+      <!-- 3. Sort Dropdown Selection -->
+      <div class="sort-box">
+        <label for="catalogue-sort" style="font-weight: 600; font-size: 0.9rem;">Sort By:</label>
+        <select id="catalogue-sort" class="sort-select">
+          <option value="featured">Featured Deals</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="alpha-az">Alphabetical (A-Z)</option>
+        </select>
+      </div>
+
+    </section>
+
+    <!-- THE 8-ITEM VACATION PACKAGES GRID -->
+    <section aria-label="Vacation Search Results">
+      <!-- JavaScript will empty this grid and inject matches instantly -->
+      <div class="packages-grid" id="catalogue-grid">
+        <!-- Fallback message shown if JS takes time to initialize -->
+        <p style="text-align: center; grid-column: 1 / -1; color: var(--text-secondary);">
+          Assembling our wonderful destinations for you...
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER SECTION
+       ========================================================================== -->
+  <footer>
+    <div class="container" style="padding: 0;">
+      <p>&copy; 2026 Global Explorers Travel Agency. All rights reserved.</p>
+      <p style="font-size: 0.8rem;">Curated learning portal template for secondary school web technology students.</p>
+      <ul class="footer-nav">
+        <li><a href="index.html" class="footer-link">Home</a></li>
+        <li><a href="catalogue.html" class="footer-link">Packages</a></li>
+        <li><a href="register.html" class="footer-link">Register & Book</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>

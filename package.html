@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vacation Deal Details - Global Explorers</title>
+  
+  <!-- Global Stylesheet linking -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Core Logic Script loading (deferred) -->
+  <script type="module" src="app.js" defer></script>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION BAR
+       ========================================================================== -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        ✈️ Global Explorers
+      </a>
+      
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="catalogue.html" class="nav-link active">Packages</a></li>
+          <li><a href="register.html" class="nav-link">Book Now</a></li>
+        </ul>
+      </nav>
+      
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle Light/Dark Theme">
+          🌙
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MAIN CONTENT SECTION
+       ========================================================================== -->
+  <main class="container">
+    
+    <!-- Dynamic link to go backward -->
+    <a href="catalogue.html" class="back-link">
+      ← Back to Packages Grid
+    </a>
+
+    <!-- PACKAGE DETAIL DISPLAY MODULE (Loaded dynamically by JS) -->
+    <div class="package-detail-wrapper" id="package-detail-wrapper">
+      
+      <!-- 1. Hero Cover Header -->
+      <div class="package-detail-hero">
+        <!-- Main background image of the country -->
+        <img id="package-hero-img" src="" alt="Destination Image" class="package-detail-hero-img">
+        
+        <div class="package-detail-hero-overlay">
+          <div class="package-detail-hero-content">
+            <!-- Top badge (e.g., Best Seller, Top Rated) -->
+            <span id="package-badge" class="package-badge"></span>
+            
+            <!-- Main Title of the vacation package -->
+            <h1 id="package-title">Loading Package Title...</h1>
+            
+            <!-- Key details subline -->
+            <div class="package-detail-hero-meta">
+              <span id="package-duration">⏱ Duration: -- Days</span>
+              <span id="package-rating">⭐ Guest Rating: -- / 5.0</span>
+              <span id="package-region">📍 Region: --</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Dual-Column Content Body -->
+      <div class="package-detail-body">
+        
+        <!-- LEFT COLUMN: Overview, Inclusions list, and Itinerary -->
+        <div class="package-detail-left">
+          
+          <!-- Overview text -->
+          <section class="package-detail-section">
+            <h2>Package Overview</h2>
+            <p id="package-overview-desc">
+              Reading our wonderful itinerary details...
+            </p>
+          </section>
+
+          <!-- What is included (airfare, hotels, etc.) -->
+          <section class="package-detail-section">
+            <h2>Travel Inclusions</h2>
+            <ul class="package-inclusion-list" id="package-inclusions-list">
+              <!-- Injected by JavaScript -->
+            </ul>
+          </section>
+
+          <!-- Day-by-Day travel breakdown -->
+          <section class="package-detail-section">
+            <h2>Curated Travel Itinerary</h2>
+            <div class="itinerary-list" id="package-itinerary-list">
+              <!-- Injected by JavaScript -->
+            </div>
+          </section>
+
+        </div>
+
+        <!-- RIGHT COLUMN: Price display & Hold booking button card -->
+        <aside class="package-detail-right" aria-label="Purchase Deal">
+          <div class="booking-sidebar-card">
+            <!-- Dynamic price -->
+            <div class="booking-sidebar-price" id="package-sidebar-price">$--</div>
+            <p id="package-sidebar-info">Includes transport, high-quality lodging, and guided group outings.</p>
+            
+            <!-- Hold reservation CTA -->
+            <a id="package-reserve-link" href="register.html" class="btn btn-primary" style="width: 100%; margin-bottom: 1rem;">
+              Hold Reservation
+            </a>
+            
+            <p style="font-size: 0.75rem; margin-bottom: 0;">⚡ Instantly locked. No booking fees.</p>
+          </div>
+        </aside>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER SECTION
+       ========================================================================== -->
+  <footer>
+    <div class="container" style="padding: 0;">
+      <p>&copy; 2026 Global Explorers Travel Agency. All rights reserved.</p>
+      <p style="font-size: 0.8rem;">Curated learning portal template for secondary school web technology students.</p>
+      <ul class="footer-nav">
+        <li><a href="index.html" class="footer-link">Home</a></li>
+        <li><a href="catalogue.html" class="footer-link">Packages</a></li>
+        <li><a href="register.html" class="footer-link">Register & Book</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>
