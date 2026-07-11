@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&family=Plus+Jakarta+Sans:wght@400;600&display=swap');
+
+/* ==========================================================================
+   SIMPLE NATURAL TONES CSS (Under 120 Lines for Web Students)
+   ========================================================================== */
+
+/* 1. COLORS & THEME VARIABLES (Very easy to swap) */
+:root {
+  --bg-page: #fdfbf7;        /* Soft linen warm-white */
+  --bg-card: #ffffff;        /* Pure white for headers & cards */
+  --text-main: #433e37;      /* Dark earth brown */
+  --text-sub: #7c7263;       /* Warm sandy taupe */
+  --accent: #5d6d4e;         /* Cozy forest/olive green */
+  --accent-light: #f5f2eb;   /* Light sand accent tint */
+  --border: #e5e0d8;         /* Light grey-brown border line */
+  --radius: 12px;            /* Rounded corners */
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+}
+
+/* Dark Mode automatically swaps colors when the "dark-mode" class is on body */
+body.dark-mode {
+  --bg-page: #191816;        /* Deep night forest charcoal */
+  --bg-card: #22201e;        /* Dark timber wood card background */
+  --text-main: #f5f2eb;      /* Warm parchment white text */
+  --text-sub: #a49a8b;       /* Soft sandy sand taupe */
+  --accent: #8da17b;         /* Muted bright sage green */
+  --accent-light: #2c2a26;   /* Deep accent tint */
+  --border: #383530;         /* Dark tree bark border line */
+}
+
+/* 2. CORE SETUP */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.5;
+  transition: 0.3s;
+}
+a { text-decoration: none; color: inherit; }
+.container { width: 90%; max-width: 1000px; margin: 0 auto; padding: 2rem 0; }
+.section-title { text-align: center; margin-bottom: 2rem; }
+.section-title h2 { font-family: var(--font-serif); font-size: 2rem; color: var(--accent); font-style: italic; }
+
+/* 3. STICKY HEADER & NAV MENU */
+header { background: var(--bg-card); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+.nav-container { display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 5%; }
+.logo { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 600; color: var(--accent); font-style: italic; }
+.nav-menu { display: flex; list-style: none; gap: 1.5rem; }
+.nav-link:hover, .nav-link.active { color: var(--accent); border-bottom: 2px solid var(--accent); }
+.theme-toggle-btn { background: none; border: none; font-size: 1.2rem; cursor: pointer; }
+
+/* 4. HERO BANNER */
+.hero { background: linear-gradient(135deg, rgba(93,109,78,0.06), rgba(124,114,99,0.03)); padding: 4rem 1rem; text-align: center; border-bottom: 1px solid var(--border); }
+.hero h1 { font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 0.5rem; }
+.hero h1 span { color: var(--accent); font-style: italic; }
+.hero p { max-width: 600px; margin: 0 auto 1.5rem; color: var(--text-sub); }
+.hero-buttons { display: flex; justify-content: center; gap: 0.8rem; }
+
+/* 5. BUTTONS (Reusable Styles) */
+.btn { display: inline-block; padding: 0.5rem 1rem; font-weight: 600; border-radius: var(--radius); cursor: pointer; border: none; font-size: 0.85rem; text-align: center; transition: 0.2s; }
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+.btn-secondary { background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border); }
+.btn-secondary:hover { background: var(--accent-light); }
+
+/* 6. RESPONSIVE GRID SYSTEMS (For Cards) */
+.packages-grid, .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; }
+.package-card, .team-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; transition: 0.2s; padding: 1rem; }
+.package-card:hover { transform: translateY(-2px); border-color: var(--accent); }
+.package-image-container { position: relative; height: 140px; border-radius: 8px; overflow: hidden; margin-bottom: 0.8rem; }
+.package-image { width: 100%; height: 100%; object-fit: cover; }
+.package-badge { position: absolute; top: 0.5rem; right: 0.5rem; background: var(--accent); color: #fff; padding: 0.2rem 0.4rem; font-size: 0.7rem; border-radius: 4px; font-weight: 600; }
+.package-meta { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-sub); margin-bottom: 0.5rem; }
+.package-title, .team-name { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
+.package-description, .team-bio { font-size: 0.8rem; color: var(--text-sub); margin-bottom: 0.8rem; flex-grow: 1; }
+.package-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 0.6rem; }
+.package-price { font-size: 1.1rem; font-weight: 600; color: var(--accent); }
+.team-avatar { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; margin: 0 auto 0.8rem; border: 2px solid var(--border); }
+.team-role { font-size: 0.75rem; color: var(--accent); font-weight: 600; margin-bottom: 0.4rem; text-align: center; }
+
+/* 7. WIDGETS (Reviews, Filters & Wizard Forms) */
+.review-section, .form-container, .catalogue-controls { background: var(--bg-card); border: 1px solid var(--border); padding: 1.5rem; border-radius: var(--radius); }
+.review-container, .package-detail-body { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+.form-group { margin-bottom: 0.8rem; }
+.form-group label { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; }
+.form-control { width: 100%; padding: 0.5rem; border: 1px solid var(--border); border-radius: 6px; background: var(--bg-page); color: var(--text-main); }
+.star-rating { display: flex; flex-direction: row-reverse; justify-content: flex-end; gap: 0.2rem; margin: 0.3rem 0; font-size: 1.25rem; }
+.star-rating input { display: none; }
+.star-rating label { color: var(--border); cursor: pointer; }
+.star-rating label:hover, .star-rating label:hover ~ label, .star-rating input:checked ~ label { color: #f59e0b; }
+.char-counter { text-align: right; font-size: 0.7rem; color: var(--text-sub); }
+.reviews-list-wrapper { display: flex; flex-direction: column; gap: 0.8rem; max-height: 250px; overflow-y: auto; }
+.review-item { background: var(--bg-page); border: 1px solid var(--border); padding: 0.8rem; border-radius: 6px; }
+.review-item-header { display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 600; }
+
+/* CATALOGUE CONTROLS */
+.catalogue-controls { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+.search-box { flex-grow: 1; min-width: 180px; }
+.search-input { width: 100%; padding: 0.4rem 0.8rem; border-radius: 20px; border: 1px solid var(--border); background: var(--bg-page); color: var(--text-main); }
+.filter-buttons { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.filter-btn { padding: 0.3rem 0.6rem; font-size: 0.75rem; border-radius: 20px; border: 1px solid var(--border); background: var(--bg-page); color: var(--text-main); cursor: pointer; }
+.filter-btn.active, .filter-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+/* WIZARD REGISTER FORM */
+.steps-indicator { display: flex; justify-content: space-between; position: relative; margin-bottom: 1.5rem; }
+.steps-indicator::before { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: var(--border); z-index: 1; transform: translateY(-50%); }
+.step-node { width: 26px; height: 26px; border-radius: 50%; background: var(--bg-page); border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 600; z-index: 2; position: relative; color: var(--text-sub); }
+.step-node.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.step-node.completed { background: #10b981; border-color: #10b981; color: #fff; }
+.form-step { display: none; }
+.form-step.active { display: block; }
+.form-actions { display: flex; justify-content: space-between; margin-top: 1rem; border-top: 1px solid var(--border); padding-top: 0.8rem; }
+.error-banner { background: #fef2f2; border: 1px solid #fee2e2; color: #ef4444; padding: 0.5rem; border-radius: 6px; font-size: 0.75rem; margin-bottom: 0.8rem; display: none; }
+.success-screen { text-align: center; }
+.success-details { background: var(--bg-page); border: 1px solid var(--border); border-radius: 8px; padding: 0.8rem; margin: 1rem 0; text-align: left; font-size: 0.75rem; }
+
+/* 8. DETAIL PAGE TEMPLATE */
+.package-detail-wrapper { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 1.5rem; }
+.package-detail-hero { position: relative; height: 240px; }
+.package-detail-hero-img { width: 100%; height: 100%; object-fit: cover; }
+.package-detail-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(67,62,55,0.92), rgba(67,62,55,0.2)); display: flex; align-items: flex-end; padding: 1.5rem; color: #fff; }
+.package-detail-hero-content h1 { font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 0.4rem; }
+.package-detail-hero-meta { display: flex; gap: 1rem; font-size: 0.75rem; opacity: 0.9; }
+.package-detail-body { padding: 1.5rem; grid-template-columns: 2fr 1fr; }
+.package-detail-section h2 { font-family: var(--font-serif); font-size: 1.2rem; color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; margin-bottom: 0.6rem; }
+.package-inclusion-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; list-style: none; font-size: 0.75rem; margin-bottom: 1.5rem; }
+.package-inclusion-list li::before { content: '✓ '; color: var(--accent); font-weight: bold; }
+.itinerary-list { display: flex; flex-direction: column; gap: 0.8rem; font-size: 0.75rem; }
+.itinerary-item { border-left: 2px solid var(--border); padding-left: 0.8rem; }
+.itinerary-day { font-weight: 600; color: var(--accent); }
+.booking-sidebar-card { background: var(--bg-page); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; text-align: center; }
+.booking-sidebar-price { font-size: 1.5rem; font-weight: 600; color: var(--accent); margin-bottom: 0.4rem; }
+.back-link { display: inline-flex; align-items: center; gap: 0.3rem; color: var(--accent); font-weight: 600; margin-bottom: 0.8rem; font-size: 0.8rem; }
+
+/* 9. FOOTER & RESPONSIVE LAYOUT */
+footer { background: var(--bg-card); border-top: 1px solid var(--border); padding: 1.5rem 0; text-align: center; color: var(--text-sub); font-size: 0.75rem; margin-top: 2.5rem; }
+.footer-nav { display: flex; justify-content: center; gap: 1.2rem; margin-top: 0.5rem; list-style: none; }
+@media (max-width: 600px) {
+  .hero h1 { font-size: 1.8rem; }
+  .review-container, .package-detail-body { grid-template-columns: 1fr; }
+  .nav-container { flex-direction: column; gap: 0.5rem; }
+  .package-inclusion-list { grid-template-columns: 1fr; }
+}
