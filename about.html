@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+
+  <!-- Global Stylesheet linking -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Core Logic Script loading (deferred) -->
+  <script type="module" src="app.js" defer></script>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION BAR
+       ========================================================================== -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        ✈️ Global Explorers
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="catalogue.html" class="nav-link">Packages</a></li>
+          <li><a href="register.html" class="nav-link">Book Now</a></li>
+          <li><a href="about.html" class="nav-link active">About Us</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle Light/Dark Theme">
+          🌙
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MAIN CONTENT SECTION
+       ========================================================================== -->
+  <main class="container">
+
+    <!-- Title Section -->
+    <section class="section-title" style="margin-top: 1rem; margin-bottom: 2rem;">
+      <h2>About Us</h2>
+      <p>Your trusted partner in crafting unforgettable journeys across the globe.</p>
+    </section>
+
+    <!-- OUR STORY -->
+    <section class="package-detail-section" style="margin-bottom: 2.5rem;">
+      <h2>Our Story</h2>
+      <p>Welcome to Global Explorers! We are dedicated to providing the best travel service possible. Founded by a small team of passionate travellers, our agency has grown into a trusted name for curated vacation packages spanning every continent. We believe travel should be simple, exciting, and accessible, so we take care of the planning while you focus on the adventure.</p>
+    </section>
+
+    <!-- OUR MISSION -->
+    <section class="package-detail-section" style="margin-bottom: 2.5rem;">
+      <h2>Our Specialists</h2>
+      <p>Featuring a team of experienced travel experts, each specializing in different regions and types of adventures:</p>
+      <br>
+
+      <!-- 4-Column Grid displaying our team members -->
+      <div class="team-grid">
+        <!-- Team Member 1 -->
+        <article class="team-card">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" alt="Sarah Connor" class="team-avatar" referrerPolicy="no-referrer">
+          <h3 class="team-name">Sarah Connor</h3>
+          <p class="team-role">Lead Adventure Planner</p>
+          <p class="team-bio">Specialist in wilderness trekking and tropical getaways with over 10 years of worldwide guiding experience.</p>
+          <!--
+            target="_blank" opens the PDF in a new browser tab using the
+            browser's built-in PDF viewer. rel="noopener noreferrer" is a
+            security best practice any time target="_blank" is used - it
+            stops the new tab from being able to access/control this page.
+            No JavaScript needed: the browser handles opening + downloading.
+          -->
+          <button type="button" class="btn" onclick="window.open('resumes/sarah-connor.pdf', '_blank', 'noopener,noreferrer')">More details</button>
+        </article>
+
+        <!-- Team Member 2 -->
+        <article class="team-card">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="David Miller" class="team-avatar" referrerPolicy="no-referrer">
+          <h3 class="team-name">David Miller</h3>
+          <p class="team-role">European Specialist</p>
+          <p class="team-bio">A fine dining enthusiast who handles historic museum schedules, boutique hotel stays, and romantic itineraries.</p>
+          <button type="button" class="btn" onclick="window.open('resumes/amina-youssef.pdf', '_blank', 'noopener,noreferrer')">More details</button>
+        </article>
+
+        <!-- Team Member 3 -->
+        <article class="team-card">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" alt="Amina Youssef" class="team-avatar" referrerPolicy="no-referrer">
+          <h3 class="team-name">Amina Youssef</h3>
+          <p class="team-role">Middle-East & African Specialist</p>
+          <p class="team-bio">Passionate archeology guide who coordinates historic pyramid explorations and beautiful Nile River cruises.</p>
+          <button type="button" class="btn" onclick="window.open('resumes/david-miller.pdf', '_blank', 'noopener,noreferrer')">More details</button>
+        </article>
+
+        <!-- Team Member 4 -->
+        <article class="team-card">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop" alt="James Carter" class="team-avatar" referrerPolicy="no-referrer">
+          <h3 class="team-name">James Carter</h3>
+          <p class="team-role">Oceania & Cruise Specialist</p>
+          <p class="team-bio">Specializes in marine exploration and barrier reef scuba bookings. Loves finding ocean views.</p>
+          <button type="button" class="btn" onclick="window.open('resumes/james-carter.pdf', '_blank', 'noopener,noreferrer')">More details</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE CUSTOMER REVIEWS MODULE -->
+    <section class="container" style="padding-top: 5rem;" aria-label="Customer Reviews">
+      <div class="section-title">
+        <h2>Guest Experiences</h2>
+        <p>Read honest feedback from travelers or write your own review to share your adventures!</p>
+      </div>
+
+      <div class="review-section">
+        <div class="review-container">
+          
+          <!-- LEFT: REVIEW FORM -->
+          <div class="review-form-box">
+            <h3>Add Your Experience</h3>
+            <form id="review-form">
+              <!-- Reviewer Name -->
+              <div class="form-group">
+                <label for="reviewer-name">Full Name</label>
+                <input type="text" id="reviewer-name" class="form-control" placeholder="e.g. Emily Watson" required>
+              </div>
+
+              <!-- Rating selection using CSS-styled stars -->
+              <div class="form-group">
+                <label style="margin-bottom: 0.25rem; display: block;">Star Rating</label>
+                <div class="star-rating">
+                  <!-- Inputs reversed in DOM for easier CSS selection hover chain -->
+                  <input type="radio" id="star5" name="rating" value="5" required><label for="star5" title="5 stars">★</label>
+                  <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 stars">★</label>
+                  <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 stars">★</label>
+                  <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 stars">★</label>
+                  <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 star">★</label>
+                </div>
+              </div>
+
+              <!-- Review Text Area -->
+              <div class="form-group">
+                <label for="review-text">Review Comments</label>
+                <textarea id="review-text" class="form-control" rows="4" maxlength="200" placeholder="Tell us about your trip (Max 200 characters)..." required></textarea>
+                <!-- Character Remaining Counter -->
+                <div class="char-counter">
+                  Characters remaining: <span id="char-count" style="font-weight: bold; margin-left: 0.25rem;">200</span>
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Post Review</button>
+            </form>
+          </div>
+
+          <!-- RIGHT: REVIEWS LIST -->
+          <div class="review-list-box">
+            <h3>Latest Traveler Stories</h3>
+            <!-- Submitted reviews will render dynamically here -->
+            <div class="reviews-list-wrapper" id="reviews-list">
+              <!-- Placeholder items will load from JS local state -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="section-title" style="padding-top: 1rem;">
+      <p>Ready to start planning your next adventure?</p>
+      <div class="hero-buttons" style="justify-content: center; margin-top: 1rem;">
+        <a href="catalogue.html" class="btn btn-primary">Browse Packages</a>
+        <a href="register.html" class="btn btn-secondary">Book Now</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER SECTION
+       ========================================================================== -->
+  <footer>
+    <div class="container" style="padding: 0;">
+      <p>&copy; 2026 Global Explorers Travel Agency. All rights reserved.</p>
+      <p style="font-size: 0.8rem;">Curated learning portal template for secondary school web technology students.</p>
+      <ul class="footer-nav">
+        <li><a href="index.html" class="footer-link">Home</a></li>
+        <li><a href="catalogue.html" class="footer-link">Packages</a></li>
+        <li><a href="register.html" class="footer-link">Register & Book</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>

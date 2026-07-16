@@ -80,112 +80,37 @@
         <a href="catalogue.html" class="btn btn-secondary">Explore All 8 Packages →</a>
       </div>
     </section>
-
-    <!-- MEET THE TEAM GRID (4 Members) -->
-    <section class="container" style="padding-top: 5rem;" aria-label="Our Team Members">
-      <div class="section-title">
-        <h2>Our Travel Specialists</h2>
-        <p>Get to know our professional agents dedicated to designing your perfect dream vacation.</p>
-      </div>
-      
-      <!-- 4-Column Grid displaying our team members -->
-      <div class="team-grid">
-        <!-- Team Member 1 -->
-        <article class="team-card">
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" alt="Sarah Connor" class="team-avatar" referrerPolicy="no-referrer">
-          <h3 class="team-name">Sarah Connor</h3>
-          <p class="team-role">Lead Adventure Planner</p>
-          <p class="team-bio">Specialist in wilderness trekking and tropical getaways with over 10 years of worldwide guiding experience.</p>
-        </article>
-
-        <!-- Team Member 2 -->
-        <article class="team-card">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="David Miller" class="team-avatar" referrerPolicy="no-referrer">
-          <h3 class="team-name">David Miller</h3>
-          <p class="team-role">European Specialist</p>
-          <p class="team-bio">A fine dining enthusiast who handles historic museum schedules, boutique hotel stays, and romantic itineraries.</p>
-        </article>
-
-        <!-- Team Member 3 -->
-        <article class="team-card">
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" alt="Amina Youssef" class="team-avatar" referrerPolicy="no-referrer">
-          <h3 class="team-name">Amina Youssef</h3>
-          <p class="team-role">Middle-East & African Specialist</p>
-          <p class="team-bio">Passionate archeology guide who coordinates historic pyramid explorations and beautiful Nile River cruises.</p>
-        </article>
-
-        <!-- Team Member 4 -->
-        <article class="team-card">
-          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop" alt="James Carter" class="team-avatar" referrerPolicy="no-referrer">
-          <h3 class="team-name">James Carter</h3>
-          <p class="team-role">Oceania & Cruise Specialist</p>
-          <p class="team-bio">Specializes in marine exploration and barrier reef scuba bookings. Loves finding ocean views.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- INTERACTIVE CUSTOMER REVIEWS MODULE -->
-    <section class="container" style="padding-top: 5rem;" aria-label="Customer Reviews">
-      <div class="section-title">
-        <h2>Guest Experiences</h2>
-        <p>Read honest feedback from travelers or write your own review to share your adventures!</p>
-      </div>
-
-      <div class="review-section">
-        <div class="review-container">
-          
-          <!-- LEFT: REVIEW FORM -->
-          <div class="review-form-box">
-            <h3>Add Your Experience</h3>
-            <form id="review-form">
-              <!-- Reviewer Name -->
-              <div class="form-group">
-                <label for="reviewer-name">Full Name</label>
-                <input type="text" id="reviewer-name" class="form-control" placeholder="e.g. Emily Watson" required>
-              </div>
-
-              <!-- Rating selection using CSS-styled stars -->
-              <div class="form-group">
-                <label style="margin-bottom: 0.25rem; display: block;">Star Rating</label>
-                <div class="star-rating">
-                  <!-- Inputs reversed in DOM for easier CSS selection hover chain -->
-                  <input type="radio" id="star5" name="rating" value="5" required><label for="star5" title="5 stars">★</label>
-                  <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 stars">★</label>
-                  <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 stars">★</label>
-                  <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 stars">★</label>
-                  <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 star">★</label>
-                </div>
-              </div>
-
-              <!-- Review Text Area -->
-              <div class="form-group">
-                <label for="review-text">Review Comments</label>
-                <textarea id="review-text" class="form-control" rows="4" maxlength="200" placeholder="Tell us about your trip (Max 200 characters)..." required></textarea>
-                <!-- Character Remaining Counter -->
-                <div class="char-counter">
-                  Characters remaining: <span id="char-count" style="font-weight: bold; margin-left: 0.25rem;">200</span>
-                </div>
-              </div>
-
-              <!-- Submit Button -->
-              <button type="submit" class="btn btn-primary" style="width: 100%;">Post Review</button>
-            </form>
-          </div>
-
-          <!-- RIGHT: REVIEWS LIST -->
-          <div class="review-list-box">
-            <h3>Latest Traveler Stories</h3>
-            <!-- Submitted reviews will render dynamically here -->
-            <div class="reviews-list-wrapper" id="reviews-list">
-              <!-- Placeholder items will load from JS local state -->
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
   </main>
+
+  <!-- WHY CHOOSE US -->
+    <section style="padding-top: 1rem; padding-bottom: 1rem;">
+      <div class="section-title">
+        <h2>Why Choose Us</h2>
+        <p>A few reasons travellers keep coming back to Global Explorers.</p>
+      </div>
+
+      <div class="team-grid">
+        <article class="team-card">
+          <h3 class="team-name">🌍 Global Reach</h3>
+          <p class="team-bio">Eight curated packages spanning Asia, Europe, the Americas, Africa, and Oceania, with more destinations added regularly.</p>
+        </article>
+
+        <article class="team-card">
+          <h3 class="team-name">🧭 Expert Planners</h3>
+          <p class="team-bio">Our specialists handle every detail of your itinerary, from flights and hotels to guided local experiences.</p>
+        </article>
+
+        <article class="team-card">
+          <h3 class="team-name">💳 Honest Pricing</h3>
+          <p class="team-bio">No hidden fees or surprise charges. What you see during booking is exactly what you pay.</p>
+        </article>
+
+        <article class="team-card">
+          <h3 class="team-name">⭐ Trusted by Travellers</h3>
+          <p class="team-bio">Hundreds of happy guests have shared their stories with us. Read their reviews on our homepage!</p>
+        </article>
+      </div>
+    </section>
 
   <!-- ==========================================================================
        FOOTER SECTION
