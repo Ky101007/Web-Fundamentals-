@@ -4,10 +4,704 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Global Explorers - Dream Vacations</title>
+  <meta name="description" content="Global Explorers is your trusted travel agency for curated vacation packages worldwide. Explore Japan, France, Egypt, Australia and more with expert-guided tours.">
   
   <!-- Global Stylesheet: Contains all visual rules (No inline styling!) -->
   <link rel="stylesheet" href="style.css">
-  
+
+  <!-- Additional styles for enhanced layout sections (style.css is NOT modified) -->
+  <style>
+    /* ══════════════════════════════════════════════
+       HERO SLIDESHOW
+       ══════════════════════════════════════════════ */
+    .hero-slideshow {
+      position: relative;
+      width: 100%;
+      height: 520px;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out;
+      z-index: 0;
+    }
+
+    .slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .slide-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.6) 0%,
+        rgba(0, 0, 0, 0.25) 50%,
+        rgba(0, 0, 0, 0.15) 100%
+      );
+      display: flex;
+      align-items: center;
+      padding: 0 7%;
+    }
+
+    .slide-content {
+      max-width: 580px;
+      color: #fff;
+    }
+
+    .slide-content .hero-tagline {
+      display: inline-block;
+      font-family: var(--font-head);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.03em;
+    }
+
+    .slide-content h1 {
+      font-family: var(--font-head);
+      font-size: 2.8rem;
+      font-weight: 500;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+      color: #fff;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+
+    .slide-content h1 span {
+      color: #7dd4c8;
+      font-style: italic;
+    }
+
+    body.dark-mode .slide-content h1 span {
+      color: #5ee8d6;
+    }
+
+    .slide-content p {
+      color: rgba(255,255,255,0.88);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      max-width: 480px;
+    }
+
+    .slide-content .hero-buttons {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .slide-content .btn-primary {
+      background: var(--accent);
+      box-shadow: 0 4px 15px rgba(42,124,111,0.4);
+    }
+
+    .slide-content .btn-secondary {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.35);
+      color: #fff;
+      backdrop-filter: blur(6px);
+    }
+
+    .slide-content .btn-secondary:hover {
+      background: rgba(255,255,255,0.25);
+      border-color: rgba(255,255,255,0.6);
+      color: #fff;
+    }
+
+    /* Slideshow dots */
+    .slide-dots {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.5rem;
+      z-index: 5;
+    }
+
+    .slide-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      padding: 0;
+    }
+
+    .slide-dot.active {
+      background: #fff;
+      transform: scale(1.3);
+    }
+
+    /* Slideshow arrows */
+    .slide-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 5;
+      background: rgba(0,0,0,0.3);
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease;
+      backdrop-filter: blur(4px);
+    }
+
+    .slide-arrow:hover {
+      background: rgba(0,0,0,0.55);
+    }
+
+    .slide-arrow.prev { left: 1.5rem; }
+    .slide-arrow.next { right: 1.5rem; }
+
+
+    /* ══════════════════════════════════════════════
+       SPECIAL OFFERS BANNER
+       ══════════════════════════════════════════════ */
+    .special-offers {
+      background: linear-gradient(135deg, var(--accent) 0%, #1a5c52 100%);
+      padding: 3rem 5%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    body.dark-mode .special-offers {
+      background: linear-gradient(135deg, #1a3d36 0%, #0d2420 100%);
+    }
+
+    .special-offers::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      pointer-events: none;
+    }
+
+    .offers-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .offers-header h2 {
+      font-family: var(--font-head);
+      font-size: 1.9rem;
+      font-weight: 500;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+
+    .offers-header p {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.92rem;
+    }
+
+    .offers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .offer-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s var(--ease), background 0.3s var(--ease);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .offer-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,0.15);
+    }
+
+    .offer-badge {
+      display: inline-block;
+      background: #e74c3c;
+      color: #fff;
+      padding: 0.15rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.7rem;
+    }
+
+    .offer-card h3 {
+      color: #fff;
+      font-family: var(--font-head);
+      font-size: 1.15rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .offer-card .offer-desc {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      margin-bottom: 0.8rem;
+    }
+
+    .offer-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .offer-price-old {
+      color: rgba(255,255,255,0.45);
+      text-decoration: line-through;
+      font-size: 0.85rem;
+    }
+
+    .offer-price-new {
+      color: #7dd4c8;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .offer-card .btn {
+      font-size: 0.78rem;
+      padding: 0.45rem 1rem;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .offer-card .btn:hover {
+      background: rgba(255,255,255,0.25);
+    }
+
+
+    /* ══════════════════════════════════════════════
+       PERFECT DESTINATIONS (Region Cards)
+       ══════════════════════════════════════════════ */
+    .destinations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .dest-card {
+      position: relative;
+      height: 240px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: pointer;
+      display: block;
+      text-decoration: none;
+    }
+
+    .dest-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s var(--ease);
+    }
+
+    .dest-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .dest-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 60%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.25rem;
+      transition: background 0.3s var(--ease);
+    }
+
+    .dest-card:hover .dest-card-overlay {
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%);
+    }
+
+    .dest-card-overlay h3 {
+      color: #fff;
+      font-family: var(--font-head);
+      font-size: 1.15rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .dest-card-overlay span {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.75rem;
+    }
+
+
+    /* ══════════════════════════════════════════════
+       HOLIDAY TYPES (Categories)
+       ══════════════════════════════════════════════ */
+    .holiday-types-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 1rem;
+    }
+
+    .holiday-type-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem 0.8rem;
+      text-align: center;
+      transition: transform 0.35s var(--ease),
+                  box-shadow 0.35s var(--ease),
+                  border-color 0.35s var(--ease);
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .holiday-type-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent);
+    }
+
+    .holiday-type-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.6rem;
+      display: block;
+      transition: transform 0.35s var(--ease);
+    }
+
+    .holiday-type-card:hover .holiday-type-icon {
+      transform: scale(1.15);
+    }
+
+    .holiday-type-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+      display: block;
+    }
+
+
+    /* ══════════════════════════════════════════════
+       CUSTOMER REVIEWS CAROUSEL
+       ══════════════════════════════════════════════ */
+    .reviews-carousel-section {
+      background: var(--accent-soft);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 4rem 5%;
+      transition: background-color 0.4s var(--ease);
+    }
+
+    .reviews-carousel-wrapper {
+      max-width: 780px;
+      margin: 0 auto;
+      position: relative;
+      min-height: 220px;
+    }
+
+    .review-slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+      pointer-events: none;
+    }
+
+    .review-slide.active {
+      opacity: 1;
+      pointer-events: auto;
+      position: relative;
+    }
+
+    .review-slide-stars {
+      color: #E8A838;
+      font-size: 1.3rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+
+    .review-slide-text {
+      font-family: var(--font-head);
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.65;
+      margin-bottom: 1.2rem;
+      max-width: 600px;
+    }
+
+    .review-slide-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .review-slide-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+    }
+
+    .review-slide-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .review-slide-trip {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .review-carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.4rem;
+      margin-top: 1.5rem;
+    }
+
+    .review-carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--border);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      padding: 0;
+    }
+
+    .review-carousel-dot.active {
+      background: var(--accent);
+      transform: scale(1.3);
+    }
+
+
+    /* ══════════════════════════════════════════════
+       BLOGS / TRAVEL TIPS
+       ══════════════════════════════════════════════ */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .blog-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 0.35s var(--ease),
+                  box-shadow 0.35s var(--ease);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .blog-card-image {
+      height: 180px;
+      overflow: hidden;
+    }
+
+    .blog-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s var(--ease);
+    }
+
+    .blog-card:hover .blog-card-image img {
+      transform: scale(1.06);
+    }
+
+    .blog-card-body {
+      padding: 1.15rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .blog-card-meta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-card-tag {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 0.1rem 0.5rem;
+      border-radius: 3px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .blog-card-body h3 {
+      font-family: var(--font-head);
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+      line-height: 1.35;
+    }
+
+    .blog-card-body p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      flex-grow: 1;
+    }
+
+    .blog-card-link {
+      display: inline-block;
+      margin-top: 0.8rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+      transition: opacity 0.2s ease;
+    }
+
+    .blog-card-link:hover {
+      opacity: 0.7;
+    }
+
+
+    /* ══════════════════════════════════════════════
+       STATS BANNER
+       ══════════════════════════════════════════════ */
+    .stats-banner {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      padding: 2.5rem 5%;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stat-item { text-align: center; }
+
+    .stat-number {
+      font-family: var(--font-head);
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--accent);
+      display: block;
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+
+    /* ══════════════════════════════════════════════
+       RESPONSIVE
+       ══════════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .hero-slideshow { height: 400px; }
+
+      .slide-content h1 { font-size: 2rem; }
+
+      .destinations-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .holiday-types-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .offers-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-banner { gap: 1.5rem; }
+
+      .review-slide-text { font-size: 1.05rem; }
+    }
+
+    @media (max-width: 600px) {
+      .hero-slideshow { height: 340px; }
+
+      .slide-content h1 { font-size: 1.6rem; }
+      .slide-content p { font-size: 0.88rem; }
+      .slide-content .hero-tagline { font-size: 0.9rem; }
+
+      .destinations-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+      }
+
+      .dest-card { height: 160px; }
+
+      .holiday-types-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.6rem;
+      }
+
+      .holiday-type-card { padding: 1rem 0.5rem; }
+      .holiday-type-icon { font-size: 1.6rem; }
+      .holiday-type-label { font-size: 0.72rem; }
+
+      .blog-grid { grid-template-columns: 1fr; }
+
+      .stats-banner {
+        gap: 1rem;
+        padding: 1.5rem 5%;
+      }
+
+      .stat-number { font-size: 1.5rem; }
+
+      .review-slide-text { font-size: 0.95rem; }
+    }
+  </style>
+
   <!-- Core Logic Script: Manages dynamic features (Defer ensures it runs after DOM is ready) -->
   <script type="module" src="app.js" defer></script>
 </head>
@@ -15,16 +709,14 @@
 
   <!-- ==========================================================================
        HEADER & NAVIGATION BAR
-       Uses semantic <header> and <nav> with Flexbox spacing.
        ========================================================================== -->
   <header>
     <div class="nav-container">
-      <!-- Agency Logo branding -->
       <a href="index.html" class="logo">
-        ✈️ Global Explorers
+        <span class="logo-icon" aria-hidden="true"></span>
+        Global Explorers
       </a>
-      
-      <!-- Primary Nav Menu -->
+
       <nav aria-label="Main Navigation">
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-link active">Home</a></li>
@@ -33,10 +725,8 @@
           <li><a href="about.html" class="nav-link">About Us</a></li>
         </ul>
       </nav>
-      
-      <!-- Night/Day toggler container -->
+
       <div class="nav-actions">
-        <!-- Sun/Moon Emoji Toggle Button -->
         <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle Light/Dark Theme">
           🌙
         </button>
@@ -45,86 +735,443 @@
   </header>
 
   <!-- ==========================================================================
-       MAIN CONTENT SECTION
+       MAIN CONTENT
        ========================================================================== -->
   <main>
 
-    <!-- HERO INTRODUCTION BANNER -->
-    <section class="hero" aria-label="Introduction Banner">
-      <div class="container hero-content">
-        <h1>Explore the <span>Dream Destinations</span> of the World</h1>
-        <p>Your one-stop travel agency for premium and affordable curated global travel packages. Leave the planning to our experts and embark on an unforgettable adventure.</p>
-        <div class="hero-buttons">
-          <a href="catalogue.html" class="btn btn-primary">Discover Packages</a>
-          <a href="register.html" class="btn btn-secondary">Book Your Trip</a>
+    <!-- ════════════════════════════════════════════
+         1. HERO SLIDESHOW — Full images, auto-rotate
+         ════════════════════════════════════════════ -->
+    <section class="hero-slideshow" id="hero-slideshow" aria-label="Hero Banner Slideshow">
+      <!-- Slides are injected by JS — uses image/ folder or fallback Unsplash -->
+
+      <!-- Static overlay content shown on all slides -->
+      <div class="slide-overlay">
+        <div class="slide-content">
+          <span class="hero-tagline">Where will you go next?</span>
+          <h1>Explore the <span>Dream Destinations</span> of the World</h1>
+          <p>Premium curated travel packages across 6 continents. Let our experts plan your perfect adventure.</p>
+          <div class="hero-buttons">
+            <a href="catalogue.html" class="btn btn-primary">Discover Packages</a>
+            <a href="register.html" class="btn btn-secondary">Book Your Trip</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation arrows -->
+      <button class="slide-arrow prev" id="slide-prev" aria-label="Previous slide">❮</button>
+      <button class="slide-arrow next" id="slide-next" aria-label="Next slide">❯</button>
+
+      <!-- Dots -->
+      <div class="slide-dots" id="slide-dots"></div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════
+         2. SPECIAL OFFERS
+         ════════════════════════════════════════════ -->
+    <section class="special-offers" aria-label="Special Offers">
+      <div class="offers-header">
+        <h2>🔥 Special Offers</h2>
+        <p>Limited-time deals on our most popular vacation packages. Don't miss out!</p>
+      </div>
+
+      <div class="offers-grid">
+        <!-- Offer 1 -->
+        <div class="offer-card">
+          <span class="offer-badge">30% Off</span>
+          <h3>Scenic Wonders of Japan</h3>
+          <p class="offer-desc">7 Days exploring Tokyo, Kyoto & Mt. Fuji with bullet train pass included.</p>
+          <div class="offer-price-row">
+            <span class="offer-price-old">$1,499</span>
+            <span class="offer-price-new">$1,049</span>
+          </div>
+          <a href="package.html?id=japan" class="btn">View Deal →</a>
+        </div>
+
+        <!-- Offer 2 -->
+        <div class="offer-card">
+          <span class="offer-badge">Early Bird</span>
+          <h3>Romantic Paris & Riviera</h3>
+          <p class="offer-desc">8 Days of gourmet cuisine, Seine cruise & sunny Côte d'Azur beaches.</p>
+          <div class="offer-price-row">
+            <span class="offer-price-old">$1,899</span>
+            <span class="offer-price-new">$1,519</span>
+          </div>
+          <a href="package.html?id=france" class="btn">View Deal →</a>
+        </div>
+
+        <!-- Offer 3 -->
+        <div class="offer-card">
+          <span class="offer-badge">Hot Deal</span>
+          <h3>Ancient Pyramids Tour</h3>
+          <p class="offer-desc">6 Days uncovering Giza's mysteries with Nile River cruise & Egyptologist guide.</p>
+          <div class="offer-price-row">
+            <span class="offer-price-old">$1,199</span>
+            <span class="offer-price-new">$899</span>
+          </div>
+          <a href="package.html?id=egypt" class="btn">View Deal →</a>
         </div>
       </div>
     </section>
 
-    <!-- VACATION HIGHLIGHTS (Curated Showcase of 4 Packages) -->
-    <section class="container" style="padding-top: 5rem;" aria-label="Featured Travel Packages">
+
+    <!-- ════════════════════════════════════════════
+         3. POPULAR TOURS (Curated Showcase of 4 Packages)
+         ════════════════════════════════════════════ -->
+    <section class="container section-spaced" aria-label="Popular Tour Packages">
       <div class="section-title">
-        <h2>Curated Teaser Packages</h2>
-        <p>A quick glimpse at some of our most requested travel countries. Click "View Deal" for full itineraries!</p>
+        <h2>Popular Tours</h2>
+        <p>Our most requested travel experiences. Click "View Deal" for full itineraries!</p>
       </div>
       
-      <!-- JavaScript will inject cards dynamically into this container -->
       <div class="packages-grid" id="homepage-showcase">
-        <!-- Fallback message if JS is disabled or still loading -->
-        <p style="text-align: center; grid-column: 1 / -1; color: var(--text-secondary);">
-          Loading curated adventures...
-        </p>
+        <p class="fallback-text">Loading popular tours...</p>
       </div>
       
-      <div style="text-align: center; margin-top: 2rem;">
+      <div class="center-mt-2">
         <a href="catalogue.html" class="btn btn-secondary">Explore All 8 Packages →</a>
       </div>
     </section>
-  </main>
 
-  <!-- WHY CHOOSE US -->
-    <section style="padding-top: 1rem; padding-bottom: 1rem;">
+
+    <!-- ════════════════════════════════════════════
+         4. PERFECT DESTINATIONS (Region Cards)
+         ════════════════════════════════════════════ -->
+    <section class="container section-spaced" aria-label="Perfect Destinations">
       <div class="section-title">
-        <h2>Why Choose Us</h2>
-        <p>A few reasons travellers keep coming back to Global Explorers.</p>
+        <h2>Perfect Destinations</h2>
+        <p>Browse by region and find your dream getaway across every corner of the globe.</p>
       </div>
 
+      <div class="destinations-grid">
+        <a href="catalogue.html" class="dest-card" id="dest-asia">
+          <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=500&auto=format&fit=crop" alt="Asia — Temples and Traditions" loading="lazy" referrerPolicy="no-referrer">
+          <div class="dest-card-overlay">
+            <h3>Asia</h3>
+            <span>Japan, India, Cambodia & more</span>
+          </div>
+        </a>
+
+        <a href="catalogue.html" class="dest-card" id="dest-europe">
+          <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=500&auto=format&fit=crop" alt="Europe — Art and Romance" loading="lazy" referrerPolicy="no-referrer">
+          <div class="dest-card-overlay">
+            <h3>Europe</h3>
+            <span>France, Italy, Switzerland & more</span>
+          </div>
+        </a>
+
+        <a href="catalogue.html" class="dest-card" id="dest-africa">
+          <img src="https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=500&auto=format&fit=crop" alt="Africa — Ancient Wonders" loading="lazy" referrerPolicy="no-referrer">
+          <div class="dest-card-overlay">
+            <h3>Africa</h3>
+            <span>Egypt, Morocco, South Africa & more</span>
+          </div>
+        </a>
+
+        <a href="catalogue.html" class="dest-card" id="dest-oceania">
+          <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?q=80&w=500&auto=format&fit=crop" alt="Oceania — Reef & Beaches" loading="lazy" referrerPolicy="no-referrer">
+          <div class="dest-card-overlay">
+            <h3>Oceania</h3>
+            <span>Australia, New Zealand & more</span>
+          </div>
+        </a>
+
+        <a href="catalogue.html" class="dest-card" id="dest-north-america">
+          <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?q=80&w=500&auto=format&fit=crop" alt="North America — Cities & Canyons" loading="lazy" referrerPolicy="no-referrer">
+          <div class="dest-card-overlay">
+            <h3>North America</h3>
+            <span>USA, Canada & more</span>
+          </div>
+        </a>
+
+        <a href="catalogue.html" class="dest-card" id="dest-south-america">
+          <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?q=80&w=500&auto=format&fit=crop" alt="South America — Rainforest & Culture" loading="lazy" referrerPolicy="no-referrer">
+          <div class="dest-card-overlay">
+            <h3>South America</h3>
+            <span>Brazil, Peru & more</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════
+         5. CATEGORIES — Holiday Types
+         ════════════════════════════════════════════ -->
+    <section class="container section-spaced" aria-label="Holiday Types">
+      <div class="section-title">
+        <h2>Categories — Holiday Types</h2>
+        <p>What kind of holiday are you dreaming of? Browse by travel style.</p>
+      </div>
+
+      <div class="holiday-types-grid">
+        <a href="catalogue.html" class="holiday-type-card" id="type-adventure">
+          <span class="holiday-type-icon">🧗</span>
+          <span class="holiday-type-label">Adventure</span>
+        </a>
+        <a href="catalogue.html" class="holiday-type-card" id="type-beach">
+          <span class="holiday-type-icon">🏖️</span>
+          <span class="holiday-type-label">Beach</span>
+        </a>
+        <a href="catalogue.html" class="holiday-type-card" id="type-city">
+          <span class="holiday-type-icon">🏙️</span>
+          <span class="holiday-type-label">City</span>
+        </a>
+        <a href="catalogue.html" class="holiday-type-card" id="type-cruise">
+          <span class="holiday-type-icon">🚢</span>
+          <span class="holiday-type-label">Cruise</span>
+        </a>
+        <a href="catalogue.html" class="holiday-type-card" id="type-historical">
+          <span class="holiday-type-icon">🏛️</span>
+          <span class="holiday-type-label">Historical</span>
+        </a>
+        <a href="catalogue.html" class="holiday-type-card" id="type-religious">
+          <span class="holiday-type-icon">🕌</span>
+          <span class="holiday-type-label">Religious</span>
+        </a>
+        <a href="catalogue.html" class="holiday-type-card" id="type-honeymoon">
+          <span class="holiday-type-icon">💑</span>
+          <span class="holiday-type-label">Honeymoon</span>
+        </a>
+        <a href="catalogue.html" class="holiday-type-card" id="type-nature">
+          <span class="holiday-type-icon">🌿</span>
+          <span class="holiday-type-label">Nature</span>
+        </a>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════
+         6. STATS TRUST BANNER
+         ════════════════════════════════════════════ -->
+    <div class="stats-banner" aria-label="Company Statistics">
+      <div class="stat-item">
+        <span class="stat-number">8+</span>
+        <span class="stat-label">Curated Packages</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">6</span>
+        <span class="stat-label">Continents Covered</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">4</span>
+        <span class="stat-label">Expert Specialists</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">4.8</span>
+        <span class="stat-label">Average Rating</span>
+      </div>
+    </div>
+
+
+    <!-- ════════════════════════════════════════════
+         7. CUSTOMER REVIEWS CAROUSEL
+         ════════════════════════════════════════════ -->
+    <section class="reviews-carousel-section" aria-label="Customer Reviews">
+      <div class="section-title">
+        <h2>Customer Reviews</h2>
+        <p>What our travelers say about their experiences with Global Explorers.</p>
+      </div>
+
+      <div class="reviews-carousel-wrapper" id="reviews-carousel">
+        <!-- Review slides injected by JS -->
+      </div>
+
+      <div class="review-carousel-dots" id="review-carousel-dots"></div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════
+         8. OUR TRAVEL SPECIALISTS
+         ════════════════════════════════════════════ -->
+    <section class="container section-spaced" aria-label="Our Team Members">
+      <div class="section-title">
+        <h2>Our Travel Specialists</h2>
+        <p>Get to know our professional agents dedicated to designing your perfect dream vacation.</p>
+      </div>
+      
       <div class="team-grid">
         <article class="team-card">
-          <h3 class="team-name">🌍 Global Reach</h3>
-          <p class="team-bio">Eight curated packages spanning Asia, Europe, the Americas, Africa, and Oceania, with more destinations added regularly.</p>
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" alt="Sarah Connor" class="team-avatar" referrerPolicy="no-referrer">
+          <h3 class="team-name">Sarah Connor</h3>
+          <p class="team-role">Lead Adventure Planner</p>
+          <p class="team-bio">Specialist in wilderness trekking and tropical getaways with over 10 years of worldwide guiding experience.</p>
         </article>
 
         <article class="team-card">
-          <h3 class="team-name">🧭 Expert Planners</h3>
-          <p class="team-bio">Our specialists handle every detail of your itinerary, from flights and hotels to guided local experiences.</p>
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="David Miller" class="team-avatar" referrerPolicy="no-referrer">
+          <h3 class="team-name">David Miller</h3>
+          <p class="team-role">European Specialist</p>
+          <p class="team-bio">A fine dining enthusiast who handles historic museum schedules, boutique hotel stays, and romantic itineraries.</p>
         </article>
 
         <article class="team-card">
-          <h3 class="team-name">💳 Honest Pricing</h3>
-          <p class="team-bio">No hidden fees or surprise charges. What you see during booking is exactly what you pay.</p>
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" alt="Amina Youssef" class="team-avatar" referrerPolicy="no-referrer">
+          <h3 class="team-name">Amina Youssef</h3>
+          <p class="team-role">Middle-East & African Specialist</p>
+          <p class="team-bio">Passionate archeology guide who coordinates historic pyramid explorations and beautiful Nile River cruises.</p>
         </article>
 
         <article class="team-card">
-          <h3 class="team-name">⭐ Trusted by Travellers</h3>
-          <p class="team-bio">Hundreds of happy guests have shared their stories with us. Read their reviews on our homepage!</p>
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop" alt="James Carter" class="team-avatar" referrerPolicy="no-referrer">
+          <h3 class="team-name">James Carter</h3>
+          <p class="team-role">Oceania & Cruise Specialist</p>
+          <p class="team-bio">Specializes in marine exploration and barrier reef scuba bookings. Loves finding ocean views.</p>
         </article>
       </div>
     </section>
 
+
+    <!-- ════════════════════════════════════════════
+         9. BLOGS — Travel Tips and Advice
+         ════════════════════════════════════════════ -->
+    <section class="container section-spaced" aria-label="Travel Blog">
+      <div class="section-title">
+        <h2>Blogs — Travel Tips & Advice</h2>
+        <p>Expert insights, packing guides, and destination tips to help you travel smarter.</p>
+      </div>
+
+      <div class="blog-grid">
+        <!-- Blog 1 -->
+        <article class="blog-card">
+          <div class="blog-card-image">
+            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=500&auto=format&fit=crop" alt="Travel packing essentials" loading="lazy" referrerPolicy="no-referrer">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-tag">Tips</span>
+              <span>July 10, 2026</span>
+            </div>
+            <h3>10 Packing Hacks Every Traveler Should Know</h3>
+            <p>From rolling clothes to packing cubes, these simple hacks will save you space and stress on your next trip.</p>
+            <a href="#" class="blog-card-link">Read More →</a>
+          </div>
+        </article>
+
+        <!-- Blog 2 -->
+        <article class="blog-card">
+          <div class="blog-card-image">
+            <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=500&auto=format&fit=crop" alt="Budget travel guide" loading="lazy" referrerPolicy="no-referrer">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-tag">Guide</span>
+              <span>June 28, 2026</span>
+            </div>
+            <h3>How to Travel the World on a Budget in 2026</h3>
+            <p>Affordable destinations, flight deals, and money-saving strategies for the budget-conscious explorer.</p>
+            <a href="#" class="blog-card-link">Read More →</a>
+          </div>
+        </article>
+
+        <!-- Blog 3 -->
+        <article class="blog-card">
+          <div class="blog-card-image">
+            <img src="https://images.unsplash.com/photo-1504150558240-0b4fd8946624?q=80&w=500&auto=format&fit=crop" alt="Solo travel safety tips" loading="lazy" referrerPolicy="no-referrer">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-tag">Safety</span>
+              <span>June 15, 2026</span>
+            </div>
+            <h3>Solo Travel Safety: Your Complete Guide</h3>
+            <p>Essential safety tips, tech tools, and confidence-building advice for solo adventurers worldwide.</p>
+            <a href="#" class="blog-card-link">Read More →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════
+         10. INTERACTIVE GUEST REVIEWS MODULE
+         ════════════════════════════════════════════ -->
+    <section class="container section-spaced" aria-label="Write a Review">
+      <div class="section-title">
+        <h2>Guest Experiences</h2>
+        <p>Read honest feedback from travelers or write your own review to share your adventures!</p>
+      </div>
+
+      <div class="review-section">
+        <div class="review-container">
+          
+          <div class="review-form-box">
+            <h3>Add Your Experience</h3>
+            <form id="review-form">
+              <div class="form-group">
+                <label for="reviewer-name">Full Name</label>
+                <input type="text" id="reviewer-name" class="form-control" placeholder="e.g. Emily Watson" required>
+              </div>
+
+              <div class="form-group">
+                <label class="label-inline-block">Star Rating</label>
+                <div class="star-rating">
+                  <input type="radio" id="star5" name="rating" value="5" required><label for="star5" title="5 stars">★</label>
+                  <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 stars">★</label>
+                  <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 stars">★</label>
+                  <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 stars">★</label>
+                  <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 star">★</label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="review-text">Review Comments</label>
+                <textarea id="review-text" class="form-control" rows="4" maxlength="200" placeholder="Tell us about your trip (Max 200 characters)..." required></textarea>
+                <div class="char-counter">
+                  Characters remaining: <span id="char-count" class="char-count-value">200</span>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-full">Post Review</button>
+            </form>
+          </div>
+
+          <div class="review-list-box">
+            <h3>Latest Traveler Stories</h3>
+            <div class="reviews-list-wrapper" id="reviews-list">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
   <!-- ==========================================================================
        FOOTER SECTION
-       Uses semantic <footer> tag with social/info lists.
        ========================================================================== -->
   <footer>
-    <div class="container" style="padding: 0;">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+          <span class="logo-icon" aria-hidden="true"></span>
+          Global Explorers
+        </a>
+        <p>Your trusted travel companion for curated global adventures. Let us handle the details while you create unforgettable memories.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul class="footer-nav">
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="catalogue.html" class="footer-link">Packages</a></li>
+          <li><a href="register.html" class="footer-link">Book Now</a></li>
+          <li><a href="about.html" class="footer-link">About Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Get in Touch</h4>
+        <p>📧 hello@globalexplorers.com</p>
+        <p>📞 +60 3-1234 5678</p>
+        <p>📍 Kuala Lumpur, Malaysia</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
       <p>&copy; 2026 Global Explorers Travel Agency. All rights reserved.</p>
-      <p style="font-size: 0.8rem;">Curated learning portal template for secondary school web technology students.</p>
-      <ul class="footer-nav">
-        <li><a href="index.html" class="footer-link">Home</a></li>
-        <li><a href="catalogue.html" class="footer-link">Packages</a></li>
-        <li><a href="register.html" class="footer-link">Register & Book</a></li>
-      </ul>
     </div>
   </footer>
 
