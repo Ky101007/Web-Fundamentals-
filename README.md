@@ -1,6 +1,6 @@
 # Web-Fundamentals-
 📁 My_Travel_Website/
-│
+│── 📁 resumes           ← Put your resumes here
 ├── 📄 index.html        ← The Homepage (The front door of your site)
 ├── 📄 catalogue.html    ← The Catalog Page (Where users search and filter trips)
 ├── 📄 package.html      ← The Details Page (Loads different countries dynamically)
