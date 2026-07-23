@@ -703,7 +703,7 @@
   </style>
 
   <!-- Core Logic Script: Manages dynamic features (Defer ensures it runs after DOM is ready) -->
-  <script type="module" src="app.js" defer></script>
+  <script src="app.js" defer></script>
 </head>
 <body>
 
@@ -779,12 +779,12 @@
       <div class="offers-grid">
         <!-- Offer 1 -->
         <div class="offer-card">
-          <span class="offer-badge">30% Off</span>
-          <h3>Scenic Wonders of Japan</h3>
-          <p class="offer-desc">7 Days exploring Tokyo, Kyoto & Mt. Fuji with bullet train pass included.</p>
+          <span class="offer-badge">Special Deal</span>
+          <h3>7D6N Japan Golden Route + Disneyland</h3>
+          <p class="offer-desc">Tokyo, Disneyland, Mt Fuji, Kyoto and Osaka in one first-time Japan route.</p>
           <div class="offer-price-row">
-            <span class="offer-price-old">$1,499</span>
-            <span class="offer-price-new">$1,049</span>
+            <span class="offer-price-old">RM 5,999</span>
+            <span class="offer-price-new">RM 5,499</span>
           </div>
           <a href="package.html?id=japan" class="btn">View Deal →</a>
         </div>
@@ -792,11 +792,11 @@
         <!-- Offer 2 -->
         <div class="offer-card">
           <span class="offer-badge">Early Bird</span>
-          <h3>Romantic Paris & Riviera</h3>
-          <p class="offer-desc">8 Days of gourmet cuisine, Seine cruise & sunny Côte d'Azur beaches.</p>
+          <h3>8D7N Paris & Provence Escape</h3>
+          <p class="offer-desc">Paris landmarks and museums followed by Avignon and the slower pace of Provence.</p>
           <div class="offer-price-row">
-            <span class="offer-price-old">$1,899</span>
-            <span class="offer-price-new">$1,519</span>
+            <span class="offer-price-old">RM 7,999</span>
+            <span class="offer-price-new">RM 7,499</span>
           </div>
           <a href="package.html?id=france" class="btn">View Deal →</a>
         </div>
@@ -804,11 +804,11 @@
         <!-- Offer 3 -->
         <div class="offer-card">
           <span class="offer-badge">Hot Deal</span>
-          <h3>Ancient Pyramids Tour</h3>
-          <p class="offer-desc">6 Days uncovering Giza's mysteries with Nile River cruise & Egyptologist guide.</p>
+          <h3>7D6N Cairo & Luxor</h3>
+          <p class="offer-desc">Cairo, Giza and Luxor with the Pyramids, temples, royal tombs and a Nile sailing experience.</p>
           <div class="offer-price-row">
-            <span class="offer-price-old">$1,199</span>
-            <span class="offer-price-new">$899</span>
+            <span class="offer-price-old">RM 6,499</span>
+            <span class="offer-price-new">RM 5,999</span>
           </div>
           <a href="package.html?id=egypt" class="btn">View Deal →</a>
         </div>
@@ -845,51 +845,51 @@
       </div>
 
       <div class="destinations-grid">
-        <a href="catalogue.html" class="dest-card" id="dest-asia">
-          <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=500&auto=format&fit=crop" alt="Asia — Temples and Traditions" loading="lazy" referrerPolicy="no-referrer">
+        <a href="catalogue.html?region=Asia" class="dest-card" id="dest-asia">
+          <img src="images/packages/japan.jpg" alt="Asia — Temples and Traditions" loading="lazy" referrerPolicy="no-referrer">
           <div class="dest-card-overlay">
             <h3>Asia</h3>
-            <span>Japan, India, Cambodia & more</span>
+            <span>Japan</span>
           </div>
         </a>
 
-        <a href="catalogue.html" class="dest-card" id="dest-europe">
-          <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=500&auto=format&fit=crop" alt="Europe — Art and Romance" loading="lazy" referrerPolicy="no-referrer">
+        <a href="catalogue.html?region=Europe" class="dest-card" id="dest-europe">
+          <img src="images/packages/france.jpg" alt="Europe — Art and Romance" loading="lazy" referrerPolicy="no-referrer">
           <div class="dest-card-overlay">
             <h3>Europe</h3>
-            <span>France, Italy, Switzerland & more</span>
+            <span>France, Italy</span>
           </div>
         </a>
 
-        <a href="catalogue.html" class="dest-card" id="dest-africa">
-          <img src="https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=500&auto=format&fit=crop" alt="Africa — Ancient Wonders" loading="lazy" referrerPolicy="no-referrer">
+        <a href="catalogue.html?region=Africa" class="dest-card" id="dest-africa">
+          <img src="images/packages/egypt.jpg" alt="Africa — Ancient Wonders" loading="lazy" referrerPolicy="no-referrer">
           <div class="dest-card-overlay">
             <h3>Africa</h3>
-            <span>Egypt, Morocco, South Africa & more</span>
+            <span>Egypt</span>
           </div>
         </a>
 
-        <a href="catalogue.html" class="dest-card" id="dest-oceania">
-          <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?q=80&w=500&auto=format&fit=crop" alt="Oceania — Reef & Beaches" loading="lazy" referrerPolicy="no-referrer">
+        <a href="catalogue.html?region=Oceania" class="dest-card" id="dest-oceania">
+          <img src="images/packages/australia.jpg" alt="Oceania — Reef & Beaches" loading="lazy" referrerPolicy="no-referrer">
           <div class="dest-card-overlay">
             <h3>Oceania</h3>
-            <span>Australia, New Zealand & more</span>
+            <span>Australia</span>
           </div>
         </a>
 
-        <a href="catalogue.html" class="dest-card" id="dest-north-america">
-          <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?q=80&w=500&auto=format&fit=crop" alt="North America — Cities & Canyons" loading="lazy" referrerPolicy="no-referrer">
+        <a href="catalogue.html?region=North%20America" class="dest-card" id="dest-north-america">
+          <img src="images/packages/usa.jpg" alt="North America — Cities & Canyons" loading="lazy" referrerPolicy="no-referrer">
           <div class="dest-card-overlay">
             <h3>North America</h3>
-            <span>USA, Canada & more</span>
+            <span>USA, Canada</span>
           </div>
         </a>
 
-        <a href="catalogue.html" class="dest-card" id="dest-south-america">
-          <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?q=80&w=500&auto=format&fit=crop" alt="South America — Rainforest & Culture" loading="lazy" referrerPolicy="no-referrer">
+        <a href="catalogue.html?region=South%20America" class="dest-card" id="dest-south-america">
+          <img src="images/packages/brazil.jpg" alt="South America — Rainforest & Culture" loading="lazy" referrerPolicy="no-referrer">
           <div class="dest-card-overlay">
             <h3>South America</h3>
-            <span>Brazil, Peru & more</span>
+            <span>Brazil</span>
           </div>
         </a>
       </div>

@@ -9,146 +9,210 @@
 const travelPackages = [
   {
     id: "japan",
-    title: "Scenic Wonders of Japan",
+    title: "7D6N Japan Golden Route + Disneyland",
     country: "Japan",
     continent: "Asia",
-    price: 1499,
+    packageOnlyPrice: 5499,
+    flightPrice: 7299,
     duration: "7 Days",
     rating: "4.9",
     badge: "Top Rated",
-    image: "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=600&auto=format&fit=crop",
-    description: "timeless heritage and futuristic innovation in Tokyo, Kyoto, and Mt. Fuji.",
+    image: "images/packages/japan.jpg",
+    alt: "Mount Fuji reflected in a lake in Japan",
+    description: "A first-time Japan route covering Tokyo, Tokyo Disneyland, Mt Fuji, Kyoto and Osaka, combining major sights, culture and a full theme-park day.",
     link: "package.html?id=japan",
-    inclusions: ["Round-trip flight", "4-star hotels", "Bullet train pass", "Local tour guide"],
+    inclusions: ["6 nights accommodation", "Daily hotel breakfast", "Airport transfers in Japan", "Local and intercity transportation", "Tokyo Disneyland 1-Day Passport", "Mt Fuji excursion", "Selected attraction admission", "English-speaking tour coordinator"],
     itinerary: [
-      { day: "Day 1: Tokyo Arrival", text: "Land in Tokyo, explore neon streets and taste local food." },
-      { day: "Day 2: Mount Fuji & Kyoto", text: "Bullet train to Kyoto, visit ancient golden temples and see Mt. Fuji." }
+      { day: "Day 1: Kuala Lumpur → Tokyo", text: "Arrive in Tokyo, transfer to the hotel and enjoy a free evening." },
+      { day: "Day 2: Tokyo City", text: "Visit Asakusa and Senso-ji before continuing to Harajuku and Shibuya." },
+      { day: "Day 3: Tokyo Disneyland", text: "Spend a full day at Tokyo Disneyland." },
+      { day: "Day 4: Tokyo → Mt Fuji", text: "Travel to Lake Kawaguchi and selected scenic areas around Mt Fuji." },
+      { day: "Day 5: Mt Fuji → Kyoto → Osaka", text: "Visit Fushimi Inari in Kyoto before continuing to Osaka." },
+      { day: "Day 6: Osaka", text: "Visit Osaka Castle, Shinsaibashi and Dotonbori." },
+      { day: "Day 7: Osaka → Kuala Lumpur", text: "Free time depending on the flight schedule, followed by the return journey." }
     ]
   },
   {
     id: "france",
-    title: "Romantic Paris & Riviera",
+    title: "8D7N Paris & Provence Escape",
     country: "France",
     continent: "Europe",
-    price: 1899,
+    packageOnlyPrice: 7499,
+    flightPrice: 10499,
     duration: "8 Days",
     rating: "4.8",
     badge: "Best Seller",
-    image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=600&auto=format&fit=crop",
-    description: "Savor gourmet cuisine, walk down the Champs-Élysées, and bask in the gorgeous sun.",
+    image: "images/packages/france.jpg",
+    alt: "Eiffel Tower overlooking Paris, France",
+    description: "Explore the landmarks and museums of Paris before travelling south to Avignon for the historic towns and slower pace of Provence.",
     link: "package.html?id=france",
-    inclusions: ["International flights", "Historic hotels", "Seine river cruise", "TGV train pass"],
+    inclusions: ["7 nights accommodation", "Daily hotel breakfast", "Airport transfers in France", "Paris–Avignon rail journey", "Seine River cruise", "Louvre Museum admission", "Versailles excursion", "Provence regional excursion", "English-speaking tour coordinator"],
     itinerary: [
-      { day: "Day 1: Paris Lights", text: "Eiffel tower sunset walk and beautiful Seine dinner cruise." },
-      { day: "Day 2: Riviera Sun", text: "Ride TGV fast train to Nice and relax on the beach." }
+      { day: "Day 1: Kuala Lumpur → Paris", text: "Arrive in Paris, transfer to the hotel and enjoy a free evening." },
+      { day: "Day 2: Classic Paris", text: "Visit the Eiffel Tower area and Champs-Élysées before an evening Seine cruise." },
+      { day: "Day 3: Art & Montmartre", text: "Visit the Louvre, then continue to Montmartre and Sacré-Cœur." },
+      { day: "Day 4: Versailles", text: "Take a full-day excursion to the Palace of Versailles." },
+      { day: "Day 5: Paris → Avignon", text: "Travel south by rail and explore Avignon's historic centre." },
+      { day: "Day 6: Provence Villages", text: "Spend the day visiting selected villages and countryside around Provence." },
+      { day: "Day 7: Avignon Free Day", text: "Enjoy free time for local food, shopping or independent exploration." },
+      { day: "Day 8: Departure", text: "Transfer for the return journey to Kuala Lumpur." }
     ]
   },
   {
     id: "italy",
-    title: "Classic Italian Escape",
+    title: "9D8N Classic Italy Journey",
     country: "Italy",
     continent: "Europe",
-    price: 1650,
+    packageOnlyPrice: 7299,
+    flightPrice: 10299,
     duration: "9 Days",
     rating: "4.9",
     badge: "Cultural Tour",
-    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=600&auto=format&fit=crop",
-    description: "Dive into historic Rome, ride romantic gondolas in Venice, and admire amazing art.",
+    image: "images/packages/italy.jpg",
+    alt: "Colosseum in Rome, Italy",
+    description: "Travel through Rome, Florence, Tuscany and Venice, combining ancient landmarks, Renaissance heritage, regional food and Venice's canals.",
     link: "package.html?id=italy",
-    inclusions: ["Round-trip flights", "Handpicked boutique lodging", "Gondola ride in Venice", "Colosseum fast-pass"],
+    inclusions: ["8 nights accommodation", "Daily hotel breakfast", "Airport transfers in Italy", "Rome–Florence high-speed rail", "Florence–Venice high-speed rail", "Selected attraction admission", "Tuscan cooking experience", "Tuscany day excursion", "Venice gondola ride", "English-speaking tour coordinator"],
     itinerary: [
-      { day: "Day 1: Roman Empire", text: "Walk through the Colosseum, Roman Forum, and eat fresh pasta." },
-      { day: "Day 2: Venetian Canals", text: "Ride classic gondolas on romantic waterways." }
+      { day: "Day 1: Kuala Lumpur → Rome", text: "Arrive in Rome, transfer to the hotel and settle in." },
+      { day: "Day 2: Ancient Rome", text: "Visit the Colosseum and Roman Forum before exploring central Rome." },
+      { day: "Day 3: Vatican & Central Rome", text: "Visit the Vatican area, Trevi Fountain and Spanish Steps." },
+      { day: "Day 4: Rome → Florence", text: "Travel by high-speed rail and visit the Duomo area and Ponte Vecchio." },
+      { day: "Day 5: Florence & Tuscan Food", text: "Explore Florence and join a Tuscan cooking experience." },
+      { day: "Day 6: Tuscany", text: "Take a day excursion to Siena and the Tuscan countryside." },
+      { day: "Day 7: Florence → Venice", text: "Travel to Venice and explore St Mark's Square and the Rialto area." },
+      { day: "Day 8: Venice", text: "Explore Venice at a relaxed pace and enjoy a gondola ride." },
+      { day: "Day 9: Venice → Kuala Lumpur", text: "Transfer for the return journey." }
     ]
   },
   {
     id: "egypt",
-    title: "Ancient Pyramids Tour",
+    title: "7D6N Cairo & Luxor",
     country: "Egypt",
     continent: "Africa",
-    price: 1199,
-    duration: "6 Days",
+    packageOnlyPrice: 5999,
+    flightPrice: 8499,
+    duration: "7 Days",
     rating: "4.7",
-    badge: "Adventure",
-    image: "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=600&auto=format&fit=crop",
-    description: "Unravel mysteries of the Great Pyramids of Giza, explore Sphinx structures.",
+    badge: "Ancient Wonders",
+    image: "images/packages/egypt.jpg",
+    alt: "Pyramids of Giza in Egypt",
+    description: "Discover Egypt's ancient landmarks across Cairo, Giza and Luxor, from the Pyramids and Sphinx to the temples and royal tombs of Luxor.",
     link: "package.html?id=egypt",
-    inclusions: ["Cairo regional flight", "Nile River views hotel", "Great Pyramids tour", "Professional Egyptologist"],
+    inclusions: ["6 nights accommodation", "Daily hotel breakfast", "Airport transfers in Egypt", "Cairo–Luxor domestic flight", "Giza Plateau admission", "Grand Egyptian Museum admission", "Luxor archaeological excursions", "Nile felucca sailing", "Scheduled local transportation", "English-speaking tour coordinator"],
     itinerary: [
-      { day: "Day 1: Cairo Legends", text: "Visit Giza Pyramids and stand next to the grand Sphinx." },
-      { day: "Day 2: Nile River Cruise", text: "Sail downstream on a traditional sailboat." }
+      { day: "Day 1: Kuala Lumpur → Cairo", text: "Arrive in Cairo, transfer to the hotel and settle in." },
+      { day: "Day 2: Giza", text: "Visit the Pyramids of Giza, Great Sphinx and Grand Egyptian Museum." },
+      { day: "Day 3: Historic Cairo", text: "Explore Historic Cairo and Khan el-Khalili." },
+      { day: "Day 4: Cairo → Luxor", text: "Fly to Luxor and visit Karnak and Luxor Temple." },
+      { day: "Day 5: West Bank of Luxor", text: "Visit the Valley of the Kings and Hatshepsut Temple." },
+      { day: "Day 6: Nile & Luxor", text: "Enjoy free time followed by a felucca sailing experience on the Nile." },
+      { day: "Day 7: Luxor → Kuala Lumpur", text: "Transfer for the return journey." }
     ]
   },
   {
     id: "australia",
-    title: "Great Reef & Sydney Highlights",
+    title: "10D9N Australian City & Coast",
     country: "Australia",
     continent: "Oceania",
-    price: 2199,
+    packageOnlyPrice: 6999,
+    flightPrice: 8999,
     duration: "10 Days",
     rating: "4.8",
     badge: "Trending",
-    image: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?q=80&w=600&auto=format&fit=crop",
-    description: "See the spectacular Sydney Opera House, explore clean beaches, and snorkel inside the reef.",
+    image: "images/packages/australia.jpg",
+    alt: "Sydney Opera House beside Sydney Harbour, Australia",
+    description: "Combine Sydney and Melbourne with the Blue Mountains and Great Ocean Road, balancing organised excursions with free time in both cities.",
     link: "package.html?id=australia",
-    inclusions: ["International flights", "Sydney Opera House ticket", "Barrier Reef boat ride", "Snorkeling gear"],
+    inclusions: ["9 nights accommodation", "Daily hotel breakfast", "Airport transfers in Australia", "Sydney–Melbourne domestic flight", "Sydney city activities", "Blue Mountains day excursion", "Melbourne city activities", "Great Ocean Road excursion", "Scheduled local transportation", "English-speaking tour coordinator"],
     itinerary: [
-      { day: "Day 1: Sydney Harbour", text: "Guided tour inside Opera house and walking on sandy beaches." },
-      { day: "Day 2: Reef Exploration", text: "Catamaran boat cruise to snorkel over bright coral reefs." }
+      { day: "Day 1: Kuala Lumpur → Sydney", text: "Arrive in Sydney, transfer to the hotel and enjoy a free evening." },
+      { day: "Day 2: Sydney Harbour", text: "Explore the Opera House area, Circular Quay, The Rocks and harbour viewpoints." },
+      { day: "Day 3: Sydney Coast", text: "Visit Bondi Beach and Sydney's coastal areas." },
+      { day: "Day 4: Blue Mountains", text: "Take a full-day excursion to the Blue Mountains and Three Sisters." },
+      { day: "Day 5: Sydney Free Day", text: "Enjoy shopping, museums or optional attractions at your own pace." },
+      { day: "Day 6: Sydney → Melbourne", text: "Fly to Melbourne and explore the city centre after arrival." },
+      { day: "Day 7: Melbourne City", text: "Visit Federation Square, city laneways and Queen Victoria Market." },
+      { day: "Day 8: Great Ocean Road", text: "Take a full-day coastal excursion including the Twelve Apostles area." },
+      { day: "Day 9: Melbourne Free Day", text: "Enjoy a flexible final day in Melbourne." },
+      { day: "Day 10: Melbourne → Kuala Lumpur", text: "Transfer for the return journey." }
     ]
   },
   {
     id: "brazil",
-    title: "Vibrant Rio & Rainforest",
+    title: "7D6N Rio & Nature Escape",
     country: "Brazil",
     continent: "South America",
-    price: 1350,
+    packageOnlyPrice: 6499,
+    flightPrice: 10499,
     duration: "7 Days",
     rating: "4.6",
     badge: "Tropical",
-    image: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?q=80&w=600&auto=format&fit=crop",
-    description: "Breathe in Rio's energy, stand under Christ the Redeemer, and explore the Amazon.",
+    image: "images/packages/brazil.jpg",
+    alt: "Christ the Redeemer overlooking Rio de Janeiro, Brazil",
+    description: "Experience Rio through its famous viewpoints, beaches, neighbourhoods and surrounding tropical landscape.",
     link: "package.html?id=brazil",
-    inclusions: ["Round-trip flights", "Beachfront hotel stay", "Sugarloaf mountain ride", "Samba dance class"],
+    inclusions: ["6 nights accommodation", "Daily hotel breakfast", "Airport transfers in Brazil", "Christ the Redeemer visit", "Sugarloaf Mountain cable car", "Tijuca Forest excursion", "Scheduled local transportation", "English-speaking tour coordinator"],
     itinerary: [
-      { day: "Day 1: Copacabana Sun", text: "Check in facing beach and ride a cable car up Sugarloaf." },
-      { day: "Day 2: Giant Forest", text: "Train ride to Christ statue and hike Tijuca waterfall canopy." }
+      { day: "Day 1: Kuala Lumpur → Rio de Janeiro", text: "Arrive in Rio, transfer to the hotel and settle in." },
+      { day: "Day 2: Rio Highlights", text: "Visit Christ the Redeemer and selected central Rio sights." },
+      { day: "Day 3: Sugarloaf & Coast", text: "Visit Sugarloaf Mountain before continuing to Copacabana." },
+      { day: "Day 4: Tijuca Forest", text: "Take a guided excursion into Tijuca Forest." },
+      { day: "Day 5: Ipanema & Local Culture", text: "Explore Ipanema and selected cultural districts." },
+      { day: "Day 6: Rio Free Day", text: "Enjoy the beach, shopping or optional activities." },
+      { day: "Day 7: Rio → Kuala Lumpur", text: "Transfer for the return journey." }
     ]
   },
   {
     id: "usa",
-    title: "New York & Grand Canyon",
+    title: "8D7N California Highlights",
     country: "USA",
     continent: "North America",
-    price: 1799,
+    packageOnlyPrice: 7499,
+    flightPrice: 10999,
     duration: "8 Days",
     rating: "4.7",
-    badge: "City & Nature",
-    image: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?q=80&w=600&auto=format&fit=crop",
-    description: "Experience the blinding lights of NYC Times Square before marveling at the vast Grand Canyon.",
+    badge: "City & Coast",
+    image: "images/packages/usa.jpg",
+    alt: "Golden Gate Bridge on the California coast, USA",
+    description: "Explore Los Angeles and San Francisco with entertainment districts, Pacific coastal scenery and the best-known landmarks of both cities.",
     link: "package.html?id=usa",
-    inclusions: ["Domestic return flights", "Empire State deck access", "Grand Canyon park permit", "Shuttle services"],
+    inclusions: ["7 nights accommodation", "Daily hotel breakfast", "Airport transfers in California", "Los Angeles–San Francisco transportation", "Los Angeles city activities", "San Francisco city activities", "California coastal excursion", "Selected attraction admission", "English-speaking tour coordinator"],
     itinerary: [
-      { day: "Day 1: NYC Neon Lights", text: "Walk around Times Square and ascend to the top observatory deck." },
-      { day: "Day 2: Canyon South Rim", text: "Fly to Arizona and take a scenic canyon trail walk." }
+      { day: "Day 1: Kuala Lumpur → Los Angeles", text: "Arrive in Los Angeles, transfer to the hotel and settle in." },
+      { day: "Day 2: Los Angeles Highlights", text: "Visit Hollywood, Griffith Observatory and selected city sights." },
+      { day: "Day 3: Santa Monica & Coast", text: "Spend the day around Santa Monica and coastal Los Angeles." },
+      { day: "Day 4: Los Angeles Free Day", text: "Choose shopping, museums or optional attractions." },
+      { day: "Day 5: Los Angeles → San Francisco", text: "Travel north to San Francisco and enjoy a free evening." },
+      { day: "Day 6: San Francisco", text: "Visit the Golden Gate Bridge, Fisherman's Wharf and selected city districts." },
+      { day: "Day 7: California Coast & Nature", text: "Take a regional excursion focused on coastal and natural scenery." },
+      { day: "Day 8: San Francisco → Kuala Lumpur", text: "Transfer for the return journey." }
     ]
   },
   {
     id: "canada",
-    title: "Majestic Rockies & Lakes",
+    title: "8D7N Canadian Rockies Adventure",
     country: "Canada",
     continent: "North America",
-    price: 1590,
+    packageOnlyPrice: 7299,
+    flightPrice: 10499,
     duration: "8 Days",
     rating: "4.9",
     badge: "Nature Escape",
-    image: "https://images.unsplash.com/photo-1501446529957-6226bd447c46?q=80&w=600&auto=format&fit=crop",
-    description: "Stare in awe at the turquoise water of Lake Louise and venture deep into alpine mountain valleys.",
+    image: "images/packages/canada.jpg",
+    alt: "Lake Louise surrounded by the Canadian Rockies, Canada",
+    description: "A mountain-focused journey from Calgary into Banff and the Canadian Rockies, featuring lakes, scenic roads and time outdoors.",
     link: "package.html?id=canada",
-    inclusions: ["Calgary flights", "Cozy alpine forest cabin", "Lake Louise canoe rental", "Ice explorer tour"],
+    inclusions: ["7 nights accommodation", "Daily hotel breakfast", "Airport transfers in Canada", "Rockies ground transportation", "Banff excursion", "Lake Louise visit", "Icefields Parkway scenic journey", "Selected park activities", "English-speaking tour coordinator"],
     itinerary: [
-      { day: "Day 1: Banff Mountain Town", text: "Unpack in cozy logs and ride the high alpine gondola." },
-      { day: "Day 2: Turquoise Waters", text: "Paddle on beautiful turquoise Lake Louise and hike to tea house." }
+      { day: "Day 1: Kuala Lumpur → Calgary", text: "Arrive in Calgary, transfer to the hotel and settle in." },
+      { day: "Day 2: Calgary → Banff", text: "Travel into the Rockies and explore Banff after arrival." },
+      { day: "Day 3: Banff", text: "Explore Banff and selected surrounding viewpoints." },
+      { day: "Day 4: Lake Louise", text: "Visit Lake Louise and nearby mountain scenery." },
+      { day: "Day 5: Icefields Parkway", text: "Take a scenic journey through the Canadian Rockies with selected viewpoint stops." },
+      { day: "Day 6: Rockies Free Day", text: "Choose an easy nature walk, sightseeing or relaxed exploration." },
+      { day: "Day 7: Banff → Calgary", text: "Return to Calgary and enjoy a free evening." },
+      { day: "Day 8: Calgary → Kuala Lumpur", text: "Transfer for the return journey." }
     ]
   }
 ];
@@ -199,10 +263,10 @@ function initThemeEngine() {
 function createCardHTML(pkg) {
   return `
     <article class="package-card">
-      <div class="package-image-container">
-        <img src="${pkg.image}" alt="${pkg.title}" class="package-image" loading="lazy" referrerPolicy="no-referrer">
+      <a href="${pkg.link}" class="package-image-container" aria-label="View ${pkg.title}">
+        <img src="${pkg.image}" alt="${pkg.alt}" class="package-image" loading="lazy" referrerPolicy="no-referrer">
         <span class="package-badge">${pkg.badge}</span>
-      </div>
+      </a>
       <div class="package-info">
         <div class="package-meta">
           <span>⏱ ${pkg.duration}</span>
@@ -211,7 +275,7 @@ function createCardHTML(pkg) {
         <h3 class="package-title">${pkg.title}</h3>
         <p class="package-description">${pkg.description}</p>
         <div class="package-footer">
-          <div class="package-price">$${pkg.price}</div>
+          <div class="package-price">RM ${pkg.packageOnlyPrice.toLocaleString()}</div>
           <a href="${pkg.link}" class="btn btn-primary" style="padding: 0.35rem 0.8rem; font-size: 0.75rem;">View Deal</a>
         </div>
       </div>
@@ -285,6 +349,16 @@ function initCatalogueModule() {
   let region = "All";
   let sortBy = "featured";
 
+  // If Home sends a region in the URL, open Catalogue with that filter active.
+  const requestedRegion = new URLSearchParams(window.location.search).get("region");
+  const validRegions = ["Asia", "Europe", "North America", "South America", "Africa", "Oceania"];
+  if (requestedRegion && validRegions.includes(requestedRegion)) {
+    region = requestedRegion;
+    filters.querySelectorAll(".filter-btn").forEach(button => {
+      button.classList.toggle("active", button.dataset.filter === region);
+    });
+  }
+
   const render = () => {
     let matches = travelPackages.filter(p => {
       const matchSearch = p.title.toLowerCase().includes(term) || p.country.toLowerCase().includes(term);
@@ -292,8 +366,8 @@ function initCatalogueModule() {
       return matchSearch && matchRegion;
     });
 
-    if (sortBy === "price-asc") matches.sort((a, b) => a.price - b.price);
-    else if (sortBy === "price-desc") matches.sort((a, b) => b.price - a.price);
+    if (sortBy === "price-asc") matches.sort((a, b) => a.packageOnlyPrice - b.packageOnlyPrice);
+    else if (sortBy === "price-desc") matches.sort((a, b) => b.packageOnlyPrice - a.packageOnlyPrice);
     else if (sortBy === "alpha-az") matches.sort((a, b) => a.country.localeCompare(b.country));
 
     grid.innerHTML = matches.length ? matches.map(createCardHTML).join("") : `
@@ -388,40 +462,60 @@ function initRegisterFormModule() {
 
 // 9. DYNAMIC PACKAGE DETAIL TEMPLATE LOADER
 function initPackageDetailPage() {
-  const pkgId = new URLSearchParams(window.location.search).get("id");
-  const pkg = travelPackages.find(p => p.id === pkgId);
   const wrapper = document.getElementById("package-detail-wrapper");
   if (!wrapper) return;
 
-  if (!pkg) {
+  // Read the package id from the URL, for example: package.html?id=japan
+  const params = new URLSearchParams(window.location.search);
+  const packageId = params.get("id");
+  const selectedPackage = travelPackages.find(pkg => pkg.id === packageId);
+
+  // Show a clear message when the URL does not contain a valid package id.
+  if (!selectedPackage) {
     wrapper.innerHTML = `
-      <div style="text-align: center; padding: 4rem 1rem;">
-        <h2>Destination Not Found</h2>
-        <p>Could not load details for this trip. Please go back.</p>
-        <a href="catalogue.html" class="btn btn-primary" style="margin-top: 1rem;">Back to Catalogue</a>
-      </div>
+      <section class="package-not-found" aria-live="polite">
+        <h1>Destination Not Found</h1>
+        <p>The travel package you requested is unavailable. Please return to the catalogue and choose another destination.</p>
+        <a href="catalogue.html" class="btn btn-primary package-not-found-btn">Back to Packages</a>
+      </section>
     `;
+    document.title = "Package Not Found - Global Explorers";
     return;
   }
 
-  document.getElementById("package-hero-img").src = pkg.image;
-  document.getElementById("package-badge").textContent = pkg.badge;
-  document.getElementById("package-title").textContent = pkg.title;
-  document.getElementById("package-duration").textContent = `⏱ Duration: ${pkg.duration}`;
-  document.getElementById("package-rating").textContent = `⭐ Rating: ${pkg.rating} / 5.0`;
-  document.getElementById("package-region").textContent = `📍 Region: ${pkg.continent}`;
-  document.getElementById("package-overview-desc").textContent = `${pkg.description} Explore high-quality dining, cozy hotels, and amazing adventures curated carefully for you.`;
-  document.getElementById("package-sidebar-price").textContent = `$${pkg.price}`;
+  // Update the page with data from the matching travel package object.
+  document.title = `${selectedPackage.title} - Global Explorers`;
 
-  document.getElementById("package-inclusions-list").innerHTML = pkg.inclusions.map(i => `<li>${i}</li>`).join("");
-  document.getElementById("package-itinerary-list").innerHTML = pkg.itinerary.map(item => `
-    <div class="itinerary-item">
-      <div class="itinerary-day">${item.day}</div>
-      <p>${item.text}</p>
-    </div>
-  `).join("");
+  const heroImage = document.getElementById("package-hero-img");
+  heroImage.src = selectedPackage.image;
+  heroImage.alt = selectedPackage.alt;
 
-  document.getElementById("package-reserve-link").href = `register.html?pref=${pkg.id}`;
+  document.getElementById("package-badge").textContent = selectedPackage.badge;
+  document.getElementById("package-title").textContent = selectedPackage.title;
+  document.getElementById("package-duration").textContent = `⏱ ${selectedPackage.duration}`;
+  document.getElementById("package-rating").textContent = `⭐ ${selectedPackage.rating} / 5.0`;
+  document.getElementById("package-region").textContent = `📍 ${selectedPackage.country}, ${selectedPackage.continent}`;
+  document.getElementById("package-overview-desc").textContent = selectedPackage.description;
+  document.getElementById("package-only-price").textContent = `RM ${selectedPackage.packageOnlyPrice.toLocaleString()}`;
+  document.getElementById("package-flight-price").textContent = `RM ${selectedPackage.flightPrice.toLocaleString()}`;
+
+  // Build the inclusion list from the package's inclusions array.
+  document.getElementById("package-inclusions-list").innerHTML = selectedPackage.inclusions
+    .map(inclusion => `<li>${inclusion}</li>`)
+    .join("");
+
+  // Build the complete day-by-day itinerary from the itinerary array.
+  document.getElementById("package-itinerary-list").innerHTML = selectedPackage.itinerary
+    .map(item => `
+      <article class="itinerary-item">
+        <h3 class="itinerary-day">${item.day}</h3>
+        <p>${item.text}</p>
+      </article>
+    `)
+    .join("");
+
+  // Carry the selected package id into the registration page.
+  document.getElementById("package-reserve-link").href = `register.html?pref=${selectedPackage.id}`;
 }
 
 // ══════════════════════════════════════════════════════════════
@@ -435,24 +529,13 @@ function initHeroSlideshow() {
   const nextBtn = document.getElementById("slide-next");
   if (!container || !dotsContainer) return;
 
-  // ── Image sources: list your image/ folder files here ──
-  // When you add images to the image/ folder, add their filenames below.
-  // Example: "image/japan.jpg", "image/paris.jpg", etc.
-  const localImages = [];
-  // To populate automatically, add filenames like:
-  // const localImages = ["image/slide1.jpg", "image/slide2.jpg", "image/slide3.jpg"];
-
-  // Fallback Unsplash images (used when image/ folder is empty)
-  const fallbackImages = [
-    "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1400&auto=format&fit=crop",  // Japan
-    "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1400&auto=format&fit=crop",  // Paris
-    "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1400&auto=format&fit=crop",  // Egypt
-    "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?q=80&w=1400&auto=format&fit=crop",  // Australia
-    "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?q=80&w=1400&auto=format&fit=crop",  // Brazil
-    "https://images.unsplash.com/photo-1501446529957-6226bd447c46?q=80&w=1400&auto=format&fit=crop"   // Canada
+  // Use the same local package images as Catalogue and Package Detail.
+  const images = [
+    "images/packages/japan.jpg",
+    "images/packages/france.jpg",
+    "images/packages/australia.jpg",
+    "images/packages/canada.jpg"
   ];
-
-  const images = localImages.length > 0 ? localImages : fallbackImages;
   let currentSlide = 0;
   let autoplayTimer = null;
 

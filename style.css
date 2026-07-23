@@ -422,6 +422,7 @@ body.dark-mode header {
 }
 
 .package-image-container {
+  display: block;
   position: relative;
   height: 150px;
   border-radius: var(--radius-sm);
@@ -466,6 +467,12 @@ body.dark-mode header {
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.35rem;
+}
+
+.package-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .package-description {
@@ -1195,4 +1202,73 @@ main > .container:nth-child(4) {
   .footer-main {
     padding: 2rem 0 1.5rem;
   }
+}
+
+/* ===== Member 2 merged package styles ===== */
+/* Member 2: package detail page refinements */
+.package-detail-main {
+  padding-top: 1.25rem;
+}
+
+.booking-sidebar-label {
+  margin-bottom: 0.2rem;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.booking-sidebar-info {
+  margin-bottom: 1rem;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.booking-note {
+  margin: 0.7rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+}
+
+.package-not-found {
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.package-not-found p {
+  max-width: 34rem;
+  margin: 0.75rem auto 0;
+  color: var(--text-muted);
+}
+
+.package-not-found-btn {
+  margin-top: 1rem;
+}
+
+.btn-full {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.booking-price-divider {
+  border-top: 1px solid var(--border);
+  margin: 1rem 0;
+}
+
+.booking-sidebar-price-secondary {
+  font-size: 1.4rem;
+}
+
+/* ─── Member 2: Special Offers alignment ───
+   Keeps price and View Deal aligned across cards with different text lengths. */
+.special-offers .offer-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.special-offers .offer-desc {
+  flex-grow: 1;
+}
+
+.special-offers .offer-price-row {
+  margin-top: auto;
 }
