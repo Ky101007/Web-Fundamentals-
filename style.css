@@ -1307,3 +1307,24 @@ main > .container:nth-child(4) {
   fill: currentColor;
   display: block;
 }
+
+/* Catalogue controls alignment and theme fix */
+.search-box {
+  flex-grow: 1;
+  min-width: 180px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sort-select {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.sort-select option {
+  background: var(--bg-card);
+  color: var(--text);
+}
+
