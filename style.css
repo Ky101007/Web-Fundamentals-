@@ -1330,67 +1330,105 @@ main > .container:nth-child(4) {
 
 
 /* ==========================================================================
-   AUTHENTICATION ICON BUTTON (Light & Dark Mode Compatible)
+   AUTHENTICATION ICON BUTTON (Modern & High-Contrast Design)
    ========================================================================== */
 
-/* Light Mode Defaults (or root defaults) */
+/* Light Mode Styling */
 :root {
-  --auth-btn-color: #2c3e50;            /* Dark icon & border for light backgrounds */
-  --auth-btn-border: rgba(0, 0, 0, 0.25);
-  --auth-btn-hover-bg: rgba(0, 0, 0, 0.08);
+  --auth-btn-bg: #ffffff;
+  --auth-btn-color: #2563eb;
+  --auth-btn-border: transparent;
+  --auth-btn-gradient: linear-gradient(135deg, #2563eb, #7c3aed);
+  --auth-btn-hover-bg: linear-gradient(135deg, #2563eb, #7c3aed);
+  --auth-btn-hover-color: #ffffff;
+  --auth-btn-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }
 
-/* Dark Mode Overrides (Applies when .dark-theme or [data-theme="dark"] is active) */
+/* Explicit dark-theme class/attribute (JS-driven toggle) */
 body.dark-theme,
 [data-theme="dark"] {
-  --auth-btn-color: #ffffff;            /* White icon & border for dark backgrounds */
-  --auth-btn-border: rgba(255, 255, 255, 0.35);
-  --auth-btn-hover-bg: rgba(255, 255, 255, 0.15);
+  --auth-btn-bg: #0f172a;
+  --auth-btn-color: #38bdf8;
+  --auth-btn-border: transparent;
+  --auth-btn-gradient: linear-gradient(135deg, #38bdf8, #818cf8);
+  --auth-btn-hover-bg: linear-gradient(135deg, #38bdf8, #818cf8);
+  --auth-btn-hover-color: #0f172a;
+  --auth-btn-shadow: 0 4px 16px rgba(56, 189, 248, 0.35);
 }
 
-/* Header Action Layout */
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+/* Fallback: respect OS-level dark mode when no explicit theme class is set */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not(.light-theme) {
+    --auth-btn-bg: #0f172a;
+    --auth-btn-color: #38bdf8;
+    --auth-btn-border: transparent;
+    --auth-btn-gradient: linear-gradient(135deg, #38bdf8, #818cf8);
+    --auth-btn-hover-bg: linear-gradient(135deg, #38bdf8, #818cf8);
+    --auth-btn-hover-color: #0f172a;
+    --auth-btn-shadow: 0 4px 16px rgba(56, 189, 248, 0.35);
+  }
 }
 
-/* The Auth Icon Button Styling */
 .auth-icon-btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  color: var(--auth-btn-color);
-  background-color: transparent;
-  border: 1px solid var(--auth-btn-border);
+  padding: 2px;
+  background: var(--auth-btn-gradient);
+  color: var(--auth-btn-color); /* set here so currentColor works on the icon */
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.25s ease-in-out;
+  box-shadow: var(--auth-btn-shadow);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
   box-sizing: border-box;
 }
 
-/* Hover & Focus states for accessibility */
-.auth-icon-btn:hover,
-.auth-icon-btn:focus-visible {
-  background-color: var(--auth-btn-hover-bg);
-  transform: scale(1.05);
-  outline: none;
+.auth-icon-btn::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background-color: var(--auth-btn-bg);
+  border-radius: 50%;
+  transition: background-color 0.25s ease, opacity 0.25s ease;
+  z-index: 1;
 }
 
-/* Ensure the SVG fills dynamically with the text color */
 .auth-icon-btn svg {
+  position: relative;
+  z-index: 2;
   width: 20px;
   height: 20px;
-  fill: currentColor;
-  display: block;
-  transition: fill 0.25s ease-in-out;
+  fill: currentColor; /* was: var(--auth-btn-color) — currentColor is more robust if the SVG markup has no fill override */
+  color: inherit;
+  transition: fill 0.25s ease, transform 0.25s ease;
 }
 
+<<<<<<< HEAD
 
 
+=======
+<<<<<<< HEAD
+
+
+=======
+.auth-icon-btn:hover,
+.auth-icon-btn:focus-visible {
+  transform: translateY(-2px) scale(1.08);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+  outline: none;
+  color: var(--auth-btn-hover-color);
+}
+
+.auth-icon-btn:hover::before,
+.auth-icon-btn:focus-visible::before {
+  opacity: 0;
+}
+>>>>>>> 1dc4765d07aca8cb45e31ef25edcf91656fa1505
+>>>>>>> 07f0a6d99b06da87101989bdd1af8c4f14b7ffc8
 /* Catalogue package card layout fix */
 #catalogue-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1411,6 +1449,10 @@ body.dark-theme,
     grid-template-columns: 1fr;
   }
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 07f0a6d99b06da87101989bdd1af8c4f14b7ffc8
 
 
 /* ==========================================================================
@@ -1473,3 +1515,8 @@ body.dark-theme,
   background: #a93226 !important;
   border-color: #a93226 !important;
 }
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 1dc4765d07aca8cb45e31ef25edcf91656fa1505
+>>>>>>> 07f0a6d99b06da87101989bdd1af8c4f14b7ffc8
