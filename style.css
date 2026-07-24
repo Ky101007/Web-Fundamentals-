@@ -1353,39 +1353,66 @@ body.dark-theme,
   display: flex;
   align-items: center;
   gap: 0.75rem;
+}/* ==========================================================================
+   AUTHENTICATION ICON BUTTON (High Contrast Light & Dark Mode)
+   ========================================================================== */
+
+/* Light Mode Defaults */
+:root {
+  --auth-btn-bg: #f8fafc;              /* Crisp light surface */
+  --auth-btn-color: #0f172a;           /* Dark contrast icon */
+  --auth-btn-border: #3b82f6;          /* Bright primary blue border */
+  --auth-btn-hover-bg: #3b82f6;        /* Fills blue on hover */
+  --auth-btn-hover-color: #ffffff;     /* Icon turns white on hover */
+  --auth-btn-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-/* The Auth Icon Button Styling */
+/* Dark Mode Overrides */
+body.dark-theme,
+[data-theme="dark"] {
+  --auth-btn-bg: #1e293b;             /* Deep slate surface */
+  --auth-btn-color: #38bdf8;           /* Vivid sky-blue icon */
+  --auth-btn-border: #38bdf8;          /* Matching bright sky-blue border */
+  --auth-btn-hover-bg: #38bdf8;        /* Fills sky-blue on hover */
+  --auth-btn-hover-color: #0f172a;     /* Icon turns dark on hover */
+  --auth-btn-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Base Button Styling */
 .auth-icon-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   color: var(--auth-btn-color);
-  background-color: transparent;
-  border: 1px solid var(--auth-btn-border);
+  background-color: var(--auth-btn-bg);
+  border: 2px solid var(--auth-btn-border); /* Thicker, high-visibility border */
+  box-shadow: var(--auth-btn-shadow);
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.25s ease-in-out;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   box-sizing: border-box;
 }
 
-/* Hover & Focus states for accessibility */
+/* Hover & Focus Accessibility States */
 .auth-icon-btn:hover,
 .auth-icon-btn:focus-visible {
   background-color: var(--auth-btn-hover-bg);
-  transform: scale(1.05);
+  color: var(--auth-btn-hover-color);   /* Inverts color for maximum clarity */
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
   outline: none;
 }
 
-/* Ensure the SVG fills dynamically with the text color */
+/* SVG Icon Fill */
 .auth-icon-btn svg {
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
+  width: 22px;
+  height: 22px;
+  fill: currentColor;                 /* Follows parent text color automatically */
   display: block;
   transition: fill 0.25s ease-in-out;
+}
 }
 
