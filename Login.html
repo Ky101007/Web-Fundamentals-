@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Global Explorers</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">✈️ Global Explorers</a>
+      
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="catalogue.html" class="nav-link">Packages</a></li>
+          <li><a href="register.html" class="nav-link">Book Now</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- Navigation actions: Inline SVG Login Icon right next to Theme Toggle -->
+      <div class="nav-actions" style="display: flex; align-items: center; gap: 0.75rem;">
+        <div id="nav-auth-item">
+          <a href="login.html" class="auth-icon-btn" id="auth-link-btn" title="Login" aria-label="Login">
+            <!-- Inline SVG Vector matching your icon -->
+            </a>
+        </div>
+        <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle Light/Dark Theme">☀️</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+    <section class="section-title" style="margin-top: 1rem; margin-bottom: 1.5rem;">
+      <h2>Welcome Back</h2>
+      <p>Log in to manage your travel bookings and view your personal itinerary.</p>
+    </section>
+
+    <section class="form-container" style="max-width: 480px; margin: 0 auto;" aria-label="Login Form">
+      <div class="error-banner" id="login-error-banner" style="display: none;">
+        <span>⚠️</span>
+        <span id="login-error-text">Invalid username or password.</span>
+      </div>
+
+      <form id="login-form">
+        <div class="form-step active">
+          <h3 class="step-title">Account Login</h3>
+          <p class="step-subtitle">Please enter your traveler credentials to continue.</p>
+          
+          <div class="form-group">
+            <label for="login-username">Username</label>
+            <input type="text" id="login-username" class="form-control" placeholder="Enter username (e.g. admin)" required>
+          </div>
+
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" class="form-control" placeholder="•••••••• (e.g. 12345)" required>
+          </div>
+
+          <div class="form-actions single-btn" style="margin-top: 1.5rem;">
+            <button type="submit" class="btn btn-primary btn-full">Log In</button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Panel displayed if already or newly logged in -->
+      <div id="login-success-panel" class="success-screen" style="display: none;">
+        <div class="success-icon" aria-hidden="true">✓</div>
+        <h3 class="step-title">You are logged in!</h3>
+        <p class="step-subtitle" style="margin-bottom: 1.5rem;">You now have full access to book packages and post reviews.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center;">
+          <a href="catalogue.html" class="btn btn-primary">Browse Packages</a>
+          <button id="panel-logout-btn" class="btn btn-secondary" style="background: #e74c3c; color: white; border: none;">Log Out</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="padding: 0;">
+      <p>&copy; 2026 Global Explorers Travel Agency. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const loginForm = document.getElementById("login-form");
+      const errorBanner = document.getElementById("login-error-banner");
+      const errorText = document.getElementById("login-error-text");
+      const successPanel = document.getElementById("login-success-panel");
+      const panelLogoutBtn = document.getElementById("panel-logout-btn");
+
+      // Sync state on page load
+      if (localStorage.getItem("isLoggedIn") === "true") {
+        if (loginForm) loginForm.style.display = "none";
+        if (successPanel) successPanel.style.display = "block";
+      }
+
+      if (loginForm) {
+        loginForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const usernameInput = document.getElementById("login-username").value.trim();
+          const passwordInput = document.getElementById("login-password").value.trim();
+
+          if (usernameInput === "admin" && passwordInput === "12345") {
+            localStorage.setItem("isLoggedIn", "true");
+            errorBanner.style.display = "none";
+            loginForm.style.display = "none";
+            successPanel.style.display = "block";
+            if (typeof updateAuthNav === "function") updateAuthNav();
+          } else {
+            errorText.textContent = "Invalid username or password. Please try again.";
+            errorBanner.style.display = "flex";
+          }
+        });
+      }
+
+      if (panelLogoutBtn) {
+        panelLogoutBtn.addEventListener("click", () => {
+          localStorage.setItem("isLoggedIn", "false");
+          alert("Logged out successfully.");
+          window.location.reload();
+        });
+      }
+    });
+  </script>
+</body>
+</html>
