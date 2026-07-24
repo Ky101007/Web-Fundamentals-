@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
-
 /* ============================================
    GLOBAL EXPLORERS — Warm Minimal Design
    CSS by Yip Sheng Choon (26012880)
@@ -33,8 +31,8 @@
   --radius-sm:    6px;
 
   /* Typography */
-  --font-body:    'Plus Jakarta Sans', -apple-system, sans-serif;
-  --font-head:    'Playfair Display', Georgia, serif;
+  --font-body:    Arial, Helvetica, sans-serif;
+  --font-head:    Georgia, 'Times New Roman', serif;
 
   /* Layout */
   --header-h:     64px;
@@ -1272,86 +1270,206 @@ main > .container:nth-child(4) {
 .special-offers .offer-price-row {
   margin-top: auto;
 }
-:root {
-  --auth-btn-bg: #000000;              /* Black in light mode */
-  --auth-btn-color: #2563eb;
-  --auth-btn-border: transparent;
-  --auth-btn-gradient: linear-gradient(135deg, #2563eb, #7c3aed);
-  --auth-btn-hover-bg: linear-gradient(135deg, #2563eb, #7c3aed);
-  --auth-btn-hover-color: #ffffff;
-  --auth-btn-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+
+
+/* login*/
+/* Styling for header action container */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
-body.dark-theme,
-[data-theme="dark"] {
-  --auth-btn-bg: #ffffff;              /* White in dark mode */
-  --auth-btn-color: #38bdf8;
-  --auth-btn-border: transparent;
-  --auth-btn-gradient: linear-gradient(135deg, #38bdf8, #818cf8);
-  --auth-btn-hover-bg: linear-gradient(135deg, #38bdf8, #818cf8);
-  --auth-btn-hover-color: #0f172a;
-  --auth-btn-shadow: 0 4px 16px rgba(56, 189, 248, 0.35);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]):not(.light-theme) {
-    --auth-btn-bg: #ffffff;
-    --auth-btn-color: #38bdf8;
-    --auth-btn-border: transparent;
-    --auth-btn-gradient: linear-gradient(135deg, #38bdf8, #818cf8);
-    --auth-btn-hover-bg: linear-gradient(135deg, #38bdf8, #818cf8);
-    --auth-btn-hover-color: #0f172a;
-    --auth-btn-shadow: 0 4px 16px rgba(56, 189, 248, 0.35);
-  }
-}
-
+/* Ensure the SVG icon button is visible and sized correctly */
 .auth-icon-btn {
-  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  padding: 2px;
-  background: var(--auth-btn-gradient);
-  color: var(--auth-btn-color);
+  color: #ffffff; /* White icon color for dark header */
+  background: transparent;
+  border: 1px solid currentColor;
   text-decoration: none;
   cursor: pointer;
-  box-shadow: var(--auth-btn-shadow);
-  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
-  box-sizing: border-box;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.auth-icon-btn::before {
-  content: "";
-  position: absolute;
-  inset: 2px;
-  background-color: var(--auth-btn-bg);
-  border-radius: 50%;
-  transition: background-color 0.25s ease, opacity 0.25s ease;
-  z-index: 1;
+.auth-icon-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
 }
 
 .auth-icon-btn svg {
-  position: relative;
-  z-index: 2;
   width: 20px;
   height: 20px;
   fill: currentColor;
-  color: inherit;
-  transition: fill 0.25s ease, transform 0.25s ease;
+  display: block;
+}
+
+/* Catalogue controls alignment and theme fix */
+.search-box {
+  flex-grow: 1;
+  min-width: 180px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sort-select {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.sort-select option {
+  background: var(--bg-card);
+  color: var(--text);
+}
+
+
+/* ==========================================================================
+   AUTHENTICATION ICON BUTTON (Light & Dark Mode Compatible)
+   ========================================================================== */
+
+/* Light Mode Defaults (or root defaults) */
+:root {
+  --auth-btn-color: #2c3e50;            /* Dark icon & border for light backgrounds */
+  --auth-btn-border: rgba(0, 0, 0, 0.25);
+  --auth-btn-hover-bg: rgba(0, 0, 0, 0.08);
+}
+
+/* Dark Mode Overrides (Applies when .dark-theme or [data-theme="dark"] is active) */
+body.dark-theme,
+[data-theme="dark"] {
+  --auth-btn-color: #ffffff;            /* White icon & border for dark backgrounds */
+  --auth-btn-border: rgba(255, 255, 255, 0.35);
+  --auth-btn-hover-bg: rgba(255, 255, 255, 0.15);
+}
+
+/* Header Action Layout */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* The Auth Icon Button Styling */
+.auth-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: var(--auth-btn-color);
+  background-color: transparent;
+  border: 1px solid var(--auth-btn-border);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  box-sizing: border-box;
+}
+
+/* Hover & Focus states for accessibility */
+.auth-icon-btn:hover,
+.auth-icon-btn:focus-visible {
+  background-color: var(--auth-btn-hover-bg);
+  transform: scale(1.05);
+  outline: none;
+}
+
+/* Ensure the SVG fills dynamically with the text color */
+.auth-icon-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  display: block;
+  transition: fill 0.25s ease-in-out;
+}
+
+
+
+/* Catalogue package card layout fix */
+#catalogue-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+#catalogue-grid .package-image-container {
+  height: 150px;
+}
+
+@media (max-width: 900px) {
+  #catalogue-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  #catalogue-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ==========================================================================
+   AUTH BUTTON - CLEAR LOGIN / LOG OUT PILL
+   ========================================================================== */
+.auth-icon-btn {
+  width: auto;
+  min-width: 92px;
+  height: 40px;
+  padding: 0 14px;
+  gap: 7px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.auth-icon-btn svg {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
 }
 
 .auth-icon-btn:hover,
 .auth-icon-btn:focus-visible {
-  transform: translateY(-2px) scale(1.08);
-  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
-  outline: none;
-  color: var(--auth-btn-hover-color);
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  transform: translateY(-1px);
 }
 
-.auth-icon-btn:hover::before,
-.auth-icon-btn:focus-visible::before {
-  opacity: 0;
+.auth-icon-btn.logout-state {
+  color: #c0392b;
+  border-color: rgba(192, 57, 43, 0.45);
+}
+
+.auth-icon-btn.logout-state:hover,
+.auth-icon-btn.logout-state:focus-visible {
+  background: #c0392b;
+  color: #ffffff;
+  border-color: #c0392b;
+}
+
+/* Login page success-panel Log Out button */
+#panel-logout-btn {
+  background: #c0392b !important;
+  color: #ffffff !important;
+  border: 1px solid #c0392b !important;
+  border-radius: 8px;
+  padding: 0.7rem 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#panel-logout-btn:hover {
+  background: #a93226 !important;
+  border-color: #a93226 !important;
 }
