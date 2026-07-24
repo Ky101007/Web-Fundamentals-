@@ -405,38 +405,11 @@ function initRegisterFormModule() {
 
   let current = 0;
 
-  // Update the return-flight choices with prices from the selected package.
-  const tripSelect = document.getElementById("trip-pref");
-  const flightSelect = document.getElementById("return-flight");
-
-  const updateFlightPrices = () => {
-    if (!tripSelect || !flightSelect) return;
-
-    const selectedPackage = travelPackages.find(pkg => pkg.id === tripSelect.value);
-    const withoutReturn = flightSelect.querySelector('option[value="without-return"]');
-    const withReturn = flightSelect.querySelector('option[value="with-return"]');
-
-    if (selectedPackage) {
-      withoutReturn.textContent = "Without Return Flight — RM " + selectedPackage.packageOnlyPrice.toLocaleString();
-      withReturn.textContent = "With Return Flight — RM " + selectedPackage.flightPrice.toLocaleString();
-    } else {
-      withoutReturn.textContent = "Without Return Flight";
-      withReturn.textContent = "With Return Flight";
-    }
-  };
-
-  if (tripSelect) {
-    tripSelect.addEventListener("change", updateFlightPrices);
-  }
-
   // Auto pre-select preference from URL parameters
   const pref = new URLSearchParams(window.location.search).get("pref");
   if (pref) {
     const select = document.getElementById("trip-pref");
-    if (select) {
-      select.value = pref;
-      updateFlightPrices();
-    }
+    if (select) select.value = pref;
   }
 
   const showStep = (idx) => {
@@ -451,17 +424,6 @@ function initRegisterFormModule() {
       document.getElementById("summary-address").textContent = document.getElementById("address").value;
       const select = document.getElementById("trip-pref");
       document.getElementById("summary-trip").textContent = select.options[select.selectedIndex].text;
-      const flightSelect = document.getElementById("return-flight");
-      document.getElementById("summary-flight").textContent = flightSelect.options[flightSelect.selectedIndex].text;
-
-      const selectedPackage = travelPackages.find(pkg => pkg.id === select.value);
-      if (selectedPackage) {
-        const selectedPrice = flightSelect.value === "with-return"
-          ? selectedPackage.flightPrice
-          : selectedPackage.packageOnlyPrice;
-        document.getElementById("summary-price").textContent = "RM " + selectedPrice.toLocaleString();
-      }
-
       document.getElementById("summary-ref-code").textContent = "TRV-" + Math.floor(100000 + Math.random() * 900000);
     }
   };
@@ -479,9 +441,8 @@ function initRegisterFormModule() {
     } else if (idx === 1) {
       const a = document.getElementById("address").value.trim();
       const t = document.getElementById("trip-pref").value;
-      const f = document.getElementById("return-flight").value;
-      if (!a || !t || !f) {
-        errorText.textContent = "Please provide your mailing address, select a package, and choose a return flight option.";
+      if (!a || !t) {
+        errorText.textContent = "Please provide your mailing address and select a package.";
         errorBanner.style.display = "flex";
         return false;
       }
@@ -572,12 +533,8 @@ function initHeroSlideshow() {
   const images = [
     "images/packages/japan.jpg",
     "images/packages/france.jpg",
-    "images/packages/italy.jpg",
-    "images/packages/egypt.jpg",
     "images/packages/australia.jpg",
-    "images/packages/usa.jpg",
-    "images/packages/canada.jpg",
-    "images/packages/brazil.jpg"
+    "images/packages/canada.jpg"
   ];
   let currentSlide = 0;
   let autoplayTimer = null;
@@ -729,44 +686,66 @@ function initReviewsCarousel() {
   resetAuto();
 }
 
-
-// Clear authentication control shown on every page.
 function updateAuthNav() {
-  const authBtn = document.getElementById("auth-link-btn");
-  if (!authBtn) return;
+  const authContainer = document.getElementById("nav-auth-item");
+  if (!authContainer) return;
 
-  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-
-  if (isLoggedIn) {
-    authBtn.href = "#";
-    authBtn.title = "Log Out";
-    authBtn.setAttribute("aria-label", "Log Out");
-    authBtn.classList.add("logout-state");
-    authBtn.innerHTML = `
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M16 13v-2H7V8l-5 4 5 4v-3h9zm3-10H9c-1.1 0-2 .9-2 2v4h2V5h10v14H9v-4H7v4c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
-      </svg>
-      <span>Log Out</span>
-    `;
-
-    authBtn.onclick = function (event) {
-      event.preventDefault();
-      localStorage.setItem("isLoggedIn", "false");
-      window.location.href = "Login.html";
-    };
+  if (localStorage.getItem("isLoggedIn") === "true") {
+    authContainer.innerHTML = `<a href="#" id="logout-btn" class="btn-auth-small btn-auth-logout">Logout</a>`;
+    
+    const logoutBtn = document.getElementById("logout-btn");
+    if (logoutBtn) {
+      logoutBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        localStorage.setItem("isLoggedIn", "false");
+        alert("You have logged out successfully.");
+        window.location.reload();
+      });
+    }
   } else {
-    authBtn.href = "Login.html";
-    authBtn.title = "Login";
-    authBtn.setAttribute("aria-label", "Login");
-    authBtn.classList.remove("logout-state");
-    authBtn.innerHTML = `
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
-      </svg>
-      <span>Login</span>
-    `;
-    authBtn.onclick = null;
+    authContainer.innerHTML = `<a href="login.html" class="btn-auth-small btn-auth-login">Login</a>`;
   }
 }
 
-document.addEventListener("DOMContentLoaded", updateAuthNav);
+document.addEventListener("DOMContentLoaded", () => {
+  updateAuthNav();
+});
+
+
+function updateAuthNav() {
+  const authContainer = document.getElementById("nav-auth-item");
+  if (!authContainer) return;
+
+  if (localStorage.getItem("isLoggedIn") === "true") {
+    // Logout SVG Icon (Arrow pointing out of door)
+    authContainer.innerHTML = `
+      <a href="#" id="logout-btn" class="auth-icon-btn" title="Logout" aria-label="Logout" style="color: #e74c3c;">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59z" transform="rotate(180 12 12)"/>
+          <path d="M19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+        </svg>
+      </a>
+    `;
+    
+    const logoutBtn = document.getElementById("logout-btn");
+    if (logoutBtn) {
+      logoutBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        localStorage.setItem("isLoggedIn", "false");
+        alert("You have logged out successfully.");
+        window.location.reload();
+      });
+    }
+  } else {
+    // Login SVG Icon (Arrow pointing into door)
+    authContainer.innerHTML = `
+      <a href="login.html" class="auth-icon-btn" title="Login" aria-label="Login">
+        
+      </a>
+    `;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  updateAuthNav();
+});

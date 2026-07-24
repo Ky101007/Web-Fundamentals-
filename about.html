@@ -31,18 +31,11 @@
         </ul>
       </nav>
 
-      <!-- Navigation actions: SVG Login/Logout Icon right next to Theme Toggle -->
-      <div class="nav-actions" style="display: flex; align-items: center; gap: 0.75rem;">
-        <div id="nav-auth-item">
-          <a href="login.html" class="auth-icon-btn" id="auth-link-btn" title="Login" aria-label="Login">
-            <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px; fill: currentColor; display: block;">
-              <path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
-            </svg>
-          </a>
-        </div>
-        <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle Light/Dark Theme">🌙</button>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle Light/Dark Theme">
+          🌙
+        </button>
       </div>
-
     </div>
   </header>
 
@@ -77,6 +70,13 @@
           <h3 class="team-name">Sarah Connor</h3>
           <p class="team-role">Lead Adventure Planner</p>
           <p class="team-bio">Specialist in wilderness trekking and tropical getaways with over 10 years of worldwide guiding experience.</p>
+          <!--
+            target="_blank" opens the PDF in a new browser tab using the
+            browser's built-in PDF viewer. rel="noopener noreferrer" is a
+            security best practice any time target="_blank" is used - it
+            stops the new tab from being able to access/control this page.
+            No JavaScript needed: the browser handles opening + downloading.
+          -->
           <button type="button" class="btn" onclick="window.open('resumes/sarah-connor.pdf', '_blank', 'noopener,noreferrer')">More details</button>
         </article>
 
@@ -86,7 +86,7 @@
           <h3 class="team-name">David Miller</h3>
           <p class="team-role">European Specialist</p>
           <p class="team-bio">A fine dining enthusiast who handles historic museum schedules, boutique hotel stays, and romantic itineraries.</p>
-          <button type="button" class="btn" onclick="window.open('resumes/david-miller.pdf', '_blank', 'noopener,noreferrer')">More details</button>
+          <button type="button" class="btn" onclick="window.open('resumes/amina-youssef.pdf', '_blank', 'noopener,noreferrer')">More details</button>
         </article>
 
         <!-- Team Member 3 -->
@@ -95,7 +95,7 @@
           <h3 class="team-name">Amina Youssef</h3>
           <p class="team-role">Middle-East & African Specialist</p>
           <p class="team-bio">Passionate archeology guide who coordinates historic pyramid explorations and beautiful Nile River cruises.</p>
-          <button type="button" class="btn" onclick="window.open('resumes/amina-youssef.pdf', '_blank', 'noopener,noreferrer')">More details</button>
+          <button type="button" class="btn" onclick="window.open('resumes/david-miller.pdf', '_blank', 'noopener,noreferrer')">More details</button>
         </article>
 
         <!-- Team Member 4 -->
@@ -133,6 +133,7 @@
               <div class="form-group">
                 <label style="margin-bottom: 0.25rem; display: block;">Star Rating</label>
                 <div class="star-rating">
+                  <!-- Inputs reversed in DOM for easier CSS selection hover chain -->
                   <input type="radio" id="star5" name="rating" value="5" required><label for="star5" title="5 stars">★</label>
                   <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 stars">★</label>
                   <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 stars">★</label>
@@ -159,8 +160,9 @@
           <!-- RIGHT: REVIEWS LIST -->
           <div class="review-list-box">
             <h3>Latest Traveler Stories</h3>
+            <!-- Submitted reviews will render dynamically here -->
             <div class="reviews-list-wrapper" id="reviews-list">
-              <!-- Submitted reviews will render dynamically here -->
+              <!-- Placeholder items will load from JS local state -->
             </div>
           </div>
 
