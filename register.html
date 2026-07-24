@@ -130,14 +130,24 @@
             <label for="trip-pref">Which Vacation Country is Calling?</label>
             <select id="trip-pref" class="form-control">
               <option value="" disabled selected>-- Select Your Dream Escape --</option>
-              <option value="japan">Japan - Scenic Wonders of Japan ($1499)</option>
-              <option value="france">France - Romantic Paris & Riviera ($1899)</option>
-              <option value="italy">Italy - Classic Italian Escape ($1650)</option>
-              <option value="egypt">Egypt - Ancient Pyramids & Nile Cruise ($1199)</option>
-              <option value="australia">Australia - Great Reef & Sydney Highlights ($2199)</option>
-              <option value="brazil">Brazil - Vibrant Rio & Rainforest ($1350)</option>
-              <option value="usa">USA - New York & Grand Canyon Epic ($1799)</option>
-              <option value="canada">Canada - Majestic Rockies & Lakes ($1590)</option>
+              <option value="japan">Japan - 7D6N Japan Golden Route + Disneyland (RM 5,499)</option>
+              <option value="france">France - 8D7N Paris & Provence Escape (RM 7,499)</option>
+              <option value="italy">Italy - 9D8N Classic Italy Journey (RM 7,299)</option>
+              <option value="egypt">Egypt - 7D6N Cairo & Luxor (RM 5,999)</option>
+              <option value="australia">Australia - 10D9N Australian City & Coast (RM 6,999)</option>
+              <option value="brazil">Brazil - 7D6N Rio & Nature Escape (RM 6,499)</option>
+              <option value="usa">USA - 8D7N California Highlights (RM 7,499)</option>
+              <option value="canada">Canada - 8D7N Canadian Rockies Adventure (RM 7,299)</option>
+            </select>
+          </div>
+
+          <!-- Return Flight Selection -->
+          <div class="form-group">
+            <label for="return-flight">Return Flight Option</label>
+            <select id="return-flight" class="form-control">
+              <option value="" disabled selected>-- Select Return Flight Option --</option>
+              <option value="with-return">With Return Flight</option>
+              <option value="without-return">Without Return Flight</option>
             </select>
           </div>
 
@@ -183,6 +193,18 @@
               <div class="success-detail-row">
                 <span class="success-label">Selected Destination:</span>
                 <span class="success-val" id="summary-trip" style="color: var(--accent-primary); font-weight: 700;">N/A</span>
+              </div>
+
+              <!-- Return flight choice -->
+              <div class="success-detail-row">
+                <span class="success-label">Return Flight:</span>
+                <span class="success-val" id="summary-flight">N/A</span>
+              </div>
+
+              <!-- Total package price -->
+              <div class="success-detail-row">
+                <span class="success-label">Total Package Price:</span>
+                <span class="success-val" id="summary-price">N/A</span>
               </div>
 
               <!-- Confirmation code -->

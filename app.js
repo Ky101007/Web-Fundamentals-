@@ -405,11 +405,38 @@ function initRegisterFormModule() {
 
   let current = 0;
 
+  // Update the return-flight choices with prices from the selected package.
+  const tripSelect = document.getElementById("trip-pref");
+  const flightSelect = document.getElementById("return-flight");
+
+  const updateFlightPrices = () => {
+    if (!tripSelect || !flightSelect) return;
+
+    const selectedPackage = travelPackages.find(pkg => pkg.id === tripSelect.value);
+    const withoutReturn = flightSelect.querySelector('option[value="without-return"]');
+    const withReturn = flightSelect.querySelector('option[value="with-return"]');
+
+    if (selectedPackage) {
+      withoutReturn.textContent = "Without Return Flight — RM " + selectedPackage.packageOnlyPrice.toLocaleString();
+      withReturn.textContent = "With Return Flight — RM " + selectedPackage.flightPrice.toLocaleString();
+    } else {
+      withoutReturn.textContent = "Without Return Flight";
+      withReturn.textContent = "With Return Flight";
+    }
+  };
+
+  if (tripSelect) {
+    tripSelect.addEventListener("change", updateFlightPrices);
+  }
+
   // Auto pre-select preference from URL parameters
   const pref = new URLSearchParams(window.location.search).get("pref");
   if (pref) {
     const select = document.getElementById("trip-pref");
-    if (select) select.value = pref;
+    if (select) {
+      select.value = pref;
+      updateFlightPrices();
+    }
   }
 
   const showStep = (idx) => {
@@ -424,6 +451,17 @@ function initRegisterFormModule() {
       document.getElementById("summary-address").textContent = document.getElementById("address").value;
       const select = document.getElementById("trip-pref");
       document.getElementById("summary-trip").textContent = select.options[select.selectedIndex].text;
+      const flightSelect = document.getElementById("return-flight");
+      document.getElementById("summary-flight").textContent = flightSelect.options[flightSelect.selectedIndex].text;
+
+      const selectedPackage = travelPackages.find(pkg => pkg.id === select.value);
+      if (selectedPackage) {
+        const selectedPrice = flightSelect.value === "with-return"
+          ? selectedPackage.flightPrice
+          : selectedPackage.packageOnlyPrice;
+        document.getElementById("summary-price").textContent = "RM " + selectedPrice.toLocaleString();
+      }
+
       document.getElementById("summary-ref-code").textContent = "TRV-" + Math.floor(100000 + Math.random() * 900000);
     }
   };
@@ -441,8 +479,9 @@ function initRegisterFormModule() {
     } else if (idx === 1) {
       const a = document.getElementById("address").value.trim();
       const t = document.getElementById("trip-pref").value;
-      if (!a || !t) {
-        errorText.textContent = "Please provide your mailing address and select a package.";
+      const f = document.getElementById("return-flight").value;
+      if (!a || !t || !f) {
+        errorText.textContent = "Please provide your mailing address, select a package, and choose a return flight option.";
         errorBanner.style.display = "flex";
         return false;
       }
