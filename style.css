@@ -1336,27 +1336,39 @@ main > .container:nth-child(4) {
 /* Light Mode Styling */
 :root {
   --auth-btn-bg: #ffffff;
-  --auth-btn-color: #2563eb;           /* Deep Electric Blue */
+  --auth-btn-color: #2563eb;
   --auth-btn-border: transparent;
-  --auth-btn-gradient: linear-gradient(135deg, #2563eb, #7c3aed); /* Blue to Purple Gradient */
+  --auth-btn-gradient: linear-gradient(135deg, #2563eb, #7c3aed);
   --auth-btn-hover-bg: linear-gradient(135deg, #2563eb, #7c3aed);
   --auth-btn-hover-color: #ffffff;
   --auth-btn-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }
 
-/* Dark Mode Styling */
+/* Explicit dark-theme class/attribute (JS-driven toggle) */
 body.dark-theme,
 [data-theme="dark"] {
-  --auth-btn-bg: #0f172a;              /* Rich Obsidian Dark */
-  --auth-btn-color: #38bdf8;           /* Cyan/Sky Blue Highlight */
+  --auth-btn-bg: #0f172a;
+  --auth-btn-color: #38bdf8;
   --auth-btn-border: transparent;
-  --auth-btn-gradient: linear-gradient(135deg, #38bdf8, #818cf8); /* Cyan to Indigo Gradient */
+  --auth-btn-gradient: linear-gradient(135deg, #38bdf8, #818cf8);
   --auth-btn-hover-bg: linear-gradient(135deg, #38bdf8, #818cf8);
   --auth-btn-hover-color: #0f172a;
   --auth-btn-shadow: 0 4px 16px rgba(56, 189, 248, 0.35);
 }
 
-/* Gradient Outer Ring Container */
+/* Fallback: respect OS-level dark mode when no explicit theme class is set */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not(.light-theme) {
+    --auth-btn-bg: #0f172a;
+    --auth-btn-color: #38bdf8;
+    --auth-btn-border: transparent;
+    --auth-btn-gradient: linear-gradient(135deg, #38bdf8, #818cf8);
+    --auth-btn-hover-bg: linear-gradient(135deg, #38bdf8, #818cf8);
+    --auth-btn-hover-color: #0f172a;
+    --auth-btn-shadow: 0 4px 16px rgba(56, 189, 248, 0.35);
+  }
+}
+
 .auth-icon-btn {
   position: relative;
   display: inline-flex;
@@ -1365,8 +1377,9 @@ body.dark-theme,
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  padding: 2px; /* Controls border gradient thickness */
+  padding: 2px;
   background: var(--auth-btn-gradient);
+  color: var(--auth-btn-color); /* set here so currentColor works on the icon */
   text-decoration: none;
   cursor: pointer;
   box-shadow: var(--auth-btn-shadow);
@@ -1374,7 +1387,6 @@ body.dark-theme,
   box-sizing: border-box;
 }
 
-/* Inner Button Circle */
 .auth-icon-btn::before {
   content: "";
   position: absolute;
@@ -1385,35 +1397,27 @@ body.dark-theme,
   z-index: 1;
 }
 
-/* Icon Styling */
 .auth-icon-btn svg {
   position: relative;
   z-index: 2;
   width: 20px;
   height: 20px;
-  fill: var(--auth-btn-color);
+  fill: currentColor; /* was: var(--auth-btn-color) — currentColor is more robust if the SVG markup has no fill override */
+  color: inherit;
   transition: fill 0.25s ease, transform 0.25s ease;
 }
 
-/* Hover & Focus Interactions */
 .auth-icon-btn:hover,
 .auth-icon-btn:focus-visible {
   transform: translateY(-2px) scale(1.08);
   box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
   outline: none;
+  color: var(--auth-btn-hover-color);
 }
 
-/* Hover effect: Fade out inner background to reveal full gradient */
 .auth-icon-btn:hover::before,
 .auth-icon-btn:focus-visible::before {
   opacity: 0;
-}
-
-/* Icon color change on hover */
-.auth-icon-btn:hover svg,
-.auth-icon-btn:focus-visible svg {
-  fill: var(--auth-btn-hover-color);
-  transform: translateX(1px); /* Subtle forward push */
 }
 /* Catalogue package card layout fix */
 #catalogue-grid {
