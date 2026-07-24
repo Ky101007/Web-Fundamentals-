@@ -27,6 +27,8 @@
       opacity: 0;
       transition: opacity 1.2s ease-in-out;
       z-index: 0;
+      overflow: hidden;
+      background: #111;
     }
 
     .slide.active {
@@ -38,8 +40,14 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
       display: block;
     }
+
+    /* Keep the strongest part of portrait-oriented destination photos in view. */
+    .slide:nth-child(3) img { object-position: center 42%; }
+    .slide:nth-child(4) img { object-position: center 45%; }
+    .slide:nth-child(5) img { object-position: center 42%; }
 
     .slide-overlay {
       position: absolute;
@@ -604,7 +612,9 @@
   </style>
 
   <!-- Core Logic Script: Manages dynamic features (Defer ensures it runs after DOM is ready) -->
-  <script src="app.js" defer></script>
+  <script src="JavaScript/app.js" defer></script>
+  <script src="JavaScript/reviews.js" defer></script>
+  <script src="JavaScript/index.js" defer></script>
 </head>
 <body>
 
@@ -827,109 +837,7 @@
 
 
     <!-- ════════════════════════════════════════════
-         8. OUR TRAVEL SPECIALISTS
-         ════════════════════════════════════════════ -->
-    <section class="container section-spaced" aria-label="Our Team Members">
-      <div class="section-title">
-        <h2>Our Travel Specialists</h2>
-        <p>Get to know our professional agents dedicated to designing your perfect dream vacation.</p>
-      </div>
-      
-      <div class="team-grid">
-        <article class="team-card">
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" alt="Sarah Connor" class="team-avatar" referrerPolicy="no-referrer">
-          <h3 class="team-name">Sarah Connor</h3>
-          <p class="team-role">Lead Adventure Planner</p>
-          <p class="team-bio">Specialist in wilderness trekking and tropical getaways with over 10 years of worldwide guiding experience.</p>
-        </article>
-
-        <article class="team-card">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="David Miller" class="team-avatar" referrerPolicy="no-referrer">
-          <h3 class="team-name">David Miller</h3>
-          <p class="team-role">European Specialist</p>
-          <p class="team-bio">A fine dining enthusiast who handles historic museum schedules, boutique hotel stays, and romantic itineraries.</p>
-        </article>
-
-        <article class="team-card">
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" alt="Amina Youssef" class="team-avatar" referrerPolicy="no-referrer">
-          <h3 class="team-name">Amina Youssef</h3>
-          <p class="team-role">Middle-East & African Specialist</p>
-          <p class="team-bio">Passionate archeology guide who coordinates historic pyramid explorations and beautiful Nile River cruises.</p>
-        </article>
-
-        <article class="team-card">
-          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop" alt="James Carter" class="team-avatar" referrerPolicy="no-referrer">
-          <h3 class="team-name">James Carter</h3>
-          <p class="team-role">Oceania & Cruise Specialist</p>
-          <p class="team-bio">Specializes in marine exploration and barrier reef scuba bookings. Loves finding ocean views.</p>
-        </article>
-      </div>
-    </section>
-
-
-    <!-- ════════════════════════════════════════════
-         9. BLOGS — Travel Tips and Advice
-         ════════════════════════════════════════════ -->
-    <section class="container section-spaced" aria-label="Travel Blog">
-      <div class="section-title">
-        <h2>Blogs — Travel Tips & Advice</h2>
-        <p>Expert insights, packing guides, and destination tips to help you travel smarter.</p>
-      </div>
-
-      <div class="blog-grid">
-        <!-- Blog 1 -->
-        <article class="blog-card">
-          <div class="blog-card-image">
-            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=500&auto=format&fit=crop" alt="Travel packing essentials" loading="lazy" referrerPolicy="no-referrer">
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-card-meta">
-              <span class="blog-card-tag">Tips</span>
-              <span>July 10, 2026</span>
-            </div>
-            <h3>10 Packing Hacks Every Traveler Should Know</h3>
-            <p>From rolling clothes to packing cubes, these simple hacks will save you space and stress on your next trip.</p>
-            <a href="#" class="blog-card-link">Read More →</a>
-          </div>
-        </article>
-
-        <!-- Blog 2 -->
-        <article class="blog-card">
-          <div class="blog-card-image">
-            <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=500&auto=format&fit=crop" alt="Budget travel guide" loading="lazy" referrerPolicy="no-referrer">
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-card-meta">
-              <span class="blog-card-tag">Guide</span>
-              <span>June 28, 2026</span>
-            </div>
-            <h3>How to Travel the World on a Budget in 2026</h3>
-            <p>Affordable destinations, flight deals, and money-saving strategies for the budget-conscious explorer.</p>
-            <a href="#" class="blog-card-link">Read More →</a>
-          </div>
-        </article>
-
-        <!-- Blog 3 -->
-        <article class="blog-card">
-          <div class="blog-card-image">
-            <img src="https://images.unsplash.com/photo-1504150558240-0b4fd8946624?q=80&w=500&auto=format&fit=crop" alt="Solo travel safety tips" loading="lazy" referrerPolicy="no-referrer">
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-card-meta">
-              <span class="blog-card-tag">Safety</span>
-              <span>June 15, 2026</span>
-            </div>
-            <h3>Solo Travel Safety: Your Complete Guide</h3>
-            <p>Essential safety tips, tech tools, and confidence-building advice for solo adventurers worldwide.</p>
-            <a href="#" class="blog-card-link">Read More →</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-
-    <!-- ════════════════════════════════════════════
-         10. INTERACTIVE GUEST REVIEWS MODULE
+         8. INTERACTIVE GUEST REVIEWS MODULE
          ════════════════════════════════════════════ -->
     <section class="container section-spaced" aria-label="Write a Review">
       <div class="section-title">

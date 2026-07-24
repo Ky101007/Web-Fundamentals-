@@ -805,6 +805,52 @@ body.dark-mode header {
   color: #fff;
 }
 
+
+/* Booking progress labels sit clearly above the progress circles. */
+.steps-indicator {
+  padding-top: 1.6rem;
+}
+
+.step-node {
+  margin-top: 0.85rem;
+  font-size: 0;
+}
+
+.step-node::before {
+  content: attr(data-step);
+  position: absolute;
+  bottom: calc(100% + 7px);
+  left: 0;
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.step-node-label {
+  position: absolute;
+  bottom: calc(100% + 7px);
+  left: 14px;
+  margin-left: 0.45rem;
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.step-node:last-child::before {
+  left: auto;
+  right: 14px;
+}
+
+.step-node:last-child .step-node-label {
+  left: auto;
+  right: 0;
+  margin-left: 0;
+}
+
 .form-step { display: none; }
 .form-step.active { display: block; }
 
@@ -1427,7 +1473,7 @@ body.dark-theme,
   font-size: 0.9rem;
   font-weight: 700;
   line-height: 1;
-  background: var(--surface);
+  background: var(--bg-card);
   color: var(--text);
   border: 1px solid var(--border);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -1441,9 +1487,9 @@ body.dark-theme,
 
 .auth-icon-btn:hover,
 .auth-icon-btn:focus-visible {
-  background: var(--primary);
+  background: var(--accent);
   color: #ffffff;
-  border-color: var(--primary);
+  border-color: var(--accent);
   transform: translateY(-1px);
 }
 
