@@ -66,6 +66,10 @@
           <div class="form-actions single-btn" style="margin-top: 1.5rem;">
             <button type="submit" class="btn btn-primary btn-full">Log In</button>
           </div>
+
+          <p style="text-align: center; margin-top: 1.25rem; color: var(--text-muted);">
+            Don't have an account? <a href="signup.html" style="color: var(--accent); font-weight: 600;">Register here</a>
+          </p>
         </div>
       </form>
 
@@ -88,47 +92,5 @@
     </div>
   </footer>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const loginForm = document.getElementById("login-form");
-      const errorBanner = document.getElementById("login-error-banner");
-      const errorText = document.getElementById("login-error-text");
-      const successPanel = document.getElementById("login-success-panel");
-      const panelLogoutBtn = document.getElementById("panel-logout-btn");
-
-      // Sync state on page load
-      if (localStorage.getItem("isLoggedIn") === "true") {
-        if (loginForm) loginForm.style.display = "none";
-        if (successPanel) successPanel.style.display = "block";
-      }
-
-      if (loginForm) {
-        loginForm.addEventListener("submit", (e) => {
-          e.preventDefault();
-          const usernameInput = document.getElementById("login-username").value.trim();
-          const passwordInput = document.getElementById("login-password").value.trim();
-
-          if (usernameInput === "admin" && passwordInput === "12345") {
-            localStorage.setItem("isLoggedIn", "true");
-            errorBanner.style.display = "none";
-            loginForm.style.display = "none";
-            successPanel.style.display = "block";
-            if (typeof updateAuthNav === "function") updateAuthNav();
-          } else {
-            errorText.textContent = "Invalid username or password. Please try again.";
-            errorBanner.style.display = "flex";
-          }
-        });
-      }
-
-      if (panelLogoutBtn) {
-        panelLogoutBtn.addEventListener("click", () => {
-          localStorage.setItem("isLoggedIn", "false");
-          alert("Logged out successfully.");
-          window.location.reload();
-        });
-      }
-    });
-  </script>
 </body>
 </html>
