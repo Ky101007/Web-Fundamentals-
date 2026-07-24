@@ -572,8 +572,12 @@ function initHeroSlideshow() {
   const images = [
     "images/packages/japan.jpg",
     "images/packages/france.jpg",
+    "images/packages/italy.jpg",
+    "images/packages/egypt.jpg",
     "images/packages/australia.jpg",
-    "images/packages/canada.jpg"
+    "images/packages/usa.jpg",
+    "images/packages/canada.jpg",
+    "images/packages/brazil.jpg"
   ];
   let currentSlide = 0;
   let autoplayTimer = null;
@@ -724,36 +728,3 @@ function initReviewsCarousel() {
 
   resetAuto();
 }
-
-function updateAuthNav() {
-  const authContainer = document.getElementById("nav-auth-item");
-  if (!authContainer) return;
-
-  if (localStorage.getItem("isLoggedIn") === "true") {
-    // Logout SVG Icon (Arrow pointing out of door)
-    authContainer.innerHTML = `
-      <a href="#" id="logout-btn" class="auth-icon-btn" title="Logout" aria-label="Logout" style="color: #e74c3c
-      </a>
-    `;
-    
-    const logoutBtn = document.getElementById("logout-btn");
-    if (logoutBtn) {
-      logoutBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        localStorage.setItem("isLoggedIn", "false");
-        alert("You have logged out successfully.");
-        window.location.reload();
-      });
-    }
-  } else {
-    // Login SVG Icon (Arrow pointing into door)
-    authContainer.innerHTML = `
-      <a href="login.html" class="auth-icon-btn" title="Login" aria-label="Login">
-      </a>
-    `;
-  }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  updateAuthNav();
-});
