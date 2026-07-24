@@ -1474,3 +1474,185 @@ body.dark-theme,
   background: #a93226 !important;
   border-color: #a93226 !important;
 }
+
+
+/* ==========================================================================
+   INDIVIDUAL TEAM MEMBER CV PAGES (team-*.html)
+   Namespaced with a cv- prefix so nothing clashes with existing classes.
+   ========================================================================== */
+.cv-container {
+  display: flex;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem 0 3rem;
+  align-items: flex-start;
+}
+
+/* ---------- Sidebar ---------- */
+.cv-sidebar {
+  flex: 0 0 300px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.cv-profile-section {
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.cv-profile-image {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent-soft);
+  margin-bottom: 1rem;
+}
+
+.cv-profile-name {
+  font-family: var(--font-head);
+  font-size: 1.4rem;
+  margin-bottom: 0.25rem;
+}
+
+.cv-profile-title {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.cv-contact-info {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 1.25rem 0;
+  margin-bottom: 1.75rem;
+}
+
+.cv-contact-item {
+  font-size: 0.88rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.cv-contact-item:last-child { margin-bottom: 0; }
+
+.cv-sidebar-section { margin-bottom: 1.75rem; }
+.cv-sidebar-section:last-child { margin-bottom: 0; }
+
+.cv-sidebar-title {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.cv-skill-item { margin-bottom: 0.85rem; }
+
+.cv-skill-name {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 0.3rem;
+}
+
+.cv-skill-bar {
+  background: var(--accent-soft);
+  border-radius: 999px;
+  height: 6px;
+  overflow: hidden;
+}
+
+.cv-skill-progress {
+  background: var(--accent);
+  height: 100%;
+  border-radius: 999px;
+}
+
+.cv-certifications {
+  font-size: 0.85rem;
+  line-height: 1.9;
+  color: var(--text-muted);
+}
+
+/* ---------- Main content ---------- */
+.cv-main-content { flex: 1 1 auto; min-width: 0; }
+
+.cv-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1.5rem;
+}
+
+.cv-section-title {
+  font-family: var(--font-head);
+  font-size: 1.2rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.6rem;
+}
+
+.cv-summary-text {
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.cv-experience-item,
+.cv-education-item {
+  padding-bottom: 1.1rem;
+  margin-bottom: 1.1rem;
+  border-bottom: 1px dashed var(--border);
+}
+
+.cv-experience-item:last-child,
+.cv-education-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.cv-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.cv-item-title { font-weight: 700; }
+
+.cv-item-subtitle {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.cv-item-date {
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.cv-item-description {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.cv-back-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 800px) {
+  .cv-container { flex-direction: column; }
+  .cv-sidebar { flex: 1 1 auto; width: 100%; }
+}

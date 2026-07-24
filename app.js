@@ -242,6 +242,12 @@ document.addEventListener("DOMContentLoaded", () => {
   if (document.getElementById("package-detail-wrapper")) {
     initPackageDetailPage();
   }
+  if (document.getElementById("login-form")) {
+    initLoginModule();
+  }
+  if (document.getElementById("signup-form")) {
+    initSignupModule();
+  }
 });
 
 // 3. THEME ENGINE: Light/Dark mode switcher
@@ -311,17 +317,29 @@ function initReviewModule() {
   ];
 
   const render = () => {
-    list.innerHTML = reviews.map(r => `
+    list.innerHTML = reviews.map((r, i) => `
       <div class="review-item">
         <div class="review-item-header">
           <span>${r.name}</span>
           <span style="color: #f59e0b;">${"★".repeat(r.rating)}${"☆".repeat(5 - r.rating)}</span>
         </div>
         <p>${r.text}</p>
+        <button type="button" class="review-delete-btn" data-index="${i}" title="Delete this review" aria-label="Delete this review">✕ Delete</button>
       </div>
     `).join("");
   };
   render();
+
+  // Delete a review (event delegation so it works after re-renders)
+  list.addEventListener("click", (e) => {
+    const btn = e.target.closest(".review-delete-btn");
+    if (!btn) return;
+    const index = parseInt(btn.dataset.index, 10);
+    if (!confirm("Delete this review?")) return;
+    reviews.splice(index, 1);
+    localStorage.setItem("submitted_reviews", JSON.stringify(reviews));
+    render();
+  });
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -752,10 +770,10 @@ function updateAuthNav() {
     authBtn.onclick = function (event) {
       event.preventDefault();
       localStorage.setItem("isLoggedIn", "false");
-      window.location.href = "Login.html";
+      window.location.href = "login.html";
     };
   } else {
-    authBtn.href = "Login.html";
+    authBtn.href = "login.html";
     authBtn.title = "Login";
     authBtn.setAttribute("aria-label", "Login");
     authBtn.classList.remove("logout-state");
@@ -770,3 +788,117 @@ function updateAuthNav() {
 }
 
 document.addEventListener("DOMContentLoaded", updateAuthNav);
+
+// ==========================================================================
+// 12. ACCOUNT STORAGE HELPERS (shared by Login & Signup)
+// Accounts are kept in LocalStorage (not cookies), so they survive the
+// browser being closed and the HTML page being reopened later.
+// ==========================================================================
+function getRegisteredUsers() {
+  return JSON.parse(localStorage.getItem("registered_users")) || [];
+}
+
+function saveRegisteredUsers(users) {
+  localStorage.setItem("registered_users", JSON.stringify(users));
+}
+
+// 13. LOGIN MODULE (login.html)
+function initLoginModule() {
+  const loginForm = document.getElementById("login-form");
+  const errorBanner = document.getElementById("login-error-banner");
+  const errorText = document.getElementById("login-error-text");
+  const successPanel = document.getElementById("login-success-panel");
+  const panelLogoutBtn = document.getElementById("panel-logout-btn");
+  if (!loginForm) return;
+
+  // Sync state on page load
+  if (localStorage.getItem("isLoggedIn") === "true") {
+    loginForm.style.display = "none";
+    if (successPanel) successPanel.style.display = "block";
+  }
+
+  loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const usernameInput = document.getElementById("login-username").value.trim();
+    const passwordInput = document.getElementById("login-password").value.trim();
+
+    // Built-in demo account, plus any account created on the Register page.
+    const registeredUsers = getRegisteredUsers();
+    const matchedUser = registeredUsers.find(
+      (u) => u.username.toLowerCase() === usernameInput.toLowerCase() && u.password === passwordInput
+    );
+    const isDemoAccount = usernameInput === "admin" && passwordInput === "12345";
+
+    if (isDemoAccount || matchedUser) {
+      localStorage.setItem("isLoggedIn", "true");
+      errorBanner.style.display = "none";
+      loginForm.style.display = "none";
+      if (successPanel) successPanel.style.display = "block";
+      if (typeof updateAuthNav === "function") updateAuthNav();
+    } else {
+      errorText.textContent = "Invalid username or password. Please try again.";
+      errorBanner.style.display = "flex";
+    }
+  });
+
+  if (panelLogoutBtn) {
+    panelLogoutBtn.addEventListener("click", () => {
+      localStorage.setItem("isLoggedIn", "false");
+      alert("Logged out successfully.");
+      window.location.reload();
+    });
+  }
+}
+
+// 14. SIGNUP MODULE (signup.html) — creates a new account, stored in LocalStorage
+function initSignupModule() {
+  const signupForm = document.getElementById("signup-form");
+  const errorBanner = document.getElementById("signup-error-banner");
+  const errorText = document.getElementById("signup-error-text");
+  const successPanel = document.getElementById("signup-success-panel");
+  if (!signupForm) return;
+
+  signupForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = document.getElementById("signup-name").value.trim();
+    const username = document.getElementById("signup-username").value.trim();
+    const password = document.getElementById("signup-password").value.trim();
+    const confirm = document.getElementById("signup-confirm").value.trim();
+
+    const showError = (message) => {
+      errorText.textContent = message;
+      errorBanner.style.display = "flex";
+    };
+
+    if (!name || !username || !password || !confirm) {
+      showError("Please fill in every field.");
+      return;
+    }
+    if (password.length < 5) {
+      showError("Password must be at least 5 characters.");
+      return;
+    }
+    if (password !== confirm) {
+      showError("Passwords do not match.");
+      return;
+    }
+
+    const registeredUsers = getRegisteredUsers();
+    const alreadyTaken =
+      username.toLowerCase() === "admin" ||
+      registeredUsers.some((u) => u.username.toLowerCase() === username.toLowerCase());
+
+    if (alreadyTaken) {
+      showError("That username is already taken. Please choose another.");
+      return;
+    }
+
+    registeredUsers.push({ name, username, password });
+    saveRegisteredUsers(registeredUsers);
+
+    errorBanner.style.display = "none";
+    signupForm.style.display = "none";
+    if (successPanel) successPanel.style.display = "block";
+  });
+}
+
