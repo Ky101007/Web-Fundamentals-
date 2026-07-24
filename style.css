@@ -1270,3 +1270,40 @@ main > .container:nth-child(4) {
 .special-offers .offer-price-row {
   margin-top: auto;
 }
+
+
+/* login*/
+/* Styling for header action container */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Ensure the SVG icon button is visible and sized correctly */
+.auth-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: #ffffff; /* White icon color for dark header */
+  background: transparent;
+  border: 1px solid currentColor;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.auth-icon-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
+}
+
+.auth-icon-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  display: block;
+}
