@@ -758,24 +758,19 @@ body.dark-mode header {
    ───────────────────────────────────────────── */
 .steps-indicator {
   display: flex;
-  justify-content: space-between;
-  position: relative;
+  align-items: center;
   margin-bottom: 1.5rem;
 }
 
-.steps-indicator::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--border);
-  z-index: 1;
-  transform: translateY(-50%);
+/* Each node is a circle + label sitting side by side on one row */
+.step-node {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
 }
 
-.step-node {
+.step-num {
   width: 28px;
   height: 28px;
   border-radius: 50%;
@@ -786,69 +781,48 @@ body.dark-mode header {
   justify-content: center;
   font-size: 0.75rem;
   font-weight: 600;
-  z-index: 2;
-  position: relative;
   color: var(--text-muted);
+  flex-shrink: 0;
   transition: all 0.35s var(--ease);
 }
 
-.step-node.active {
+.step-node.active .step-num {
   background: var(--accent);
   border-color: var(--accent);
   color: #fff;
   transform: scale(1.1);
 }
 
-.step-node.completed {
+.step-node.completed .step-num {
   background: #10b981;
   border-color: #10b981;
   color: #fff;
 }
 
-
-/* Booking progress labels sit clearly above the progress circles. */
-.steps-indicator {
-  padding-top: 1.6rem;
-}
-
-.step-node {
-  margin-top: 0.85rem;
-  font-size: 0;
-}
-
-.step-node::before {
-  content: attr(data-step);
-  position: absolute;
-  bottom: calc(100% + 7px);
-  left: 0;
-  color: var(--text);
-  font-size: 0.78rem;
-  font-weight: 700;
-  line-height: 1;
-  white-space: nowrap;
-}
-
 .step-node-label {
-  position: absolute;
-  bottom: calc(100% + 7px);
-  left: 14px;
-  margin-left: 0.45rem;
-  color: var(--text);
   font-size: 0.78rem;
   font-weight: 600;
-  line-height: 1;
+  color: var(--text-muted);
   white-space: nowrap;
+  transition: color 0.35s var(--ease);
 }
 
-.step-node:last-child::before {
-  left: auto;
-  right: 14px;
+.step-node.active .step-node-label,
+.step-node.completed .step-node-label {
+  color: var(--text);
 }
 
-.step-node:last-child .step-node-label {
-  left: auto;
-  right: 0;
-  margin-left: 0;
+/* Connecting line that fills the space between each pair of circles */
+.step-connector {
+  flex: 1;
+  height: 2px;
+  background: var(--border);
+  margin: 0 0.75rem;
+  transition: background 0.35s var(--ease);
+}
+
+.step-connector.completed {
+  background: #10b981;
 }
 
 .form-step { display: none; }
