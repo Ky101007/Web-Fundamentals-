@@ -17,8 +17,15 @@
     .hero-slideshow {
       position: relative;
       width: 100%;
-      height: 520px;
+      height: calc(100vh - var(--header-h));
       overflow: hidden;
+    }
+
+    /* dvh accounts for mobile browser toolbars so the slideshow truly fills the screen */
+    @supports (height: 100dvh) {
+      .hero-slideshow {
+        height: calc(100dvh - var(--header-h));
+      }
     }
 
     .slide {
@@ -65,14 +72,14 @@
     }
 
     .slide-content {
-      max-width: 580px;
+      max-width: 620px;
       color: #fff;
     }
 
     .slide-content .hero-tagline {
       display: inline-block;
       font-family: var(--font-head);
-      font-size: 1.05rem;
+      font-size: 1.15rem;
       font-style: italic;
       color: rgba(255,255,255,0.85);
       margin-bottom: 0.6rem;
@@ -81,10 +88,10 @@
 
     .slide-content h1 {
       font-family: var(--font-head);
-      font-size: 2.8rem;
+      font-size: 3.1rem;
       font-weight: 500;
       line-height: 1.2;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.85rem;
       letter-spacing: -0.02em;
       color: #fff;
       text-shadow: 0 2px 12px rgba(0,0,0,0.3);
@@ -101,10 +108,10 @@
 
     .slide-content p {
       color: rgba(255,255,255,0.88);
-      font-size: 1rem;
+      font-size: 1.1rem;
       line-height: 1.7;
-      margin-bottom: 1.5rem;
-      max-width: 480px;
+      margin-bottom: 1.75rem;
+      max-width: 520px;
     }
 
     .slide-content .hero-buttons {
@@ -112,6 +119,11 @@
       justify-content: flex-start;
       gap: 0.75rem;
       flex-wrap: wrap;
+    }
+
+    .slide-content .hero-buttons .btn {
+      padding: 0.85rem 1.6rem;
+      font-size: 1.02rem;
     }
 
     .slide-content .btn-primary {
@@ -554,8 +566,6 @@
        RESPONSIVE
        ══════════════════════════════════════════════ */
     @media (max-width: 768px) {
-      .hero-slideshow { height: 400px; }
-
       .slide-content h1 { font-size: 2rem; }
 
       .destinations-grid {
@@ -576,8 +586,6 @@
     }
 
     @media (max-width: 600px) {
-      .hero-slideshow { height: 340px; }
-
       .slide-content h1 { font-size: 1.6rem; }
       .slide-content p { font-size: 0.88rem; }
       .slide-content .hero-tagline { font-size: 0.9rem; }
@@ -631,7 +639,7 @@
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-link active">Home</a></li>
           <li><a href="catalogue.html" class="nav-link">Packages</a></li>
-          <li><a href="register.html" class="nav-link">Book Now</a></li>
+          <li><a href="booking.html" class="nav-link">Book Now</a></li>
           <li><a href="about.html" class="nav-link">About Us</a></li>
         </ul>
       </nav>
@@ -646,6 +654,7 @@
           </a>
         </div>
         <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle Light/Dark Theme">🌙</button>
+        <a href="profile.html" class="theme-toggle-btn" id="profile-nav-btn" title="Profile" aria-label="Profile" style="display: none;">👤</a>
       </div>
     
   </header>
@@ -669,7 +678,7 @@
           <p>Premium curated travel packages across 6 continents. Let our experts plan your perfect adventure.</p>
           <div class="hero-buttons">
             <a href="catalogue.html" class="btn btn-primary">Discover Packages</a>
-            <a href="register.html" class="btn btn-secondary">Book Your Trip</a>
+            <a href="booking.html" class="btn btn-secondary">Book Your Trip</a>
           </div>
         </div>
       </div>
@@ -908,7 +917,7 @@
         <ul class="footer-nav">
           <li><a href="index.html" class="footer-link">Home</a></li>
           <li><a href="catalogue.html" class="footer-link">Packages</a></li>
-          <li><a href="register.html" class="footer-link">Book Now</a></li>
+          <li><a href="booking.html" class="footer-link">Book Now</a></li>
           <li><a href="about.html" class="footer-link">About Us</a></li>
         </ul>
       </div>

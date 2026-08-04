@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lee Kyzen - Global Explorers</title>
+
+  <!-- Global Stylesheet linking -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Core Logic Script loading (deferred) -->
+  <script src="JavaScript/app.js" defer></script>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION BAR
+       ========================================================================== -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        Global Explorers
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="catalogue.html" class="nav-link">Packages</a></li>
+          <li><a href="booking.html" class="nav-link">Book Now</a></li>
+          <li><a href="about.html" class="nav-link active">About Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- Navigation actions: SVG Login/Logout Icon right next to Theme Toggle -->
+      <div class="nav-actions" style="display: flex; align-items: center; gap: 0.75rem;">
+        <div id="nav-auth-item">
+          <a href="login.html" class="auth-icon-btn" id="auth-link-btn" title="Login" aria-label="Login">
+            <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px; fill: currentColor; display: block;">
+              <path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+            </svg>
+          </a>
+        </div>
+        <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle Light/Dark Theme">🌙</button>
+        <a href="profile.html" class="theme-toggle-btn" id="profile-nav-btn" title="Profile" aria-label="Profile" style="display: none;">👤</a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MAIN CONTENT SECTION — TEAM MEMBER CV
+       ========================================================================== -->
+  <main class="container">
+
+    <a href="about.html" class="cv-back-link">&larr; Back to About Us</a>
+
+    <div class="cv-container">
+      <!-- Sidebar -->
+      <div class="cv-sidebar">
+        <!-- Profile Section -->
+        <div class="cv-profile-section">
+          <img class="cv-profile-image" src="https://avatars.githubusercontent.com/u/282507154?s=64&v=4" alt="Lee Kyzen" referrerPolicy="no-referrer">
+          <h1 class="cv-profile-name">Lee Kyzen</h1>
+          <p class="cv-profile-title">Group Leader</p>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="cv-contact-info">
+          <div class="cv-contact-item"><b>Email:</b> lee.kyzen@globalexplorers.com</div>
+          <div class="cv-contact-item"><b>Contact Number:</b> +60 12-345 6701</div>
+          <div class="cv-contact-item"><b>Location:</b> Petaling Jaya, Selangor, Malaysia</div>
+        </div>
+
+        <!-- Skills -->
+        <div class="cv-sidebar-section">
+          <h3 class="cv-sidebar-title">Specialist Skills</h3>
+          <div class="cv-skill-item">
+            <span class="cv-skill-name">Wilderness Trekking Planning</span>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-progress" style="width: 95%"></div>
+            </div>
+          </div>
+          <div class="cv-skill-item">
+            <span class="cv-skill-name">Group Logistics & Coordination</span>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-progress" style="width: 90%"></div>
+            </div>
+          </div>
+          <div class="cv-skill-item">
+            <span class="cv-skill-name">Tropical Itinerary Design</span>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-progress" style="width: 92%"></div>
+            </div>
+          </div>
+          <div class="cv-skill-item">
+            <span class="cv-skill-name">First-Aid & Field Safety</span>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-progress" style="width: 88%"></div>
+            </div>
+          </div>
+          <div class="cv-skill-item">
+            <span class="cv-skill-name">English / Bahasa Malaysia</span>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-progress" style="width: 90%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="cv-sidebar-section">
+          <h3 class="cv-sidebar-title">Certifications</h3>
+          <div class="cv-certifications">
+            <div>✓ Wilderness First Responder (WFR)</div>
+            <div>✓ Advanced Trekking Guide License</div>
+            <div>✓ Tourism Malaysia Certified Tour Guide</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="cv-main-content">
+        <div class="cv-section">
+          <h2 class="cv-section-title">Professional Summary</h2>
+          <p class="cv-summary-text">Specialist in wilderness trekking and tropical getaways with over 10 years of worldwide guiding experience. Lee designs adventure-first itineraries that balance physical challenge with traveller safety, from jungle trekking in Southeast Asia to multi-day trail routes across South America and East Africa.</p>
+        </div>
+
+        <div class="cv-section">
+          <h2 class="cv-section-title">Career Highlights</h2>
+          <div class="cv-experience-item">
+            <div class="cv-item-header">
+              <div>
+                <div class="cv-item-title">Group Leader</div>
+                <div class="cv-item-subtitle">Global Explorers Travel Agency</div>
+              </div>
+              <div class="cv-item-date">2016 - Present</div>
+            </div>
+            <p class="cv-item-description">Leads international adventure tours across Southeast Asia, South America, and East Africa, overseeing route planning, safety protocols and on-ground guiding teams.</p>
+          </div>
+          <div class="cv-experience-item">
+            <div class="cv-item-header">
+              <div>
+                <div class="cv-item-title">Regional Trekking Guide</div>
+                <div class="cv-item-subtitle">Independent Guiding Contracts</div>
+              </div>
+              <div class="cv-item-date">2013 - 2016</div>
+            </div>
+            <p class="cv-item-description">Built early guiding experience leading small-group jungle and highland treks before joining Global Explorers full-time.</p>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <h2 class="cv-section-title">Training &amp; Development</h2>
+          <div class="cv-experience-item">
+            <div class="cv-item-header">
+              <div>
+                <div class="cv-item-title">Wilderness First Responder Recertification</div>
+                <div class="cv-item-subtitle">Outdoor Emergency Care Institute</div>
+              </div>
+              <div class="cv-item-date">2025</div>
+            </div>
+            <p class="cv-item-description">Refreshed field trauma response, evacuation planning and remote first-aid protocols.</p>
+          </div>
+          <div class="cv-experience-item">
+            <div class="cv-item-header">
+              <div>
+                <div class="cv-item-title">Advanced Group Leadership Workshop</div>
+                <div class="cv-item-subtitle">Global Explorers Internal Training</div>
+              </div>
+              <div class="cv-item-date">2022</div>
+            </div>
+            <p class="cv-item-description">Completed internal training on managing large mixed-experience trekking groups across varied terrain.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER SECTION
+       ========================================================================== -->
+  <footer>
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+          Global Explorers
+        </a>
+        <p>Your trusted travel companion for curated global adventures. Let us handle the details while you create unforgettable memories.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul class="footer-nav">
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="catalogue.html" class="footer-link">Packages</a></li>
+          <li><a href="booking.html" class="footer-link">Book Now</a></li>
+          <li><a href="about.html" class="footer-link">About Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Get in Touch</h4>
+        <p>📧 booking@globalexplorers.com</p>
+        <p>📞 +60 18-900 9010</p>
+        <p>📍 5, Jln Universiti, Bandar Sunway, 47500 Petaling Jaya, Selangor</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Global Explorers Travel Agency. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

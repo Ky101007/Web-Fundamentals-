@@ -3,36 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book Your Vacation - Global Explorers</title>
-  
-  <!-- Global Stylesheet linking -->
+  <title>Register - Global Explorers</title>
   <link rel="stylesheet" href="style.css">
-  
-  <!-- Core Logic Script loading (deferred) -->
   <script src="JavaScript/app.js" defer></script>
   <script src="JavaScript/register.js" defer></script>
 </head>
 <body>
 
-  <!-- ==========================================================================
-       HEADER & NAVIGATION BAR & Login
-       ========================================================================== -->
+  <!-- HEADER -->
   <header>
     <div class="nav-container">
-      <a href="index.html" class="logo">
-        Global Explorers
-      </a>
-      
+      <a href="index.html" class="logo"> Global Explorers</a>
+
       <nav aria-label="Main Navigation">
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="catalogue.html" class="nav-link">Packages</a></li>
-          <li><a href="register.html" class="nav-link active">Book Now</a></li>
+          <li><a href="booking.html" class="nav-link">Book Now</a></li>
           <li><a href="about.html" class="nav-link">About Us</a></li>
         </ul>
       </nav>
-      
-      <!-- Navigation actions: SVG Login/Logout Icon right next to Theme Toggle -->
+
+      <!-- Navigation actions: Inline SVG Login Icon right next to Theme Toggle -->
       <div class="nav-actions" style="display: flex; align-items: center; gap: 0.75rem;">
         <div id="nav-auth-item">
           <a href="login.html" class="auth-icon-btn" id="auth-link-btn" title="Login" aria-label="Login">
@@ -42,198 +34,79 @@
           </a>
         </div>
         <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle Light/Dark Theme">🌙</button>
+        <a href="profile.html" class="theme-toggle-btn" id="profile-nav-btn" title="Profile" aria-label="Profile" style="display: none;">👤</a>
       </div>
+    </div>
   </header>
 
-  <!-- ==========================================================================
-       MAIN CONTENT SECTION
-       ========================================================================== -->
+  <!-- MAIN CONTENT -->
   <main class="container">
-    
-    <!-- Title Area -->
     <section class="section-title" style="margin-top: 1rem; margin-bottom: 1.5rem;">
-      <h2>Secure Your Booking</h2>
-      <p>Follow our simple three-step booking wizard to register your travel profile and hold your package reservation.</p>
+      <h2>Create Your Account</h2>
+      <p>Register a traveler account to log in and manage your bookings and reviews.</p>
     </section>
 
-    <!-- MULTI-STEP BOOKING CONTAINER -->
-    <section class="form-container" aria-label="Booking Wizard Form">
-      
-      <!-- 1. Step Progress Indicators -->
-      <div class="steps-indicator" aria-hidden="true">
-        <!-- Node for Step 1 -->
-        <div class="step-node active" data-step="1">
-          <span class="step-num">1</span>
-          <span class="step-node-label">Account details</span>
-        </div>
-        <div class="step-connector"></div>
-        <!-- Node for Step 2 -->
-        <div class="step-node" data-step="2">
-          <span class="step-num">2</span>
-          <span class="step-node-label">Travel choices</span>
-        </div>
-        <div class="step-connector"></div>
-        <!-- Node for Step 3 -->
-        <div class="step-node" data-step="3">
-          <span class="step-num">3</span>
-          <span class="step-node-label">Confirmation</span>
-        </div>
-      </div>
-
-      <!-- 2. Dynamic Form Validation Error Banner -->
-      <div class="error-banner" id="form-error-banner">
+    <section class="form-container" style="max-width: 480px; margin: 0 auto;" aria-label="Registration Form">
+      <div class="error-banner" id="signup-error-banner" style="display: none;">
         <span>⚠️</span>
-        <span id="form-error-text">Please resolve the form field errors.</span>
+        <span id="signup-error-text">Please fix the errors below.</span>
       </div>
 
-      <!-- 3. Form Steps Wrapper -->
-      <form id="booking-form" onsubmit="return false;">
-        
-        <!-- ==========================================
-             PHASE 1: ACCOUNT DETAILS (Step 1)
-             ========================================== -->
-        <div class="form-step active" id="step-1-panel">
-          <h3 class="step-title">Create Travel Profile</h3>
-          <p class="step-subtitle">Introduce yourself to us by setting up your traveler credentials.</p>
-          
-          <!-- Username input -->
+      <form id="signup-form">
+        <div class="form-step active">
+          <h3 class="step-title">Traveler Registration</h3>
+          <p class="step-subtitle">Set up your account credentials to get started.</p>
+
           <div class="form-group">
-            <label for="username">Choose a Username</label>
-            <input type="text" id="username" class="form-control" placeholder="e.g. wanderlust99" autocomplete="username">
+            <label for="signup-name">Full Name</label>
+            <input type="text" id="signup-name" class="form-control" placeholder="e.g. Emily Watson" required>
           </div>
 
-          <!-- Email address -->
           <div class="form-group">
-            <label for="email">Contact Email Address</label>
-            <input type="email" id="email" class="form-control" placeholder="e.g. explorer@domain.com" autocomplete="email">
+            <label for="signup-username">Choose a Username</label>
+            <input type="text" id="signup-username" class="form-control" placeholder="e.g. wanderlust99" autocomplete="username" required>
           </div>
 
-          <!-- Password protection -->
           <div class="form-group">
-            <label for="password">Account Password (Min 6 characters)</label>
-            <input type="password" id="password" class="form-control" placeholder="••••••••" autocomplete="new-password">
+            <label for="signup-email">Contact Email Address</label>
+            <input type="email" id="signup-email" class="form-control" placeholder="e.g. explorer@domain.com" autocomplete="email" required>
           </div>
 
-          <!-- Action button -->
-          <div class="form-actions single-btn">
-            <button type="button" class="btn btn-primary btn-next">Next: Travel Choices →</button>
+          <div class="form-group">
+            <label for="signup-phone">Phone Number</label>
+            <input type="text" id="signup-phone" class="form-control" placeholder="e.g. +60189009010" autocomplete="tel" required>
           </div>
+
+          <div class="form-group">
+            <label for="signup-password">Password (min 5 characters)</label>
+            <input type="password" id="signup-password" class="form-control" placeholder="••••••••" autocomplete="new-password" required>
+          </div>
+
+          <div class="form-group">
+            <label for="signup-confirm">Confirm Password</label>
+            <input type="password" id="signup-confirm" class="form-control" placeholder="••••••••" autocomplete="new-password" required>
+          </div>
+
+          <div class="form-actions single-btn" style="margin-top: 1.5rem;">
+            <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+          </div>
+
+          <p style="text-align: center; margin-top: 1.25rem; color: var(--text-muted);">
+            Already have an account? <a href="login.html" style="color: var(--accent); font-weight: 600;">Log in</a>
+          </p>
         </div>
-
-        <!-- ==========================================
-             PHASE 2: TRAVEL CHOICES (Step 2)
-             ========================================== -->
-        <div class="form-step" id="step-2-panel">
-          <h3 class="step-title">Your Travel Details</h3>
-          <p class="step-subtitle">Let us know where we will be mailing your physical travel itinerary and passport stamps!</p>
-
-          <!-- Residential address -->
-          <div class="form-group">
-            <label for="tel">Phone Number</label>
-            <input type="text" id="tel" class="form-control" placeholder="e.g. +60189009010" autocomplete="tel">
-          </div>
-
-          <!-- Vacation Country Selection -->
-          <div class="form-group">
-            <label for="trip-pref">Which Vacation Country is Calling?</label>
-            <select id="trip-pref" class="form-control">
-              <option value="" disabled selected>-- Select Your Dream Escape --</option>
-              <option value="japan">Japan - 7D6N Japan Golden Route + Disneyland (RM 5,499)</option>
-              <option value="france">France - 8D7N Paris & Provence Escape (RM 7,499)</option>
-              <option value="italy">Italy - 9D8N Classic Italy Journey (RM 7,299)</option>
-              <option value="egypt">Egypt - 7D6N Cairo & Luxor (RM 5,999)</option>
-              <option value="australia">Australia - 10D9N Australian City & Coast (RM 6,999)</option>
-              <option value="brazil">Brazil - 7D6N Rio & Nature Escape (RM 6,499)</option>
-              <option value="usa">USA - 8D7N California Highlights (RM 7,499)</option>
-              <option value="canada">Canada - 8D7N Canadian Rockies Adventure (RM 7,299)</option>
-            </select>
-          </div>
-
-          <!-- Return Flight Selection -->
-          <div class="form-group">
-            <label for="return-flight">Return Flight Option</label>
-            <select id="return-flight" class="form-control">
-              <option value="" disabled selected>-- Select Return Flight Option --</option>
-              <option value="with-return">With Return Flight</option>
-              <option value="without-return">Without Return Flight</option>
-            </select>
-          </div>
-
-          <!-- Action buttons -->
-          <div class="form-actions">
-            <button type="button" class="btn btn-secondary btn-prev">← Back to Profile</button>
-            <button type="button" class="btn btn-primary btn-next">Reserve Booking →</button>
-          </div>
-        </div>
-
-        <!-- ==========================================
-             PHASE 3: CONFIRMATION SUCCESS (Step 3)
-             ========================================== -->
-        <div class="form-step" id="step-3-panel">
-          <div class="success-screen">
-            <!-- Green checkmark graphic -->
-            <div class="success-icon" aria-hidden="true">✓</div>
-            
-            <h3 class="step-title">Booking Reserved Successfully!</h3>
-            <p class="step-subtitle" style="margin-bottom: 1rem;">Your travel file is held. Please review your details below:</p>
-
-            <!-- Compact grid summary table filled dynamically by JS -->
-            <div class="success-details">
-              <!-- Username -->
-              <div class="success-detail-row">
-                <span class="success-label">Traveler Name:</span>
-                <span class="success-val" id="summary-username">N/A</span>
-              </div>
-              
-              <!-- Contact Email -->
-              <div class="success-detail-row">
-                <span class="success-label">Email Address:</span>
-                <span class="success-val" id="summary-email">N/A</span>
-              </div>
-
-              <!-- Phone number -->
-              <div class="success-detail-row">
-                <span class="success-label">Phone Number:</span>
-                <span class="success-val" id="summary-address">N/A</span>
-              </div>
-
-              <!-- Trip choice -->
-              <div class="success-detail-row">
-                <span class="success-label">Selected Destination:</span>
-                <span class="success-val" id="summary-trip" style="color: var(--accent-primary); font-weight: 700;">N/A</span>
-              </div>
-
-              <!-- Return flight choice -->
-              <div class="success-detail-row">
-                <span class="success-label">Return Flight:</span>
-                <span class="success-val" id="summary-flight">N/A</span>
-              </div>
-
-              <!-- Total package price -->
-              <div class="success-detail-row">
-                <span class="success-label">Total Package Price:</span>
-                <span class="success-val" id="summary-price">N/A</span>
-              </div>
-
-              <!-- Confirmation code -->
-              <div class="success-detail-row" style="border-bottom: none; margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--border-color);">
-                <span class="success-label">Reservation Code:</span>
-                <span class="success-val" id="summary-ref-code" style="font-family: monospace; font-size: 1.1rem; color: #10b981; font-weight: 700;">TRV-000000</span>
-              </div>
-            </div>
-
-            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 2rem;">
-              We have sent your booking confirmation to your email address. Thank you for choosing Global Explorers!
-            </p>
-
-            <a href="index.html" class="btn btn-primary">Return to Homepage</a>
-          </div>
-        </div>
-
       </form>
 
+      <!-- Panel displayed after successful registration -->
+      <div id="signup-success-panel" class="success-screen" style="display: none;">
+        <div class="success-icon" aria-hidden="true">✓</div>
+        <h3 class="step-title">Account Created!</h3>
+        <p class="step-subtitle" style="margin-bottom: 1.5rem;">Your traveler account is ready. You can now log in.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center;">
+          <a href="login.html" class="btn btn-primary">Go to Login</a>
+        </div>
+      </div>
     </section>
-
   </main>
 
   <!-- ==========================================================================
@@ -253,7 +126,7 @@
         <ul class="footer-nav">
           <li><a href="index.html" class="footer-link">Home</a></li>
           <li><a href="catalogue.html" class="footer-link">Packages</a></li>
-          <li><a href="register.html" class="footer-link">Book Now</a></li>
+          <li><a href="booking.html" class="footer-link">Book Now</a></li>
           <li><a href="about.html" class="footer-link">About Us</a></li>
         </ul>
       </div>
@@ -273,4 +146,3 @@
 
 </body>
 </html>
-

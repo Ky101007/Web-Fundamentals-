@@ -278,6 +278,16 @@ body.dark-mode header {
   transform: scale(0.9);
 }
 
+/* Profile button reuses the theme-toggle circle style but without the spin on hover */
+#profile-nav-btn:hover {
+  transform: scale(1.1);
+  border-color: var(--accent);
+}
+
+#profile-nav-btn:active {
+  transform: scale(0.9);
+}
+
 
 /* ─────────────────────────────────────────────
    5. HERO BANNER
@@ -794,8 +804,8 @@ body.dark-mode header {
 }
 
 .step-node.completed .step-num {
-  background: #10b981;
-  border-color: #10b981;
+  background: var(--accent);
+  border-color: var(--accent);
   color: #fff;
 }
 
@@ -822,7 +832,7 @@ body.dark-mode header {
 }
 
 .step-connector.completed {
-  background: #10b981;
+  background: var(--accent);
 }
 
 .form-step { display: none; }
@@ -862,6 +872,86 @@ body.dark-mode .error-banner {
   margin: 1rem 0;
   text-align: left;
   font-size: 0.78rem;
+}
+
+.success-detail-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.success-detail-row:last-child { border-bottom: none; }
+
+.success-label { color: var(--text-muted); }
+.success-val { font-weight: 600; color: var(--text); text-align: right; }
+
+
+/* ─────────────────────────────────────────────
+   PROFILE PAGE — booking cards
+   ───────────────────────────────────────────── */
+.booking-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.booking-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.booking-card-title {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.booking-card-code {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.booking-card-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  padding: 0.15rem 0;
+}
+
+.booking-card-row span:last-child {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.booking-card-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.75rem;
+}
+
+.btn-danger {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+}
+
+.btn-danger:hover {
+  background: #c0392b;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
 }
 
 
