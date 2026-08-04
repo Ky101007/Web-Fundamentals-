@@ -1621,6 +1621,8 @@ body.dark-theme,
   object-fit: cover;
   border: 3px solid var(--accent-soft);
   margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cv-profile-name {
