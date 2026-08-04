@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Member 3 - Global Explorers</title>
+
+  <!-- Global Stylesheet linking -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Core Logic Script loading (deferred) -->
+  <script src="JavaScript/app.js" defer></script>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION BAR
+       ========================================================================== -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        Global Explorers
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="catalogue.html" class="nav-link">Packages</a></li>
+          <li><a href="register.html" class="nav-link">Book Now</a></li>
+          <li><a href="about.html" class="nav-link active">About Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- Navigation actions: SVG Login/Logout Icon right next to Theme Toggle -->
+      <div class="nav-actions" style="display: flex; align-items: center; gap: 0.75rem;">
+        <div id="nav-auth-item">
+          <a href="login.html" class="auth-icon-btn" id="auth-link-btn" title="Login" aria-label="Login">
+            <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px; fill: currentColor; display: block;">
+              <path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+            </svg>
+          </a>
+        </div>
+        <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle Light/Dark Theme">🌙</button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MAIN CONTENT SECTION — TEAM MEMBER CV
+       ========================================================================== -->
+  <main class="container">
+
+    <a href="about.html" class="cv-back-link">&larr; Back to About Us</a>
+
+    <div class="cv-container">
+      <!-- Sidebar -->
+      <div class="cv-sidebar">
+        <!-- Profile Section -->
+        <div class="cv-profile-section">
+          <img class="cv-profile-image" src="https://avatars.githubusercontent.com/u/184798927?s=400&v=4" alt="Alwin Ong" referrerPolicy="no-referrer">
+          <h1 class="cv-profile-name">Alwin Ong Chuen Kiat</h1>
+          <p class="cv-profile-title">Theme engine & Review modules</p>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="cv-contact-info">
+          <div class="cv-contact-item"><b>Email:</b> alwinong@globalexplorers.com</div>
+          <div class="cv-contact-item"><b>Contact Number:</b> +60 12-345 6703</div>
+          <div class="cv-contact-item"><b>Location:</b> Petaling Jaya, Selangor, Malaysia</div>
+        </div>
+
+        <!-- Skills -->
+        <div class="cv-sidebar-section">
+          <h3 class="cv-sidebar-title">Skills</h3>
+          <div class="cv-skill-item">
+            <span class="cv-skill-name">• Problem-Solving</span>
+          </div>
+          <div class="cv-skill-item">
+            <span class="cv-skill-name">• Management Skills</span>
+  
+          </div>
+          <div class="cv-skill-item">
+            <span class="cv-skill-name">• Front/Back End Coding</span>
+
+          </div>
+          <div class="cv-skill-item">
+            <span class="cv-skill-name">• Critical Thinking</span>
+
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="cv-sidebar-section">
+          <h3 class="cv-sidebar-title">Languages</h3>
+          <div class="cv-certifications">
+            <div>• Chinese (native)</div>
+            <div>• English (B2)</div>
+            <div>• Malay (A1)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="cv-main-content">
+        <div class="cv-section">
+          <h2 class="cv-section-title">Profile</h2>
+          <p class="cv-summary-text">Motivated first-year Computer Science student at Sunway University Malaysia with a strong foundation in Object-Oriented Programming (Java) and Python. Hands-on experience building lightweight desktop software and API-driven projects. Eager to leverage technical problem-solving skills, Git version control, and active coding club involvement in a software engineering or tech internship role.</p>
+        </div>
+
+        <div class="cv-section">
+          <h2 class="cv-section-title">Work Experience</h2>
+          <div class="cv-experience-item">
+            <div class="cv-item-header">
+              <div>
+                <div class="cv-item-title">Computer Science Club | Member & Event Volunteer</div>
+                <div class="cv-item-subtitle">Sunway University Malaysia</div>
+              </div>
+              <div class="cv-item-date">Apr 2026 - Present</div>
+            </div>
+            <p class="cv-item-description">Participated in weekly coding workshops covering algorithmic problem solving and open-source contributions.</p>
+          </div>
+          <div class="cv-experience-item">
+            <div class="cv-item-header">
+              <div>
+                <div class="cv-item-title">Math & Science Peer Tutor | Freelance</div>
+                <div class="cv-item-subtitle">SMK Tunku Abdul Rahman</div>
+              </div>
+              <div class="cv-item-date">Mar 2025 – Dec 2025</div>
+            </div>
+            <p class="cv-item-description">Communicated complex technical concepts using simple visual analogies and structured step-by-step problem breakdowns.
+</p>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <h2 class="cv-section-title">Education and Training</h2>
+          <div class="cv-experience-item">
+            <div class="cv-item-header">
+              <div>
+                <div class="cv-item-title">Computer Science Degree</div>
+                <div class="cv-item-subtitle">Sunway University Malaysia</div>
+              </div>
+              <div class="cv-item-date">Apr 2026- Present</div>
+            </div>
+            <p class="cv-item-description">Expected Graduation: Nov 2028</p>
+            <p class="cv-item-description">Core Coursework: Web Fundamentals, Computer Organisation, Discrete Mathematics.</p>
+          </div>
+          <div class="cv-experience-item">
+            <div class="cv-item-header">
+              <div>
+                <div class="cv-item-title">24-Hour University Hackathon</div>
+                <div class="cv-item-subtitle">Sunway CS Society</div>
+              </div>
+              <div class="cv-item-date">Jun 2026</div>
+            </div>
+            <p class="cv-item-description">Attended technical workshops on RESTful APIs and rapid prototyping in Python.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER SECTION
+       ========================================================================== -->
+  <footer>
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+          Global Explorers
+        </a>
+        <p>Your trusted travel companion for curated global adventures. Let us handle the details while you create unforgettable memories.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul class="footer-nav">
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="catalogue.html" class="footer-link">Packages</a></li>
+          <li><a href="register.html" class="footer-link">Book Now</a></li>
+          <li><a href="about.html" class="footer-link">About Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Get in Touch</h4>
+        <p>📧 booking@globalexplorers.com</p>
+        <p>📞 +60 18-900 9010</p>
+        <p>📍 5, Jln Universiti, Bandar Sunway, 47500 Petaling Jaya, Selangor</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Global Explorers Travel Agency. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
