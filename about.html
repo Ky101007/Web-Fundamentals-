@@ -33,16 +33,16 @@
       </nav>
 
       <!-- Navigation actions: SVG Login/Logout Icon right next to Theme Toggle -->
-      <div class="nav-actions" style="display: flex; align-items: center; gap: 0.75rem;">
+      <div class="nav-actions">
         <div id="nav-auth-item">
           <a href="login.html" class="auth-icon-btn" id="auth-link-btn" title="Login" aria-label="Login">
-            <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px; fill: currentColor; display: block;">
+            <svg class="auth-icon-svg" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
             </svg>
           </a>
         </div>
         <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle Light/Dark Theme">🌙</button>
-        <a href="profile.html" class="theme-toggle-btn" id="profile-nav-btn" title="Profile" aria-label="Profile" style="display: none;">👤</a>
+        <a href="profile.html" class="theme-toggle-btn profile-nav-hidden" id="profile-nav-btn" title="Profile" aria-label="Profile">👤</a>
       </div>
 
     </div>
@@ -54,19 +54,85 @@
   <main class="container">
 
     <!-- Title Section -->
-    <section class="section-title" style="margin-top: 1rem; margin-bottom: 2rem;">
+    <section class="section-title about-title-intro">
       <h2>About Us</h2>
       <p>Your trusted partner in crafting unforgettable journeys across the globe.</p>
     </section>
 
     <!-- OUR STORY -->
-    <section class="package-detail-section" style="margin-bottom: 2.5rem;">
+    <section class="package-detail-section about-section-spaced">
       <h2>Our Story</h2>
       <p>Welcome to Global Explorers! We are dedicated to providing the best travel service possible. Founded by a small team of passionate travellers, our agency has grown into a trusted name for curated vacation packages spanning every continent. We believe travel should be simple, exciting, and accessible, so we take care of the planning while you focus on the adventure.</p>
     </section>
 
+
+<!-- WHY CHOOSE US -->
+    <section class="why-us-section about-section-spaced">
+    <div class="section-title">
+        <h2>Why Choose Us</h2>
+        <p>What makes Global Explorers different.</p>
+    </div>
+
+    <div class="why-us-grid">
+
+        <article class="why-card">
+            <div class="why-icon">🌍</div>
+            <h3>Worldwide Packages</h3>
+            <p>Discover carefully selected destinations across every continent.</p>
+        </article>
+
+        <article class="why-card">
+            <div class="why-icon">🛡</div>
+            <h3>Secure Booking</h3>
+            <p>Reliable booking process with safe online payments.</p>
+        </article>
+
+        <article class="why-card">
+            <div class="why-icon">⭐</div>
+            <h3>Best Experience</h3>
+            <p>Highly rated tours designed for unforgettable memories.</p>
+        </article>
+
+        <article class="why-card">
+            <div class="why-icon">📞</div>
+            <h3>24/7 Support</h3>
+            <p>Professional travel assistance anytime you need it.</p>
+        </article>
+
+    </div>
+
+</section>
+
+        <section class="stats-section about-section-spaced">
+
+        <div class="stats-grid">
+
+        <div class="stat-box">
+        <h2>500+</h2>
+        <p>Happy Travellers</p>
+        </div>
+
+        <div class="stat-box">
+        <h2>45</h2>
+        <p>Countries Covered</p>
+        </div>
+
+        <div class="stat-box">
+        <h2>98%</h2>
+        <p>Customer Satisfaction</p>
+        </div>
+
+        <div class="stat-box">
+        <h2>24/7</h2>
+        <p>Support</p>
+        </div>
+
+        </div>
+
+        </section>
+
     <!-- OUR MISSION -->
-    <section class="package-detail-section" style="margin-bottom: 2.5rem;">
+    <section class="package-detail-section about-section-spaced">
       <h2>Our Members</h2>
       <p>Featuring a team of experienced web design experts, each specializing in different parts and aspects of our services:</p>
       <br>
@@ -74,45 +140,117 @@
       <!-- 4-Column Grid displaying our team members -->
       <div class="team-grid">
         <!-- Team Member 1 -->
-        <article class="team-card">
+        <a href="team-lee.html" class="team-card">
           <img src="https://avatars.githubusercontent.com/u/282507154?s=64&v=4" alt="Lee Kyzen" class="team-avatar" referrerPolicy="no-referrer">
           <h3 class="team-name">Lee Kyzen</h3>
           <p class="team-role">Group Leader</p>
           <p class="team-bio">Specialist in wilderness trekking and tropical getaways with over 10 years of worldwide guiding experience.</p>
-          <a href="team-lee.html" class="btn">More details</a>
-        </article>
+          <div class="member-progress">
+          <p>Theme Engine</p>
+          <div class="progress">
+          <div class="progress-fill contribute-very-high"></div>
+          </div>
+          <p>Review Module</p>
+          <div class="progress">
+          <div class="progress-fill contribute-very-high"></div>
+          </div>
+          <p>Portfolio Page</p>
+          <div class="progress">
+          <div class="progress-fill contribute-medium"></div>
+          </div>
+          </div>
+          <div class="team-card-footer">
+            <span>View Portfolio &rarr;</span>
+          </div>
+        </a>
 
         <!-- Team Member 2 -->
-        <article class="team-card">
+        <a href="team-yip.html" class="team-card">
           <img src="https://avatars.githubusercontent.com/u/185740602?s=64&v=4" alt="Yip Sheng Choon" class="team-avatar" referrerPolicy="no-referrer">
           <h3 class="team-name">Yip Sheng Choon</h3>
           <p class="team-role">Front-End Styling & Layout</p>
           <p class="team-bio">Owns style.css and the base layout in index.html — clean flexbox structure, header/footer design, and CSS animations.</p>
-          <a href="team-yip.html" class="btn">More details</a>
-        </article>
+          <div class="member-progress">
+          <p>Theme Engine</p>
+          <div class="progress">
+          <div class="progress-fill contribute-very-high"></div>
+          </div>
+          <p>Review Module</p>
+          <div class="progress">
+          <div class="progress-fill contribute-very-high"></div>
+          </div>
+          <p>Portfolio Page</p>
+          <div class="progress">
+          <div class="progress-fill contribute-medium"></div>
+          </div>
+          </div>
+          <div class="team-card-footer">
+            <span>View Portfolio &rarr;</span>
+          </div>
+        </a>
 
         <!-- Team Member 3 -->
-        <article class="team-card">
-          <img src="https://avatars.githubusercontent.com/u/184798927?s=400&v=4" alt="Alwin Ong Chuen Kiat" class="team-avatar" referrerPolicy="no-referrer">
-          <h3 class="team-name">Alwin Ong Chuen Kiat</h3>
-          <p class="team-role">Theme engine & Review modules</p>
-          <p class="team-bio">Aspiring software engineer with a foundation in Java, Python, and Git. Eager to contribute, learn, and grow through a software engineering internship.</p>
-          <a href="team-alwin.html" class="btn">More details</a>
-        </article>
+        <a href="team-alwin.html" class="team-card">
+        <img
+        src="https://avatars.githubusercontent.com/u/184798927?s=400&v=4"
+        class="team-avatar"
+        alt="Alwin Ong Chuen Kiat">
+        <h3 class="team-name">Alwin Ong Chuen Kiat</h3>
+         <p class="team-role">
+        Theme Engine & Review Modules
+         </p>
+          <p class="team-bio">
+              Aspiring software engineer with a foundation
+              in Java, Python and Git.
+          </p>
+          <div class="member-progress">
+              <p>Theme Engine</p>
+              <div class="progress">
+                  <div class="progress-fill contribute-very-high"></div>
+              </div>
+              <p>Review Module</p>
+              <div class="progress">
+                  <div class="progress-fill contribute-high"></div>
+              </div>
+              <p>Portfolio Page</p>
+              <div class="progress">
+                  <div class="progress-fill contribute-high"></div>
+                  </div>
+                </div>
+                 <div class="team-card-footer">
+                  <span>View Portfolio →</span>
+                </div>
+              </a>
 
         <!-- Team Member 4 -->
-        <article class="team-card">
+        <a href="team-jacky.html" class="team-card">
           <img src="https://avatars.githubusercontent.com/u/283936657?s=64&v=4" alt="Jacky Yeap Chun Wai" class="team-avatar" referrerPolicy="no-referrer">
           <h3 class="team-name">Jacky Yeap Chun Wai</h3>
           <p class="team-role">Oceania & Cruise Specialist</p>
           <p class="team-bio">Specializes in marine exploration and barrier reef scuba bookings. Loves finding ocean views.</p>
-          <a href="team-jacky.html" class="btn">More details</a>
-        </article>
+          <div class="member-progress">
+          <p>Theme Engine</p>
+          <div class="progress">
+          <div class="progress-fill contribute-very-high"></div>
+          </div>
+          <p>Review Module</p>
+          <div class="progress">
+          <div class="progress-fill contribute-very-high"></div>
+          </div>
+          <p>Portfolio Page</p>
+          <div class="progress">
+          <div class="progress-fill contribute-medium"></div>
+          </div>
+          </div>
+          <div class="team-card-footer">
+            <span>View Portfolio &rarr;</span>
+          </div>
+        </a>
       </div>
     </section>
 
     <!-- INTERACTIVE CUSTOMER REVIEWS MODULE -->
-    <section class="container" style="padding-top: 5rem;" aria-label="Customer Reviews">
+    <section class="container about-reviews" aria-label="Customer Reviews">
       <div class="section-title">
         <h2>Guest Experiences</h2>
         <p>Read honest feedback from travelers or write your own review to share your adventures!</p>
@@ -133,7 +271,7 @@
 
               <!-- Rating selection using CSS-styled stars -->
               <div class="form-group">
-                <label style="margin-bottom: 0.25rem; display: block;">Star Rating</label>
+                <label class="label-inline-block">Star Rating</label>
                 <div class="star-rating">
                   <input type="radio" id="star5" name="rating" value="5" required><label for="star5" title="5 stars">★</label>
                   <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 stars">★</label>
@@ -149,12 +287,12 @@
                 <textarea id="review-text" class="form-control" rows="4" maxlength="200" placeholder="Tell us about your trip (Max 200 characters)..." required></textarea>
                 <!-- Character Remaining Counter -->
                 <div class="char-counter">
-                  Characters remaining: <span id="char-count" style="font-weight: bold; margin-left: 0.25rem;">200</span>
+                  Characters remaining: <span id="char-count" class="char-count-value">200</span>
                 </div>
               </div>
 
               <!-- Submit Button -->
-              <button type="submit" class="btn btn-primary" style="width: 100%;">Post Review</button>
+              <button type="submit" class="btn btn-primary btn-full">Post Review</button>
             </form>
           </div>
 
@@ -171,9 +309,9 @@
     </section>
 
     <!-- CALL TO ACTION -->
-    <section class="section-title" style="padding-top: 1rem;">
+    <section class="section-title about-cta">
       <p>Ready to start planning your next adventure?</p>
-      <div class="hero-buttons" style="justify-content: center; margin-top: 1rem;">
+      <div class="hero-buttons about-cta-actions">
         <a href="catalogue.html" class="btn btn-primary">Browse Packages</a>
         <a href="booking.html" class="btn btn-secondary">Book Now</a>
       </div>
@@ -218,4 +356,3 @@
 
 </body>
 </html>
-
