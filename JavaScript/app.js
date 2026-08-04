@@ -264,9 +264,12 @@ function createCardHTML(pkg) {
 // Clear authentication control shown on every page.
 function updateAuthNav() {
   const authBtn = document.getElementById("auth-link-btn");
-  if (!authBtn) return;
-
+  const profileBtn = document.getElementById("profile-nav-btn");
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+  if (profileBtn) profileBtn.style.display = isLoggedIn ? "flex" : "none";
+
+  if (!authBtn) return;
 
   if (isLoggedIn) {
     authBtn.href = "#";
@@ -314,6 +317,37 @@ function getRegisteredUsers() {
 
 function saveRegisteredUsers(users) {
   localStorage.setItem("registered_users", JSON.stringify(users));
+}
+
+// ==========================================================================
+// 8. BOOKING STORAGE HELPERS (shared by Book Now & Profile)
+// Reservations are kept in LocalStorage, tagged with the traveler's
+// username so each account can look up its own bookings later.
+// ==========================================================================
+function getAllBookings() {
+  return JSON.parse(localStorage.getItem("user_bookings")) || [];
+}
+
+function saveAllBookings(bookings) {
+  localStorage.setItem("user_bookings", JSON.stringify(bookings));
+}
+
+function getBookingsForUser(username) {
+  if (!username) return [];
+  return getAllBookings().filter(
+    (b) => b.username.toLowerCase() === username.toLowerCase()
+  );
+}
+
+function addBooking(booking) {
+  const bookings = getAllBookings();
+  bookings.unshift(booking);
+  saveAllBookings(bookings);
+}
+
+function cancelBooking(refCode) {
+  const bookings = getAllBookings().filter((b) => b.refCode !== refCode);
+  saveAllBookings(bookings);
 }
 
 

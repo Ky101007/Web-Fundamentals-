@@ -20,29 +20,17 @@ function initReviewModule() {
   ];
 
   const render = () => {
-    list.innerHTML = reviews.map((r, i) => `
+    list.innerHTML = reviews.map((r) => `
       <div class="review-item">
         <div class="review-item-header">
           <span>${r.name}</span>
           <span style="color: #f59e0b;">${"★".repeat(r.rating)}${"☆".repeat(5 - r.rating)}</span>
         </div>
         <p>${r.text}</p>
-        <button type="button" class="review-delete-btn" data-index="${i}" title="Delete this review" aria-label="Delete this review">✕ Delete</button>
       </div>
     `).join("");
   };
   render();
-
-  // Delete a review (event delegation so it works after re-renders)
-  list.addEventListener("click", (e) => {
-    const btn = e.target.closest(".review-delete-btn");
-    if (!btn) return;
-    const index = parseInt(btn.dataset.index, 10);
-    if (!confirm("Delete this review?")) return;
-    reviews.splice(index, 1);
-    localStorage.setItem("submitted_reviews", JSON.stringify(reviews));
-    render();
-  });
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();

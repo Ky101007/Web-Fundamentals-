@@ -55,7 +55,7 @@ function initPackageDetailPage() {
     .join("");
 
   // Carry the selected package id into the registration page.
-  document.getElementById("package-reserve-link").href = `register.html?pref=${selectedPackage.id}`;
+  document.getElementById("package-reserve-link").href = `booking.html?pref=${selectedPackage.id}`;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
