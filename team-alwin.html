@@ -32,16 +32,16 @@
       </nav>
 
       <!-- Navigation actions: SVG Login/Logout Icon right next to Theme Toggle -->
-      <div class="nav-actions" style="display: flex; align-items: center; gap: 0.75rem;">
+      <div class="nav-actions">
         <div id="nav-auth-item">
           <a href="login.html" class="auth-icon-btn" id="auth-link-btn" title="Login" aria-label="Login">
-            <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px; fill: currentColor; display: block;">
+            <svg class="auth-icon-svg" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
             </svg>
           </a>
         </div>
         <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle Light/Dark Theme">🌙</button>
-        <a href="profile.html" class="theme-toggle-btn" id="profile-nav-btn" title="Profile" aria-label="Profile" style="display: none;">👤</a>
+        <a href="profile.html" class="theme-toggle-btn profile-nav-hidden" id="profile-nav-btn" title="Profile" aria-label="Profile">👤</a>
       </div>
 
     </div>
@@ -73,21 +73,41 @@
 
         <!-- Skills -->
         <div class="cv-sidebar-section">
-          <h3 class="cv-sidebar-title">Skills</h3>
-          <div class="cv-skill-item">
-            <span class="cv-skill-name">• Problem-Solving</span>
-          </div>
-          <div class="cv-skill-item">
-            <span class="cv-skill-name">• Management Skills</span>
-  
-          </div>
-          <div class="cv-skill-item">
-            <span class="cv-skill-name">• Front/Back End Coding</span>
 
+        <h3 class="cv-sidebar-title">Technical Skills</h3>
+          <div class="skill">
+          <p>HTML</p>
+            <div class="progress">
+               <div class="progress-fill skill-html"></div>
+            </div>
           </div>
-          <div class="cv-skill-item">
-            <span class="cv-skill-name">• Critical Thinking</span>
 
+          <div class="skill">
+          <p>CSS</p>
+            <div class="progress">
+               <div class="progress-fill skill-css"></div>
+            </div>
+          </div>
+
+          <div class="skill">
+            <p>JavaScript</p>
+            <div class="progress">
+               <div class="progress-fill skill-javascript"></div>
+            </div>
+          </div>
+
+          <div class="skill">
+            <p>Python</p>
+            <div class="progress">
+               <div class="progress-fill skill-python"></div>
+            </div>
+          </div>
+
+          <div class="skill">
+            <p>SQL</p>
+            <div class="progress">
+               <div class="progress-fill skill-sql"></div>
+            </div>
           </div>
         </div>
 
@@ -100,13 +120,33 @@
             <div>• Malay (A1)</div>
           </div>
         </div>
+
+        <div class="cv-download">
+        <a href="#" class="btn btn-primary" download="Alwin_Ong_CV.pdf">
+          Download CV
+        </a>
+        </div>
       </div>
 
       <!-- Main Content -->
       <div class="cv-main-content">
         <div class="cv-section">
+          <h2 class="cv-section-title">Featured project</h2>
+          <p class="cv-summary-text"><strong>Primary Files:</strong> about.html, app.js</p>
+            <p><strong>Role:</strong> Front-End Developer</p>
+            <ul class="ul-li-custom">
+            <li>Designed and developed About Us page.</li>
+            <li>Implemented Dark / Light Theme Toggle.</li>
+            <li>Developed Customer Review Module.</li>
+            <li>Handled form validation and UI interactions.</li>
+            <li>Integrated localStorage for user preferences.</li>
+            </ul>
+        </div>
+
+
+        <div class="cv-section">
           <h2 class="cv-section-title">Profile</h2>
-          <p class="cv-summary-text">Motivated first-year Computer Science student at Sunway University Malaysia with a strong foundation in Object-Oriented Programming (Java) and Python. Hands-on experience building lightweight desktop software and API-driven projects. Eager to leverage technical problem-solving skills, Git version control, and active coding club involvement in a software engineering or tech internship role.</p>
+          <p class="cv-summary-text">Motivated first-year Computer Science student at Sunway University Malaysia with a strong foundation in Object-Oriented Programming (Java) and Python. Hands-on experience building lightweight desktop software and API-driven projects. Eager to leverage technical problem-solving skills, and active coding club involvement in a software engineering or tech internship role.</p>
         </div>
 
         <div class="cv-section">
