@@ -3,14 +3,45 @@
 
 function initReviewModule() {
   const form = document.getElementById("review-form");
+  const nameField = document.getElementById("reviewer-name");
   const comment = document.getElementById("review-text");
   const count = document.getElementById("char-count");
   const list = document.getElementById("reviews-list");
-  if (!form || !comment || !count || !list) return;
+  const errorBanner = document.getElementById("review-error-banner");
+  const errorText = document.getElementById("review-error-text");
+  if (!form || !nameField || !comment || !count || !list || !errorBanner || !errorText) return;
 
-  // Live remaining counter
+  form.noValidate = true;
+
+  const showError = (message) => {
+    errorText.textContent = message;
+    errorBanner.style.display = "block";
+  };
+
+  const hideError = () => {
+    errorBanner.style.display = "none";
+  };
+
+  const getWordCount = (text) => text.trim() ? text.trim().split(/\s+/).length : 0;
+
+  const updateWordCounter = () => {
+    const wordsUsed = getWordCount(comment.value);
+    count.textContent = Math.max(0, 250 - wordsUsed);
+    return wordsUsed;
+  };
+
+  // Live remaining word counter
   comment.addEventListener("input", () => {
-    count.textContent = 200 - comment.value.length;
+    const wordsUsed = updateWordCounter();
+    if (wordsUsed > 250) {
+      showError("Word Limit reached.");
+      return;
+    }
+    hideError();
+  });
+  nameField.addEventListener("input", hideError);
+  form.querySelectorAll('input[name="rating"]').forEach((input) => {
+    input.addEventListener("change", hideError);
   });
 
   // Default reviews loaded from LocalStorage if cached
@@ -34,15 +65,29 @@ function initReviewModule() {
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const name = document.getElementById("reviewer-name").value.trim();
+    const name = nameField.value.trim();
     const ratingInput = document.querySelector('input[name="rating"]:checked');
-    if (!name || !comment.value.trim() || !ratingInput) return;
+    const wordsUsed = getWordCount(comment.value);
 
+    if (wordsUsed > 250) {
+      showError("Word Limit reached.");
+      return;
+    }
+    if (!name || !comment.value.trim()) {
+      showError("Please fill in your full name and review comments.");
+      return;
+    }
+    if (!ratingInput) {
+      showError("Please select star rating.");
+      return;
+    }
+
+    hideError();
     reviews.unshift({ name, rating: parseInt(ratingInput.value), text: comment.value.trim() });
     localStorage.setItem("submitted_reviews", JSON.stringify(reviews));
     render();
     form.reset();
-    count.textContent = 200;
+    count.textContent = 250;
   });
 }
 

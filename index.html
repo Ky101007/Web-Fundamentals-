@@ -859,6 +859,9 @@
           
           <div class="review-form-box">
             <h3>Add Your Experience</h3>
+            <div class="error-banner" id="review-error-banner" style="display: none;">
+              <span id="review-error-text">Please fix the errors below.</span>
+            </div>
             <form id="review-form">
               <div class="form-group">
                 <label for="reviewer-name">Full Name</label>
@@ -878,9 +881,9 @@
 
               <div class="form-group">
                 <label for="review-text">Review Comments</label>
-                <textarea id="review-text" class="form-control" rows="4" maxlength="200" placeholder="Tell us about your trip (Max 200 characters)..." required></textarea>
+                <textarea id="review-text" class="form-control" rows="4" maxlength="2000" placeholder="Tell us about your trip (Max 250 words)..." required></textarea>
                 <div class="char-counter">
-                  Characters remaining: <span id="char-count" class="char-count-value">200</span>
+                  Words remaining: <span id="char-count" class="char-count-value">250</span>
                 </div>
               </div>
 
