@@ -311,6 +311,32 @@ document.addEventListener("DOMContentLoaded", updateAuthNav);
 // Accounts are kept in LocalStorage (not cookies), so they survive the
 // browser being closed and the HTML page being reopened later.
 // ==========================================================================
+// -------------------------
+// Validation helpers (shared)
+// -------------------------
+function clearFieldErrors(form) {
+  if (!form) return;
+  form.querySelectorAll('.field-error').forEach(el => el.classList.remove('field-error'));
+  form.querySelectorAll('.field-error-text').forEach(el => el.remove());
+}
+
+function showFieldError(field, message) {
+  if (!field) return;
+  field.classList.add('field-error');
+  // Remove any existing message
+  const next = field.parentNode.querySelector('.field-error-text');
+  if (next) next.remove();
+  const span = document.createElement('span');
+  span.className = 'field-error-text';
+  span.textContent = message || 'Please fill out this field.';
+  field.parentNode.appendChild(span);
+}
+
+function isPhoneDigitsOnly(value) {
+  if (!value) return false;
+  // Accept only digits 0-9
+  return /^\d+$/.test(value);
+}
 function getRegisteredUsers() {
   return JSON.parse(localStorage.getItem("registered_users")) || [];
 }

@@ -134,11 +134,17 @@ function initRegisterFormModule() {
       const p = document.getElementById("signup-password").value.trim();
       const confirm = document.getElementById("signup-confirm").value.trim();
 
-      if (!name || !u || !e || !phone || !p || !confirm) {
-        errorText.textContent = "Please fill in every field.";
-        errorBanner.style.display = "flex";
-        return false;
-      }
+      // Clear previous field errors
+      clearFieldErrors(form);
+
+      let hasError = false;
+      if (!name) { showFieldError(document.getElementById("signup-name"), "Please fill out this field"); hasError = true; }
+      if (!u) { showFieldError(document.getElementById("signup-username"), "Please fill out this field"); hasError = true; }
+      if (!e) { showFieldError(document.getElementById("signup-email"), "Please fill out this field"); hasError = true; }
+      if (!phone) { showFieldError(document.getElementById("signup-phone"), "Please fill out this field"); hasError = true; }
+      if (!p) { showFieldError(document.getElementById("signup-password"), "Please fill out this field"); hasError = true; }
+      if (!confirm) { showFieldError(document.getElementById("signup-confirm"), "Please fill out this field"); hasError = true; }
+      if (hasError) { errorText.textContent = "Please fill in every field."; errorBanner.style.display = "flex"; return false; }
       if (/\d/.test(name)) {
         errorText.textContent = "Full Name cannot contain numbers.";
         errorBanner.style.display = "flex";
@@ -151,6 +157,13 @@ function initRegisterFormModule() {
       }
       if (!e.includes("@")) {
         errorText.textContent = "Please enter a valid email address.";
+        errorBanner.style.display = "flex";
+        return false;
+      }
+      if (!isPhoneDigitsOnly(phone)) {
+        clearFieldErrors(form);
+        showFieldError(document.getElementById("signup-phone"), "Phone number can only contain numbers");
+        errorText.textContent = "Please correct the fields highlighted below.";
         errorBanner.style.display = "flex";
         return false;
       }

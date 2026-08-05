@@ -21,9 +21,19 @@ function initSignupModule() {
       errorText.textContent = message;
       errorBanner.style.display = "flex";
     };
+    // Clear previous per-field errors
+    clearFieldErrors(signupForm);
 
-    if (!name || !username || !email || !phone || !password || !confirm) {
-      showError("Please fill in every field.");
+    // Per-field presence validation
+    let hasError = false;
+    if (!name) { showFieldError(document.getElementById("signup-name"), "Please fill out this field"); hasError = true; }
+    if (!username) { showFieldError(document.getElementById("signup-username"), "Please fill out this field"); hasError = true; }
+    if (!email) { showFieldError(document.getElementById("signup-email"), "Please fill out this field"); hasError = true; }
+    if (!phone) { showFieldError(document.getElementById("signup-phone"), "Please fill out this field"); hasError = true; }
+    if (!password) { showFieldError(document.getElementById("signup-password"), "Please fill out this field"); hasError = true; }
+    if (!confirm) { showFieldError(document.getElementById("signup-confirm"), "Please fill out this field"); hasError = true; }
+    if (hasError) {
+      showError("Please fill in every required field.");
       return;
     }
     if (/\d/.test(name)) {
@@ -36,6 +46,13 @@ function initSignupModule() {
     }
     if (!email.includes("@")) {
       showError("Please enter a valid email address.");
+      return;
+    }
+    // Phone must be digits only
+    if (!isPhoneDigitsOnly(phone)) {
+      clearFieldErrors(signupForm);
+      showFieldError(document.getElementById("signup-phone"), "Phone number can only contain numbers");
+      showError("Please correct the fields highlighted below.");
       return;
     }
     if (password.length < 5) {

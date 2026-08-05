@@ -638,6 +638,19 @@ body.dark-mode header {
   box-shadow: 0 0 0 3px rgba(42, 124, 111, 0.10);
 }
 
+/* Validation error styles */
+.field-error {
+  border-color: #DC2626 !important;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.06);
+}
+
+.field-error-text {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  color: #DC2626;
+}
+
 /* Star rating */
 .star-rating {
   display: flex;

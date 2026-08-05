@@ -61,17 +61,26 @@ function initProfileModule() {
     const phone = phoneField.value.trim();
     const newPassword = passwordField.value.trim();
     const confirmPassword = confirmField.value.trim();
+    // Clear prior field errors
+    clearFieldErrors(form);
 
-    if (!name || !email || !phone) {
-      showError("Please fill in your name, email, and phone number.");
-      return;
-    }
+    let hasError = false;
+    if (!name) { showFieldError(nameField, "Please fill out this field"); hasError = true; }
+    if (!email) { showFieldError(emailField, "Please fill out this field"); hasError = true; }
+    if (!phone) { showFieldError(phoneField, "Please fill out this field"); hasError = true; }
+    if (hasError) { showError("Please fill in required fields."); return; }
     if (/\d/.test(name)) {
       showError("Full Name cannot contain numbers.");
       return;
     }
     if (!email.includes("@")) {
       showError("Please enter a valid email address.");
+      return;
+    }
+    if (!isPhoneDigitsOnly(phone)) {
+      clearFieldErrors(form);
+      showFieldError(phoneField, "Phone number can only contain numbers");
+      showError("Please correct the fields highlighted below.");
       return;
     }
     if (newPassword || confirmPassword) {
