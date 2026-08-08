@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
   <!-- Core Logic Script loading (deferred) -->
   <script src="JavaScript/app.js" defer></script>
 </head>
+
 <body>
 
   <!-- ==========================================================================
@@ -35,13 +37,17 @@
       <div class="nav-actions" style="display: flex; align-items: center; gap: 0.75rem;">
         <div id="nav-auth-item">
           <a href="login.html" class="auth-icon-btn" id="auth-link-btn" title="Login" aria-label="Login">
-            <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px; fill: currentColor; display: block;">
-              <path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+            <svg viewBox="0 0 24 24" aria-hidden="true"
+              style="width: 22px; height: 22px; fill: currentColor; display: block;">
+              <path
+                d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" />
             </svg>
           </a>
         </div>
-        <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle Light/Dark Theme">🌙</button>
-        <a href="profile.html" class="theme-toggle-btn" id="profile-nav-btn" title="Profile" aria-label="Profile" style="display: none;">👤</a>
+        <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Light/Dark Theme"
+          aria-label="Toggle Light/Dark Theme">🌙</button>
+        <a href="profile.html" class="theme-toggle-btn" id="profile-nav-btn" title="Profile" aria-label="Profile"
+          style="display: none;">👤</a>
       </div>
 
     </div>
@@ -59,10 +65,10 @@
       <div class="cv-sidebar">
         <!-- Profile Section -->
         <div class="cv-profile-section">
-          <img src="images/Profile Picture/JonesPic.jpeg" alt="Yip Sheng Choon" class="team-avatar"
-						referrerPolicy="no-referrer">
+          <img class="cv-profile-image" src="images/Profile Picture/JonesPic.jpeg" alt="Yip Sheng Choon"
+            referrerPolicy="no-referrer">
           <h1 class="cv-profile-name">Yip Sheng Choon</h1>
-          <p class="cv-profile-title">Front-End Styling & Layout</p>
+          <p class="cv-profile-title">Computer Science Undergraduate</p>
         </div>
 
         <!-- Contact Information -->
@@ -74,21 +80,70 @@
 
         <!-- Skills -->
         <div class="cv-sidebar-section">
-          <h3 class="cv-sidebar-title">Skills</h3>
+          <h3 class="cv-sidebar-title">Skills & Languages</h3>
           <div class="cv-skill-item">
-            <span class="cv-skill-name">• Microsoft Office, POS System Operation</span>
+            <span class="cv-skill-name">Shopee & Lazada Store Management</span>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-progress" style="width: 90%"></div>
+            </div>
           </div>
           <div class="cv-skill-item">
-            <span class="cv-skill-name">• Shopee & Lazada Store Management</span>
+            <span class="cv-skill-name">Canva</span>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-progress" style="width: 85%"></div>
+            </div>
           </div>
           <div class="cv-skill-item">
-            <span class="cv-skill-name">• Canva</span>
+            <span class="cv-skill-name">Python</span>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-progress" style="width: 90%"></div>
+            </div>
           </div>
           <div class="cv-skill-item">
-            <span class="cv-skill-name">• Customer Service & Fast Learner</span>
+            <span class="cv-skill-name">Web Development</span>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-progress" style="width: 90%"></div>
+            </div>
           </div>
           <div class="cv-skill-item">
-            <span class="cv-skill-name">• Time Management & Problem-Solving</span>
+            <span class="cv-skill-name">Customer Service & Problem-Solving</span>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-progress" style="width: 90%"></div>
+            </div>
+          </div>
+          <div class="cv-skill-item">
+            <span class="cv-skill-name">Chinese (Fluent)</span>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-progress" style="width: 95%"></div>
+            </div>
+          </div>
+          <div class="cv-skill-item">
+            <span class="cv-skill-name">English (Conversational)</span>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-progress" style="width: 65%"></div>
+            </div>
+          </div>
+          <div class="cv-skill-item">
+            <span class="cv-skill-name">Malay (Basic)</span>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-progress" style="width: 35%"></div>
+            </div>
+          </div>
+          <div class="cv-skill-item">
+            <span class="cv-skill-name">Japanese (Basic)</span>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-progress" style="width: 35%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="cv-sidebar-section">
+          <h3 class="cv-sidebar-title">Education</h3>
+          <div class="cv-certifications">
+            <div>✓ Bachelor of Computer Science - Sunway University (Apr 2026 - Present)</div>
+            <div style="margin-top: 10px;">✓ Independent Chinese Secondary School Certificate - Foon Yew High School
+              (Graduated 2025)</div>
           </div>
         </div>
 
@@ -102,15 +157,10 @@
           </div>
         </div>
 
-        <!-- Languages -->
-        <div class="cv-sidebar-section">
-          <h3 class="cv-sidebar-title">Languages</h3>
-          <div class="cv-certifications">
-            <div>• Chinese (fluent)</div>
-            <div>• English (conversational)</div>
-            <div>• Malay (basic)</div>
-            <div>• Japanese (basic)</div>
-          </div>
+        <div class="cv-download">
+          <a href="resumes/JonesYipCV.pdf" class="btn btn-primary" target="_blank" rel="noopener">
+            Download CV
+          </a>
         </div>
       </div>
 
@@ -125,15 +175,21 @@
                 <div class="cv-item-subtitle">Primary Files: style.css, index.html (base layout framework)</div>
               </div>
             </div>
-            <p class="cv-item-description">Builds and maintains the shared stylesheet, keeping the design clean and easy to extend as the site grows. Uses Flexbox throughout so nothing overflows on different screen sizes.</p>
-            <p class="cv-item-description">Focuses on the structural navigation header (with the theme toggle button) and the footer inside index.html, including the header logo design.</p>
-            <p class="cv-item-description">Keeps all styling in external stylesheets — no inline styles — and adds CSS animations/transitions across the site.</p>
+            <p class="cv-item-description">Builds and maintains the shared stylesheet, keeping the design clean and easy
+              to extend as the site grows. Uses Flexbox throughout so nothing overflows on different screen sizes.</p>
+            <p class="cv-item-description">Focuses on the structural navigation header (with the theme toggle button)
+              and the footer inside index.html, including the header logo design.</p>
+            <p class="cv-item-description">Keeps all styling in external stylesheets — no inline styles — and adds CSS
+              animations/transitions across the site.</p>
           </div>
         </div>
 
         <div class="cv-section">
           <h2 class="cv-section-title">Professional Summary</h2>
-          <p class="cv-summary-text">Recent high school graduate with experience in customer service, retail, and e-commerce (Shopee & Lazada). Skilled in inventory management, cashiering, and daily store operations. Fast learner, adaptable, and able to communicate in Mandarin (fluent), English (conversational), Malay (basic), and Japanese (basic). Seeking an entry-level role to develop skills and contribute to a dynamic team.</p>
+          <p class="cv-summary-text">Computer Science undergraduate at Sunway University since April 2026, coming off
+            several years of hands-on experience in customer service, retail, and e-commerce (Shopee & Lazada). Skilled
+            in inventory management, cashiering, and daily store operations — now a fast learner looking to bring that
+            same reliability into an entry-level tech role.</p>
         </div>
 
         <div class="cv-section">
@@ -141,12 +197,27 @@
           <div class="cv-experience-item">
             <div class="cv-item-header">
               <div>
+                <div class="cv-item-title">Retail Assistant</div>
+                <div class="cv-item-subtitle">Oasis Curtain Sdn. Bhd.</div>
+              </div>
+              <div class="cv-item-date">Mar 2026 - Apr 2026</div>
+            </div>
+            <p class="cv-item-description">Managed digital storefront operations on Shopee and Meta platforms,
+              specialising in product listings and automated chatbot configurations. Curated product asset cards and
+              generated multilingual reel scripts for video marketing content. Handled retail sales for home textiles,
+              drapery lines, and household linens while efficiently managing customer inquiries.</p>
+          </div>
+          <div class="cv-experience-item">
+            <div class="cv-item-header">
+              <div>
                 <div class="cv-item-title">Sales Associate</div>
                 <div class="cv-item-subtitle">Snackversal Sdn. Bhd.</div>
               </div>
-              <div class="cv-item-date">Dec 2023 - Present</div>
+              <div class="cv-item-date">Dec 2023 - Feb 2026</div>
             </div>
-            <p class="cv-item-description">Assisted in daily store operations including cashiering, stock replenishment, and product arrangement to maintain a clean and appealing retail environment. Handled customer inquiries, product recommendations, and issue resolution to ensure a positive shopping experience.</p>
+            <p class="cv-item-description">Assisted in daily store operations including cashiering, stock replenishment,
+              and product arrangement to maintain a clean and appealing retail environment. Handled customer inquiries,
+              product recommendations, and issue resolution to ensure a positive shopping experience.</p>
           </div>
           <div class="cv-experience-item">
             <div class="cv-item-header">
@@ -156,12 +227,23 @@
               </div>
               <div class="cv-item-date">May 2023 - Dec 2023</div>
             </div>
-            <p class="cv-item-description">Provided customer service including order-taking, serving food and beverages, and maintaining table cleanliness. Ensured overall dining area hygiene and compliance with restaurant standards, and supported peak-hour operations with fast, friendly customer experience.</p>
+            <p class="cv-item-description">Provided customer service including order-taking, serving food and beverages,
+              and maintaining table cleanliness. Ensured overall dining area hygiene and compliance with restaurant
+              standards, and supported peak-hour operations with fast, friendly customer experience.</p>
           </div>
         </div>
 
         <div class="cv-section">
           <h2 class="cv-section-title">Education</h2>
+          <div class="cv-experience-item">
+            <div class="cv-item-header">
+              <div>
+                <div class="cv-item-title">Bachelor of Computer Science</div>
+                <div class="cv-item-subtitle">Sunway University</div>
+              </div>
+              <div class="cv-item-date">Apr 2026 - Present</div>
+            </div>
+          </div>
           <div class="cv-experience-item">
             <div class="cv-item-header">
               <div>
@@ -190,7 +272,8 @@
         <a href="index.html" class="footer-logo">
           Global Explorers
         </a>
-        <p>Your trusted travel companion for curated global adventures. Let us handle the details while you create unforgettable memories.</p>
+        <p>Your trusted travel companion for curated global adventures. Let us handle the details while you create
+          unforgettable memories.</p>
       </div>
 
       <div class="footer-links">
@@ -217,4 +300,5 @@
   </footer>
 
 </body>
+
 </html>
