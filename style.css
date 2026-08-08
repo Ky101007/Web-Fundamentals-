@@ -1691,6 +1691,16 @@ body.dark-theme,
   word-break: break-word;
 }
 
+.cv-contact-info a {
+  color: #0A66C2;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cv-contact-info a:hover {
+  color: #004182;
+}
+
 .cv-contact-item:last-child { margin-bottom: 0; }
 
 .cv-sidebar-section { margin-bottom: 1.75rem; }
@@ -1958,8 +1968,16 @@ overflow:hidden;
 }
 
 .cv-download{
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.85rem;
+    flex-wrap: wrap;
     margin-top: 1.5rem;
+}
+
+.cv-download .btn {
+  min-width: 150px;
 }
 
 .ul-li-custom {
